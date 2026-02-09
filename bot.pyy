@@ -1,0 +1,33 @@
+from aiogram import Bot, Dispatcher, types, executor
+from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
+
+TOKEN = "8564026272:AAGFcUZO7hK8OhX4RIZoy4Ap8be5eYa-6PI"
+
+bot = Bot("token=8564026272:AAGFcUZO7hK8OhX4RIZoy4Ap8be5eYa-6PI")
+dp = Dispatcher(bot)
+
+# Tugmalar
+keyboard = ReplyKeyboardMarkup(resize_keyboard=True)
+btn1 = KeyboardButton("📄 Ma'lumot")
+btn2 = KeyboardButton("📞 Aloqa")
+keyboard.add(btn1, btn2)
+
+@dp.message_handler(commands=['start'])
+async def start(msg: types.Message):
+    await msg.answer("Salom! Tugmani tanlang:", reply_markup=keyboard)
+
+@dp.message_handler()
+async def echo(msg: types.Message):
+    if msg.text == "📄 Ma'lumot":
+        await msg.answer("Bu test bot.")
+    elif msg.text == "📞 Aloqa":
+        await msg.answer("Admin: @username")
+
+executor.start_polling(dp)
+
+
+
+
+
+
+
