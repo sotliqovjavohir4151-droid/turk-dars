@@ -7,34 +7,47 @@
 <style>
 body{
   margin:0;
-  padding:20px;
   font-family:Arial;
-  background: radial-gradient(circle at top,#5b21b6,#020617);
+  background: radial-gradient(circle at top,#6d28d9,#020617);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
   color:white;
 }
 
-.title{
+/* O'rtadagi oynacha */
+.wrapper{
+  width:95%;
+  max-width:420px;
+  background:rgba(30,30,60,0.6);
+  border-radius:30px;
+  padding:25px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.6);
+  backdrop-filter:blur(20px);
   text-align:center;
-  font-size:32px;
-  font-weight:bold;
-  margin-bottom:25px;
 }
 
+.title{
+  font-size:30px;
+  font-weight:bold;
+  margin-bottom:20px;
+}
+
+/* Tugmalar */
 .menu-btn{
   display:block;
   width:100%;
   padding:18px;
-  margin:14px 0;
+  margin:12px 0;
   border:none;
-  border-radius:22px;
-
+  border-radius:25px;
   font-size:20px;
   font-weight:bold;
   color:white;
   text-decoration:none;
   text-align:center;
-
-  box-shadow:0 8px 30px rgba(0,0,0,0.5);
+  box-shadow:0 8px 25px rgba(0,0,0,0.4);
   transition:0.3s;
 }
 
@@ -43,17 +56,24 @@ body{
   opacity:0.9;
 }
 
-.green{ background:linear-gradient(90deg,#22c55e,#16a34a); }
-.blue{ background:linear-gradient(90deg,#3b82f6,#2563eb); }
-.orange{ background:linear-gradient(90deg,#f59e0b,#ea580c); }
-.red{ background:linear-gradient(90deg,#ef4444,#dc2626); }
+/* Rang */
+.green{
+  background:linear-gradient(90deg,#22c55e,#16a34a);
+}
+
+/* Orqaga tugmasi */
+.back{
+  background:linear-gradient(90deg,#ef4444,#dc2626);
+  margin-top:20px;
 }
 </style>
 </head>
 
 <body>
 
-<h1 class="title">📘 Darslar</h1>
+<div class="wrapper">
+
+<div class="title">📘 Darslar</div>
 
 <a href="mavzu1.html" class="menu-btn green">1-Mavzu</a>
 <a href="mavzu2.html" class="menu-btn green">2-Mavzu</a>
@@ -168,9 +188,11 @@ body{
 <a href="mavzu111.html" class="menu-btn green">111-Mavzu</a>
 <a href="mavzu112.html" class="menu-btn green">112-Mavzu</a>
 
-<a href="index.html" class="menu-btn red">⬅ Orqaga</a>
-```
+<a href="index.html" class="menu-btn back">⬅ Orqaga</a>
 
-112 ta mavzu uchun tayyor kod!
+</div>
+
+</body>
+```
 </body>
 </html>
