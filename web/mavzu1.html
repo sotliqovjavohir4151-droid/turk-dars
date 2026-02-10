@@ -56,14 +56,16 @@ body{
   font-weight:bold;
 }
 
-/* TO‘G‘RI */
 .true{
   color:#22c55e;
+  font-weight:bold;
+  font-size:18px;
 }
 
-/* NOTO‘G‘RI */
 .false{
   color:#ef4444;
+  font-weight:bold;
+  font-size:18px;
 }
 
 /* UMUMIY NATIJA */
@@ -207,12 +209,15 @@ function korsat(){
 }
 
 function ok(id){
-  document.getElementById(id).innerHTML="To‘g‘ri";
+  document.getElementById(id).innerHTML = "✔ To‘g‘ri";
+  document.getElementById(id).className = "result true";
   ball++;
   korsat();
 }
+
 function no(id){
-  document.getElementById(id).innerHTML="Noto‘g‘ri";
+  document.getElementById(id).innerHTML = "✖ Noto‘g‘ri";
+  document.getElementById(id).className = "result false";
   korsat();
 }
 
