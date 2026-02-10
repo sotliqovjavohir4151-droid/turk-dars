@@ -180,8 +180,21 @@ Sizga qulay boʻlishi uchun muloqotda kerak boʻladigan asosiy gaplarni ham kelt
 </div>
 
 <script>
-function ok(id){document.getElementById(id).innerHTML="✅ To‘g‘ri"}
-function no(id){document.getElementById(id).innerHTML="❌ Noto‘g‘ri"}
+var ball = 0;
+
+function korsat(){
+  document.getElementById("natija").innerHTML = ball + " / 10";
+}
+
+function ok(id){
+  document.getElementById(id).innerHTML="To‘g‘ri";
+  ball++;
+  korsat();
+}
+function no(id){
+  document.getElementById(id).innerHTML="Noto‘g‘ri";
+  korsat();
+}
 
 function t1(x){x=="lı"?ok("r1"):no("r1")}
 function t2(x){x=="lu"?ok("r2"):no("r2")}
@@ -194,5 +207,9 @@ function t8(x){x=="ça"?ok("r8"):no("r8")}
 function t9(x){x=="ca"?ok("r9"):no("r9")}
 function t10(x){x=="1"?ok("r10"):no("r10")}
 </script>
+<div class="card">
+  <h2>Natija</h2>
+  <p id="natija">0 / 10</p>
+</div>
 </body>
 </html>
