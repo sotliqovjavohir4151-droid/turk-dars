@@ -3,83 +3,90 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Turk Tili</title>
+<title>Turk Tili Mini App</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(180deg,#0f172a,#020617);
-    color: white;
-    text-align: center;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
 }
 
-.header {
-    padding: 30px 20px 10px;
+body{
+  height:100vh;
+  background: linear-gradient(180deg,#0f172a,#020617);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
 }
 
-h1 {
-    font-size: 26px;
-    margin-bottom: 5px;
+.container{
+  width:95%;
+  max-width:420px;
+  text-align:center;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  border-radius:25px;
+  padding:25px;
+  box-shadow:0 0 30px rgba(0,0,0,0.6);
 }
 
-.sub {
-    color: #94a3b8;
-    font-size: 14px;
+h1{
+  font-size:24px;
+  margin-bottom:8px;
 }
 
-.container {
-    margin-top: 30px;
-    padding: 0 20px;
+.subtitle{
+  font-size:14px;
+  opacity:0.8;
+  margin-bottom:25px;
 }
 
-.btn {
-    display: block;
-    width: 100%;
-    max-width: 320px;
-    margin: 14px auto;
-    padding: 16px;
-    border-radius: 18px;
-    border: none;
-    font-size: 18px;
-    color: white;
-    cursor: pointer;
-    transition: 0.2s;
+.btn{
+  display:block;
+  width:100%;
+  padding:16px;
+  margin:12px 0;
+  border:none;
+  border-radius:18px;
+  font-size:18px;
+  font-weight:bold;
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
 }
 
-.btn:active {
-    transform: scale(0.97);
+.btn:hover{
+  transform:scale(1.04);
 }
 
-.dars { background: linear-gradient(45deg,#22c55e,#16a34a); }
-.test { background: linear-gradient(45deg,#3b82f6,#2563eb); }
-.lugat { background: linear-gradient(45deg,#f59e0b,#d97706); }
-.info { background: linear-gradient(45deg,#ef4444,#dc2626); }
+.green{background:linear-gradient(45deg,#22c55e,#16a34a);}
+.blue{background:linear-gradient(45deg,#3b82f6,#2563eb);}
+.orange{background:linear-gradient(45deg,#f59e0b,#d97706);}
+.red{background:linear-gradient(45deg,#ef4444,#dc2626);}
 
-.footer {
-    margin-top: 40px;
-    font-size: 12px;
-    color: #64748b;
+.footer{
+  margin-top:20px;
+  font-size:12px;
+  opacity:0.6;
 }
 </style>
 </head>
 
 <body>
 
-<div class="header">
-    <h1>🇹🇷 Turk Tilini O‘rganamiz</h1>
-    <div class="sub">Mini Darslik & Test Platforma</div>
-</div>
-
 <div class="container">
-    <button class="btn dars">📘 Darslar</button>
-    <button class="btn test">📝 Testlar</button>
-    <button class="btn lugat">📖 Atamalar</button>
-    <button class="btn info">ℹ️ Ma'lumot</button>
-</div>
+  <h1>🇹🇷 Turk Tilini O‘rganamiz</h1>
+  <div class="subtitle">Mini Darslik & Test Platforma</div>
 
-<div class="footer">
-    Engfoydali Bot © 2025
+  <button class="btn green">📘 Darslar</button>
+  <button class="btn blue">📝 Testlar</button>
+  <button class="btn orange">📖 Atamalar</button>
+  <button class="btn red">ℹ️ Ma'lumot</button>
+
+  <div class="footer">Engfoydali Bot © 2025</div>
 </div>
 
 </body>
