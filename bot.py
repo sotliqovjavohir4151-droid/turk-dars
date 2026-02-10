@@ -20,8 +20,7 @@ web = InlineKeyboardMarkup()
 web.add(
     InlineKeyboardButton(
         "🌐 Darslarni ochish",
-        web_app=WebAppInfo(url="https://sotliqovjavohir4151-droid.github.io/turk-dars/")
-    )
+        web_app=WebAppInfo(url="https://sotliqovjavohir4151-droid.github.io/turk-dars/web/")    )
 )
 
 # ====== /START ======
