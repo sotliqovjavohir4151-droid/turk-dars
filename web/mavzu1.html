@@ -26,6 +26,33 @@ body{
  color:white;
  margin-top:10px;
 }
+.test-box{
+  background:#0f172a;
+  padding:18px;
+  border-radius:16px;
+  margin-top:20px;
+  box-shadow:0 0 10px rgba(0,0,0,0.4);
+}
+
+.test-btn{
+  display:block;
+  width:100%;
+  padding:16px;
+  margin:8px 0;
+  border:none;
+  border-radius:12px;
+  font-size:18px;
+  font-weight:bold;
+  background:linear-gradient(45deg,#22c55e,#16a34a);
+  color:white;
+}
+
+.result{
+  margin-top:10px;
+  font-size:18px;
+  font-weight:bold;
+}
+
 </style>
 </head>
 
@@ -59,56 +86,113 @@ Millat nomidan til nomini yasash uchun ca, ce, ça yoki çe qoʻshimchalari ishl
 Manbalarda keltirilgan misollarga koʻra, Gori ismli oʻqituvchi Amerikalik boʻlib, ingliz tilida gaplashadi. Alvar ismli shaxs esa Sudanlik doktor boʻlib, uning tili arabchadir. Shuningdek, darslikda Zehra va Elida ismli talabalar haqida maʼlumot berilgan. Zehra Ankaralik, Elida esa Ruminiyalik boʻlib, ularning ikkalasi ham Ankara universitetida tahsil olishadi.
 
 Sizga qulay boʻlishi uchun muloqotda kerak boʻladigan asosiy gaplarni ham keltirib oʻtaman: Hangi dilleri biliyorsun (Qaysi tillarni bilasan), Ben Türkçe biliyorum (Men turkchani bilaman), Hangi dili konuşuyorsun (Qaysi tilda gaplashyapsan), Ben şimdi Türkçe konuşuyorum (Men hozir turkchada gaplashyapman).
+</p>
+</div>
 
-<h3>Testlar</h3>
-
+<div class="test-box">
 <h3>Test 1</h3>
-<p>"Misır" so‘ziga qaysi qo‘shimcha to‘g‘ri?</p>
+<p>"Misır" so‘ziga qaysi qo‘shimcha?</p>
+<button class="test-btn" onclick="t1('li')">-li</button>
+<button class="test-btn" onclick="t1('lu')">-lu</button>
+<button class="test-btn" onclick="t1('lı')">-lı</button>
+<p id="r1" class="result"></p>
+</div>
 
-<button onclick="t1('li')">-li</button>
-<button onclick="t1('lu')">-lu</button>
-<button onclick="t1('lı')">-lı</button>
+<div class="test-box">
+<h3>Test 2</h3>
+<p>"Bolu" so‘ziga qaysi qo‘shimcha?</p>
+<button class="test-btn" onclick="t2('lu')">-lu</button>
+<button class="test-btn" onclick="t2('lü')">-lü</button>
+<button class="test-btn" onclick="t2('lı')">-lı</button>
+<p id="r2" class="result"></p>
+</div>
 
-<p id="r1"></p>
+<div class="test-box">
+<h3>Test 3</h3>
+<p>"Ürdün" uchun qaysi shakl?</p>
+<button class="test-btn" onclick="t3('lu')">-lu</button>
+<button class="test-btn" onclick="t3('li')">-li</button>
+<button class="test-btn" onclick="t3('lü')">-lü</button>
+<p id="r3" class="result"></p>
+</div>
 
-<p>2. "o, u" unlilaridan keyin qaysi qo‘shimcha?</p>
-<b>Javob: -lu</b>
+<div class="test-box">
+<h3>Test 4</h3>
+<p>"Norveç" so‘ziga qaysi qo‘shimcha?</p>
+<button class="test-btn" onclick="t4('lı')">-lı</button>
+<button class="test-btn" onclick="t4('li')">-li</button>
+<button class="test-btn" onclick="t4('lu')">-lu</button>
+<p id="r4" class="result"></p>
+</div>
 
-<p>3. Ürdün uchun qaysi shakl?</p>
-<b>Javob: Ürdünlü</b>
+<div class="test-box">
+<h3>Test 5</h3>
+<p>Til yasovchi qo‘shimchalar?</p>
+<button class="test-btn" onclick="t5('1')">-lı -li -lu -lü</button>
+<button class="test-btn" onclick="t5('2')">-ca -ce -ça -çe</button>
+<button class="test-btn" onclick="t5('3')">-dan -den</button>
+<p id="r5" class="result"></p>
+</div>
 
-<p>4. Til yasovchi qo‘shimchalar?</p>
-<b>Javob: -ca, -ce, -ça, -çe</b>
+<div class="test-box">
+<h3>Test 6</h3>
+<p>"Türk" til qo‘shimchasi?</p>
+<button class="test-btn" onclick="t6('ce')">-ce</button>
+<button class="test-btn" onclick="t6('ca')">-ca</button>
+<button class="test-btn" onclick="t6('çe')">-çe</button>
+<p id="r6" class="result"></p>
+</div>
 
-<p>5. Fıstıkçı Şahap qoidasi?</p>
-<b>Javob: -ça, -çe</b>
+<div class="test-box">
+<h3>Test 7</h3>
+<p>"Arap" til qo‘shimchasi?</p>
+<button class="test-btn" onclick="t7('ça')">-ça</button>
+<button class="test-btn" onclick="t7('ca')">-ca</button>
+<button class="test-btn" onclick="t7('ce')">-ce</button>
+<p id="r7" class="result"></p>
+</div>
 
-<p>6. Türk so‘zining to‘g‘ri shakli?</p>
-<b>Javob: Türkçe</b>
+<div class="test-box">
+<h3>Test 8</h3>
+<p>"Rus" til qo‘shimchasi?</p>
+<button class="test-btn" onclick="t8('ca')">-ca</button>
+<button class="test-btn" onclick="t8('ça')">-ça</button>
+<button class="test-btn" onclick="t8('ce')">-ce</button>
+<p id="r8" class="result"></p>
+</div>
 
-<p>7. Arapça qaysi qoida?</p>
-<b>Javob: -ça qo‘shiladi</b>
+<div class="test-box">
+<h3>Test 9</h3>
+<p>"Japon" til qo‘shimchasi?</p>
+<button class="test-btn" onclick="t9('ca')">-ca</button>
+<button class="test-btn" onclick="t9('ça')">-ça</button>
+<button class="test-btn" onclick="t9('ce')">-ce</button>
+<p id="r9" class="result"></p>
+</div>
 
-<p>8. Rus tilining shakli?</p>
-<b>Javob: Rusça</b>
-
-<p>9. Hangi dilleri ______ ?</p>
-<b>Javob: biliyorsun</b>
-
-<p>10. Japon tilining shakli?</p>
-<b>Javob: Japonca</b>
-
+<div class="test-box">
+<h3>Test 10</h3>
+<p>Hangi dilleri ______?</p>
+<button class="test-btn" onclick="t10('1')">biliyorsun</button>
+<button class="test-btn" onclick="t10('2')">konuşuyorsun</button>
+<button class="test-btn" onclick="t10('3')">öğreniyorsun</button>
+<p id="r10" class="result"></p>
 </div>
 
 <script>
-function t1(x){
-  if(x=="lı"){
-    document.getElementById("r1").innerHTML="To‘g‘ri ✅";
-  }else{
-    document.getElementById("r1").innerHTML="Noto‘g‘ri ❌";
-  }
-}
-</script>
+function ok(id){document.getElementById(id).innerHTML="✅ To‘g‘ri"}
+function no(id){document.getElementById(id).innerHTML="❌ Noto‘g‘ri"}
 
+function t1(x){x=="lı"?ok("r1"):no("r1")}
+function t2(x){x=="lu"?ok("r2"):no("r2")}
+function t3(x){x=="lü"?ok("r3"):no("r3")}
+function t4(x){x=="li"?ok("r4"):no("r4")}
+function t5(x){x=="2"?ok("r5"):no("r5")}
+function t6(x){x=="çe"?ok("r6"):no("r6")}
+function t7(x){x=="ça"?ok("r7"):no("r7")}
+function t8(x){x=="ça"?ok("r8"):no("r8")}
+function t9(x){x=="ca"?ok("r9"):no("r9")}
+function t10(x){x=="1"?ok("r10"):no("r10")}
+</script>
 </body>
 </html>
