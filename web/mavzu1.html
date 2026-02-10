@@ -51,16 +51,25 @@ body{
 <div class="card">
 <h3>Mavzu haqida</h3>
 <p>
-Bu darsda odamdan qayerdansiz deb so‘rash,
-javob berish va mamlakat nomlarini o‘rganamiz.
-</p>
-</div>
 
-<div class="card">
+Turk tilida biror kishining qayerdan ekanini soʻrash uchun Nerelisin yoki Nerelisiniz savollari ishlatiladi. Bu savolga javob berishda shahar yoki davlat nomiga unli tovushlar uygʻunligi asosida lı, li, lu yoki lü qoʻshimchalari qoʻshiladi. Agar soʻzning oxirgi unlisi a yoki ı boʻlsa lı (masalan, Mısırlı), e yoki i boʻlsa li (masalan, Norveçli), o yoki u boʻlsa lu (masalan, Tunuslu), ö yoki ü boʻlsa lü (masalan, Ürdünlü) qoʻshimchasi tanlanadi.
+
+Millat nomidan til nomini yasash uchun ca, ce, ça yoki çe qoʻshimchalari ishlatiladi. Bunda ikki asosiy qoidaga amal qilinadi. Birinchisi unli tovushlar uygʻunligi boʻlsa, ikkinchisi Fıstıkçı Şahap qoidasidir. Agar millat nomi f, s, t, k, ç, s, h, p harflari bilan tugasa, qoʻshimcha ça yoki çe shaklida yoziladi. Masalan, Türkçe, Arapça va Rusça soʻzlari shunday yasalgan. Agar millat nomi boshqa harflar bilan tugasa, ca yoki ce qoʻshimchasi ishlatiladi, masalan, İngilizce, Japonca yoki Bulgarca.
+
+Manbalarda keltirilgan misollarga koʻra, Gori ismli oʻqituvchi Amerikalik boʻlib, ingliz tilida gaplashadi. Alvar ismli shaxs esa Sudanlik doktor boʻlib, uning tili arabchadir. Shuningdek, darslikda Zehra va Elida ismli talabalar haqida maʼlumot berilgan. Zehra Ankaralik, Elida esa Ruminiyalik boʻlib, ularning ikkalasi ham Ankara universitetida tahsil olishadi.
+
+Sizga qulay boʻlishi uchun muloqotda kerak boʻladigan asosiy gaplarni ham keltirib oʻtaman: Hangi dilleri biliyorsun (Qaysi tillarni bilasan), Ben Türkçe biliyorum (Men turkchani bilaman), Hangi dili konuşuyorsun (Qaysi tilda gaplashyapsan), Ben şimdi Türkçe konuşuyorum (Men hozir turkchada gaplashyapman).
+
 <h3>Testlar</h3>
 
-<p>1. "Mısır" so‘ziga qaysi qo‘shimcha to‘g‘ri?</p>
-<b>Javob: -lı</b>
+<h3>Test 1</h3>
+<p>"Misır" so‘ziga qaysi qo‘shimcha to‘g‘ri?</p>
+
+<button onclick="t1('li')">-li</button>
+<button onclick="t1('lu')">-lu</button>
+<button onclick="t1('lı')">-lı</button>
+
+<p id="r1"></p>
 
 <p>2. "o, u" unlilaridan keyin qaysi qo‘shimcha?</p>
 <b>Javob: -lu</b>
@@ -90,6 +99,16 @@ javob berish va mamlakat nomlarini o‘rganamiz.
 <b>Javob: Japonca</b>
 
 </div>
+
+<script>
+function t1(x){
+  if(x=="lı"){
+    document.getElementById("r1").innerHTML="To‘g‘ri ✅";
+  }else{
+    document.getElementById("r1").innerHTML="Noto‘g‘ri ❌";
+  }
+}
+</script>
 
 </body>
 </html>
