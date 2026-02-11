@@ -6,57 +6,64 @@
 <title>Atamalar</title>
 
 <style>
-body{
-  margin:0;
-  font-family:Arial;
-  background: radial-gradient(circle at top,#6d28d9,#020617);
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  color:white;
+*{
+  box-sizing:border-box;
 }
 
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background: linear-gradient(180deg,#1e1b4b,#020617);
+  color:white;
+  padding:20px;
+}
+
+/* KARTA */
 .wrapper{
-  width:95%;
+  width:100%;
   max-width:420px;
-  background:rgba(30,30,60,0.6);
-  border-radius:30px;
-  padding:25px;
-  box-shadow:0 20px 60px rgba(0,0,0,0.6);
-  backdrop-filter:blur(20px);
+  margin:auto;
+  background: rgba(30,41,59,0.8);
+  backdrop-filter: blur(10px);
+  padding:20px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
   text-align:center;
 }
 
+/* TITLE */
 .title{
-  font-size:32px;
+  font-size:28px;
   font-weight:bold;
   margin-bottom:20px;
 }
 
+/* TUGMALAR */
 .menu-btn{
   display:block;
   width:100%;
-  padding:18px;
-  margin:12px 0;
-  border-radius:22px;
-  font-size:20px;
+  padding:16px;
+  margin:10px 0;
+  border:none;
+  border-radius:14px;
+  font-size:18px;
   font-weight:bold;
   color:white;
   text-decoration:none;
-  text-align:center;
-  background:linear-gradient(90deg,#ff7a18,#8b5cf6,#2563eb);
-  box-shadow:0 8px 25px rgba(0,0,0,0.5);
+  cursor:pointer;
+  background: linear-gradient(45deg,#f97316,#7c3aed);
   transition:0.3s;
 }
 
 .menu-btn:hover{
-  transform:scale(1.05);
+  transform:scale(1.03);
   opacity:0.9;
 }
 
+/* ORQAGA */
 .back{
   background:linear-gradient(90deg,#ef4444,#dc2626);
+  box-shadow:0 8px 25px rgba(0,0,0,0.5);
 }
 </style>
 </head>
@@ -79,4 +86,3 @@ body{
 
 </body>
 </html>
-

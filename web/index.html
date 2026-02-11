@@ -6,87 +6,74 @@
 <title>Turk Tili Mini App</title>
 
 <style>
+*{
+  box-sizing:border-box;
+}
+
 body{
   margin:0;
-  font-family:Arial;
-  background: radial-gradient(circle at top,#6d28d9,#020617);
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  min-height:100vh;
+  font-family:Arial, sans-serif;
+  background: linear-gradient(180deg,#1e1b4b,#020617);
   color:white;
+  padding:20px;
 }
 
+/* KARTA */
 .wrapper{
-  width:95%;
+  width:100%;
   max-width:420px;
-  background:rgba(30,30,60,0.6);
-  border-radius:30px;
-  padding:25px;
-  box-shadow:0 20px 60px rgba(0,0,0,0.6);
-  backdrop-filter:blur(20px);
+  margin:auto;
+  background: rgba(30,41,59,0.8);
+  backdrop-filter: blur(10px);
+  padding:20px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
   text-align:center;
-
-  margin:auto;          /* SHU MUHIM */
-  box-sizing:border-box;/* SHU HAM MUHIM */
 }
 
+/* TITLE */
 .title{
-  text-align:center;
-  font-size:30px;
+  font-size:28px;
   font-weight:bold;
   margin-bottom:10px;
-  text-shadow:0 5px 20px rgba(0,0,0,0.5);
 }
 
+/* SUBTITLE */
+.subtitle{
+  opacity:0.8;
+  margin-bottom:20px;
+  color:#cbd5f5;
+  font-size:16px;
+}
+
+/* TUGMALAR */
 .lesson-btn{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-
+  display:block;
   width:100%;
-  padding:18px;
-  margin:14px 0;
+  padding:16px;
+  margin:10px 0;
   border:none;
-  border-radius:22px;
-
-  font-size:20px;
+  border-radius:14px;
+  font-size:18px;
   font-weight:bold;
   color:white;
   text-decoration:none;
-
-  background:linear-gradient(90deg,#ff7a18,#8b5cf6,#2563eb);
-  box-shadow:0 8px 30px rgba(0,0,0,0.5);
+  cursor:pointer;
+  background: linear-gradient(45deg,#f97316,#7c3aed);
   transition:0.3s;
-
-  box-sizing:border-box;   /* ENG MUHIM */
-}
-
-.green{
-  background:linear-gradient(90deg,#22c55e,#16a34a);
-}
-
-.blue{
-  background:linear-gradient(90deg,#3b82f6,#2563eb);
-}
-
-.orange{
-  background:linear-gradient(90deg,#f59e0b,#ea580c);
-
 }
 
 .lesson-btn:hover{
-  transform:scale(1.05);
+  transform:scale(1.03);
   opacity:0.9;
 }
-.subtitle{
-  text-align:center;
-  opacity:0.8;
-  margin-bottom:25px;
-  color:#cbd5f5;
+
+/* FOOTER */
+.footer{
+  margin-top:20px;
+  font-size:14px;
+  opacity:0.7;
+  color:#94a3b8;
 }
 </style>
 
@@ -96,13 +83,15 @@ body{
 
 <div class="wrapper">
 <h1 class="title">🇹🇷 Turk Tilini O‘rganamiz</h1>
-  <div class="subtitle">Mini Darslik & Test Platforma</div>
+<div class="subtitle">Mini Darslik & Test Platforma</div>
 
 <a href="dars.html" class="lesson-btn">📘 Darslar</a>
-<a href="test.html"class="lesson-btn">🎓Testlarr</a>
+<a href="test.html" class="lesson-btn">🎓 Testlar</a>
 <a href="atamalar.html" class="lesson-btn">📖 Atamalar</a>
-  <div class="footer">Turk tili Bot © 2026</div>
+
+<div class="footer">Turk tili Bot © 2026</div>
 </div>
 
 </body>
 </html>
+
