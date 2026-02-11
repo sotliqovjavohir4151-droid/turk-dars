@@ -15,60 +15,60 @@
 
 body{
   min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background:radial-gradient(circle at top,#6d28d9,#020617);
+  background: linear-gradient(180deg,#1e1b4b,#020617);
   color:white;
 }
 
-/* CARD */
+/* TASHQI WRAPPER */
 .wrapper{
-  width:95%;
+  min-height:100vh;
+  padding:20px;
+}
+
+/* ICHKI CARD */
+.card{
+  width:100%;
   max-width:420px;
-  background:rgba(30,30,60,0.6);
-  border-radius:30px;
-  padding:25px;
-  box-shadow:0 20px 60px rgba(0,0,0,0.6);
-  backdrop-filter:blur(20px);
+  margin:auto;
+  background: rgba(30,41,59,0.8);
+  backdrop-filter: blur(10px);
+  padding:20px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
   text-align:center;
 }
 
 /* Sarlavha */
 .title{
-  font-size:30px;
+  font-size:28px;
   font-weight:bold;
   margin-bottom:20px;
-  text-shadow:0 5px 20px rgba(0,0,0,0.5);
 }
 
 /* Tugmalar */
 .test-btn{
   display:block;
   width:100%;
-  padding:18px;
-  margin:12px 0;
-  border-radius:22px;
+  padding:16px;
+  margin:10px 0;
+  border-radius:14px;
   text-decoration:none;
-  font-size:20px;
+  font-size:18px;
   font-weight:bold;
   color:white;
   transition:0.3s;
-  box-shadow:0 8px 25px rgba(0,0,0,0.5);
+  background: linear-gradient(45deg,#f97316,#7c3aed);
 }
 
 .test-btn:hover{
-  transform:scale(1.05);
+  transform:scale(1.03);
   opacity:0.9;
 }
 
-/* Ranglar */
-.gradient{
-  background:linear-gradient(90deg,#ff7a18,#8b5cf6,#2563eb);
-}
-
+/* Orqaga */
 .back{
   background:linear-gradient(90deg,#ef4444,#dc2626);
+  box-shadow:0 8px 25px rgba(0,0,0,0.5);
 }
 </style>
 </head>
@@ -76,37 +76,40 @@ body{
 <body>
 
 <div class="wrapper">
+  <div class="card">
 
-<h1 class="title">📝 Testlar</h1>
+    <h1 class="title">📝 Testlar</h1>
 
-<a href="test1.html" class="test-btn gradient">1-Mavzu Test</a>
-<a href="test2.html" class="test-btn gradient">2-Mavzu Test</a>
-<a href="test3.html" class="test-btn gradient">3-Mavzu Test</a>
-<a href="test4.html" class="test-btn gradient">4-Mavzu Test</a>
-<a href="test5.html" class="test-btn gradient">5-Mavzu Test</a>
-<a href="test6.html" class="test-btn gradient">6-Mavzu Test</a>
-<a href="test7.html" class="test-btn gradient">7-Mavzu Test</a>
-<a href="test8.html" class="test-btn gradient">8-Mavzu Test</a>
-<a href="test9.html" class="test-btn gradient">9-Mavzu Test</a>
-<a href="test10.html" class="test-btn gradient">10-Mavzu Test</a>
-<a href="test11.html" class="test-btn gradient">11-Mavzu Test</a>
-<a href="test12.html" class="test-btn gradient">12-Mavzu Test</a>
-<a href="test13.html" class="test-btn gradient">13-Mavzu Test</a>
-<a href="test14.html" class="test-btn gradient">14-Mavzu Test</a>
-<a href="test15.html" class="test-btn gradient">15-Mavzu Test</a>
-<a href="test16.html" class="test-btn gradient">16-Mavzu Test</a>
-<a href="test17.html" class="test-btn gradient">17-Mavzu Test</a>
-<a href="test18.html" class="test-btn gradient">18-Mavzu Test</a>
-<a href="test19.html" class="test-btn gradient">19-Mavzu Test</a>
-<a href="test20.html" class="test-btn gradient">20-Mavzu Test</a>
-<a href="test21.html" class="test-btn gradient">21-Mavzu Test</a>
-<a href="test22.html" class="test-btn gradient">22-Mavzu Test</a>
-<a href="test23.html" class="test-btn gradient">23-Mavzu Test</a>
-<a href="test24.html" class="test-btn gradient">24-Mavzu Test</a>
-<a href="test25.html" class="test-btn gradient">25-Mavzu Test</a>
+    <a href="test1.html" class="test-btn">1-Mavzu Test</a>
+    <a href="test2.html" class="test-btn">2-Mavzu Test</a>
+    <a href="test3.html" class="test-btn">3-Mavzu Test</a>
+    <a href="test4.html" class="test-btn">4-Mavzu Test</a>
+    <a href="test5.html" class="test-btn">5-Mavzu Test</a>
+    <a href="test6.html" class="test-btn">6-Mavzu Test</a>
+    <a href="test7.html" class="test-btn">7-Mavzu Test</a>
+    <a href="test8.html" class="test-btn">8-Mavzu Test</a>
+    <a href="test9.html" class="test-btn">9-Mavzu Test</a>
+    <a href="test10.html" class="test-btn">10-Mavzu Test</a>
+    <a href="test11.html" class="test-btn">11-Mavzu Test</a>
+    <a href="test12.html" class="test-btn">12-Mavzu Test</a>
+    <a href="test13.html" class="test-btn">13-Mavzu Test</a>
+    <a href="test14.html" class="test-btn">14-Mavzu Test</a>
+    <a href="test15.html" class="test-btn">15-Mavzu Test</a>
+    <a href="test16.html" class="test-btn">16-Mavzu Test</a>
+    <a href="test17.html" class="test-btn">17-Mavzu Test</a>
+    <a href="test18.html" class="test-btn">18-Mavzu Test</a>
+    <a href="test19.html" class="test-btn">19-Mavzu Test</a>
+    <a href="test20.html" class="test-btn">20-Mavzu Test</a>
+    <a href="test21.html" class="test-btn">21-Mavzu Test</a>
+    <a href="test22.html" class="test-btn">22-Mavzu Test</a>
+    <a href="test23.html" class="test-btn">23-Mavzu Test</a>
+    <a href="test24.html" class="test-btn">24-Mavzu Test</a>
+    <a href="test25.html" class="test-btn">25-Mavzu Test</a>
 
-<a href="index.html" class="test-btn back">⬅ Orqaga</a>
+    <a href="index.html" class="test-btn back">⬅ Orqaga</a>
 
+  </div>
 </div>
+
 </body>
 </html>
