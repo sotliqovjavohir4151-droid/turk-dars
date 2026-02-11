@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>1-Mavzu</title>
+<title>2-Mavzu: Var va Yok</title>
 
 <style>
 .test-btn,
@@ -17,8 +17,7 @@ body{
   padding:20px;
 }
 
-/* KARTA */
-.test-box{
+.test-box, .card{
   background: rgba(30,41,59,0.8);
   backdrop-filter: blur(10px);
   padding:20px;
@@ -27,13 +26,11 @@ body{
   box-shadow:0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* SAVOL */
-.test-box h3{
+.test-box h3, .card h3{
   margin-bottom:10px;
   font-size:22px;
 }
 
-/* TUGMA */
 .test-btn{
   display:block;
   width:100%;
@@ -54,7 +51,6 @@ body{
   opacity:0.9;
 }
 
-/* NATIJA */
 .result{
   margin-top:10px;
   font-size:18px;
@@ -63,33 +59,28 @@ body{
 
 .true{
   color:#22c55e;
-  font-weight:bold;
-  font-size:18px;
 }
 
 .false{
   color:#ef4444;
-  font-weight:bold;
-  font-size:18px;
 }
 
-/* UMUMIY NATIJA */
-#natija{
-  font-size:24px;
-  text-align:center;
-  margin-top:20px;
-  color:#22c55e;
+#summary{
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 25px;
+  text-align: center;
+  border: 2px solid #7c3aed;
 }
 
 .back-btn{
   display:block;
   width:100%;
-
-  margin:10px 0;     /* 30px o‘rniga 10px */
-  padding:16px;      /* Test bilan bir xil */
-  font-size:18px;    /* Test bilan bir xil */
-  border-radius:14px;/* Test bilan bir xil */
-
+  margin:20px 0;
+  padding:16px;
+  font-size:18px;
+  border-radius:14px;
   text-align:center;
   font-weight:bold;
   color:white;
@@ -109,47 +100,164 @@ body{
 
 <body>
 
-<h1>1-Mavzu: Nerelisin / Siz qayerdansiz</h1>
+<h1>2-Mavzu: Var / Yok</h1>
 
 <div class="card">
 <h3>Video dars</h3>
-
 <iframe
   width="100%"
   height="220"
-  src="https://www.youtube.com/embed/Dpj6Y93_vC8"
+  src="https://www.youtube.com/embed/8E3q4f07j4E"
   title="YouTube video player"
   frameborder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
   allowfullscreen>
 </iframe>
-
 </div>
 
 <div class="card">
 <h3>Mavzu haqida</h3>
 <p>
-
-Turk tilida biror kishining qayerdan ekanini soʻrash uchun Nerelisin yoki Nerelisiniz savollari ishlatiladi. Bu savolga javob berishda shahar yoki davl>
-
-Millat nomidan til nomini yasash uchun ca, ce, ça yoki çe qoʻshimchalari ishlatiladi. Bunda ikki asosiy qoidaga amal qilinadi. Birinchisi unli tovushla>
-
-Manbalarda keltirilgan misollarga koʻra, Gori ismli oʻqituvchi Amerikalik boʻlib, ingliz tilida gaplashadi. Alvar ismli shaxs esa Sudanlik doktor boʻli>
-
-Sizga qulay boʻlishi uchun muloqotda kerak boʻladigan asosiy gaplarni ham keltirib oʻtaman: Hangi dilleri biliyorsun (Qaysi tillarni bilasan), Ben Türk>
+Turk tilida biror narsaning mavjudligini bildirish uchun Var, mavjud emasligini bildirish uchun esa Yok soʻzlari ishlatiladi. Savol berishda mı, mi, mu yoki mü soʻroq qoʻshimchalari unli tovushlar qoidasiga koʻra tanlanadi. Bunda a va ı harflaridan keyin mı, e va i harflaridan keyin mi qoʻllaniladi. Agar biror holatni inkor qilmoqchi boʻlsak, emas maʼnosini beruvchi değil soʻzi ishlatiladi. Mehmonxonada xona borligini soʻrash uchun Boş odanız var mı iborasi qoʻllaniladi.
 </p>
 </div>
 
+<!-- Testlar -->
 <div class="test-box">
 <h3>Test 1</h3>
-<p>"Misır" so‘ziga qaysi qo‘shimcha?</p>
-<button class="test-btn" onclick="t1('li')">-li</button>
-<button class="test-btn" onclick="t1('lu')">-lu</button>
-<button class="test-btn" onclick="t1('lı')">-lı</button>
+<p>Sınıfta öğretmen ___?</p>
+<button class="test-btn" onclick="check(1, 'var mı')">var mı</button>
+<button class="test-btn" onclick="check(1, 'mi')">mi</button>
+<button class="test-btn" onclick="check(1, 'mu')">mu</button>
 <p id="r1" class="result"></p>
 </div>
 
 <div class="test-box">
+<h3>Test 2</h3>
+<p>Sepette elma ___ (Bor ma'nosida)</p>
+<button class="test-btn" onclick="check(2, 'var')">var</button>
+<button class="test-btn" onclick="check(2, 'yok')">yok</button>
+<button class="test-btn" onclick="check(2, 'değil')">değil</button>
+<p id="r2" class="result"></p>
+</div>
 
-Manashu koddan foydalanib men senga joʻnatgan YouTube video boʻyicha shunaqa kod yozib ber ichida 10 ta test ham boʻlsin. Testlar faqat mavzu doirasida turk tilini oʻrgatishga qaratilgan boʻlsin. Testlarda 3 ta variant boʻlsin.faqat koddagi sayt dizayni oʻzgarmasin. Ortiqcha yulduzcha va raqamlarsiz yozib ber. Testlarda mavzu haqida maʼlumotlarda hech qanday ortiqcha simbol raqam boʻlmasin
-Kod tayyor termuxga yuklaydigan holatda boʻlsin. Mavzu haqida degan boʻlimga mana bunaqa [2, 3] har xil ortiqcha raqam va simbollar yozma. Mana bunaqa joyi ham boʻlmasin saytta Mana, taqdim etilgan manbalar asosida "Var / Yok" (Bor / Yo'q) mavzusiga oid tayyor kod. Ushbu kodda 10 ta test mavjud va dizayn siz yuborgan namunaga to'liq mos keladi. `html
+<div class="test-box">
+<h3>Test 3</h3>
+<p>O iyi ___?</p>
+<button class="test-btn" onclick="check(3, 'mı')">mı</button>
+<button class="test-btn" onclick="check(3, 'mi')">mi</button>
+<button class="test-btn" onclick="check(3, 'mu')">mu</button>
+<p id="r3" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 4</h3>
+<p>Televizyon açık ___?</p>
+<button class="test-btn" onclick="check(4, 'mı')">mı</button>
+<button class="test-btn" onclick="check(4, 'mi')">mi</button>
+<button class="test-btn" onclick="check(4, 'mu')">mu</button>
+<p id="r4" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 5</h3>
+<p>Onlar doktor ___?</p>
+<button class="test-btn" onclick="check(5, 'mi')">mi</button>
+<button class="test-btn" onclick="check(5, 'mu')">mu</button>
+<button class="test-btn" onclick="check(5, 'mü')">mü</button>
+<p id="r5" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 6</h3>
+<p>Bu sözlük ___?</p>
+<button class="test-btn" onclick="check(6, 'mu')">mu</button>
+<button class="test-btn" onclick="check(6, 'mi')">mi</button>
+<button class="test-btn" onclick="check(6, 'mü')">mü</button>
+<p id="r6" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 7</h3>
+<p>Kitap ince ___?</p>
+<button class="test-btn" onclick="check(7, 'mi')">mi</button>
+<button class="test-btn" onclick="check(7, 'mı')">mı</button>
+<button class="test-btn" onclick="check(7, 'mu')">mu</button>
+<p id="r7" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 8</h3>
+<p>Boş odanız ___ mı?</p>
+<button class="test-btn" onclick="check(8, 'yok')">yok</button>
+<button class="test-btn" onclick="check(8, 'var')">var</button>
+<button class="test-btn" onclick="check(8, 'değil')">değil</button>
+<p id="r8" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 9</h3>
+<p>Sınıfta bebek ___ (Yo'q ma'nosida)</p>
+<button class="test-btn" onclick="check(9, 'yok')">yok</button>
+<button class="test-btn" onclick="check(9, 'var')">var</button>
+<button class="test-btn" onclick="check(9, 'değil')">değil</button>
+<p id="r9" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 10</h3>
+<p>"Değil" soʻzi qanday maʼnoni bildiradi?</p>
+<button class="test-btn" onclick="check(10, 'emas')">emas</button>
+<button class="test-btn" onclick="check(10, 'bor')">bor</button>
+<button class="test-btn" onclick="check(10, 'yoq')">yo'q</button>
+<p id="r10" class="result"></p>
+</div>
+
+<div id="summary">
+  <h3>Natijalar:</h3>
+  <p>To'g'ri javoblar: <span id="correctScore">0</span></p>
+  <p>Xato javoblar: <span id="wrongScore">0</span></p>
+</div>
+
+<a href="#" class="back-btn">ORQAGA QAYTISH</a>
+
+<script>
+const answers = {
+  1: 'var mı',
+  2: 'var',
+  3: 'mi',
+  4: 'mı',
+  5: 'mu',
+  6: 'mü',
+  7: 'mi',
+  8: 'var',
+  9: 'yok',
+  10: 'emas'
+};
+
+let correctCount = 0;
+let wrongCount = 0;
+let answeredQuestions = {};
+
+function check(qNum, userAns) {
+  if (answeredQuestions[qNum]) return; // Bir marta javob berilgandan keyin to'xtatish
+
+  const resDiv = document.getElementById('r' + qNum);
+  if (userAns === answers[qNum]) {
+    resDiv.innerHTML = "To'g'ri!";
+    resDiv.className = "result true";
+    correctCount++;
+  } else {
+    resDiv.innerHTML = "Xato!";
+    resDiv.className = "result false";
+    wrongCount++;
+  }
+  
+  answeredQuestions[qNum] = true;
+  document.getElementById('correctScore').innerText = correctCount;
+  document.getElementById('wrongScore').innerText = wrongCount;
+}
+</script>
+
+</body>
+</html>
