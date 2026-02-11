@@ -1,11 +1,11 @@
-Mana manbalar asosida tayyorlangan, "Var - Yok" va "-mı, -mi, -mu, -mü" mavzusiga oid 10 ta testni o'z ichiga olgan HTML kod:
+Mana, taqdim etilgan manbalar asosida **"Var / Yok" (Bor / Yo'q)** mavzusiga oid tayyor kod. Ushbu kodda 10 ta test mavjud va dizayn siz yuborgan namunaga to'liq mos keladi.
 
 ```html
 <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2-Mavzu: Var - Yok</title>
+<title>2-Mavzu: Var va Yok</title>
 
 <style>
 .test-btn,
@@ -20,7 +20,7 @@ body{
   padding:20px;
 }
 
-.card, .test-box{
+.test-box, .card{
   background: rgba(30,41,59,0.8);
   backdrop-filter: blur(10px);
   padding:20px;
@@ -29,7 +29,7 @@ body{
   box-shadow:0 10px 30px rgba(0,0,0,0.5);
 }
 
-.test-box h3{
+.test-box h3, .card h3{
   margin-bottom:10px;
   font-size:22px;
 }
@@ -71,7 +71,7 @@ body{
 .back-btn{
   display:block;
   width:100%;
-  margin:10px 0;
+  margin:20px 0;
   padding:16px;
   font-size:18px;
   border-radius:14px;
@@ -94,14 +94,14 @@ body{
 
 <body>
 
-<h1>2-Mavzu: Var - Yok / Soru Eki</h1>
+<h1>2-Mavzu: Var / Yok</h1>
 
 <div class="card">
 <h3>Video dars</h3>
 <iframe
   width="100%"
   height="220"
-  src="https://www.youtube.com/embed/fA5u0k4M2Bw"
+  src="https://www.youtube.com/embed/8E3q4f07j4E"
   title="YouTube video player"
   frameborder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -112,103 +112,125 @@ body{
 <div class="card">
 <h3>Mavzu haqida</h3>
 <p>
-Turk tilida narsaning mavjudligini bildirish uchun <b>"Var"</b> (bor), yo'qligini bildirish uchun esa <b>"Yok"</b> (yo'q) so'zlari ishlatiladi [1, 2]. Savol so'rashda esa <b>"-mı, -mi, -mu, -mü"</b> qo'shimchalari unli tovushlar uyg'unligiga qarab tanlanadi: a-ı bo'lsa "-mı", e-i bo'lsa "-mi", o-u bo'lsa "-mu" va ö-ü bo'lsa "-mü" [3]. Sifatlarni inkor qilishda <b>"değil"</b> (emas) so'zidan foydalaniladi [2, 3].
+Turk tilida biror narsaning mavjudligini bildirish uchun Var, mavjud emasligini bildirish uchun esa Yok soʻzlari ishlatiladi [1]. Savol berishda mı, mi, mu yoki mü soʻroq qoʻshimchalari unli tovushlar qoidasiga koʻra tanlanadi [2, 3]. Masalan, a va ı harflaridan keyin mı, e va i dan keyin mi qoʻllaniladi [3]. Agar biror holatni inkor qilmoqchi boʻlsak, emas maʼnosini beruvchi değil soʻzi ishlatiladi [3, 4]. Mehmonxonada xona borligini soʻrash uchun Boş odanız var mı iborasi qoʻllaniladi [4, 5].
 </p>
 </div>
 
-<!-- TESTLAR -->
+<!-- Testlar -->
 <div class="test-box">
 <h3>Test 1</h3>
-<p>Sınıfta kanepe var mı? [1]</p>
-<button class="test-btn" onclick="check(1, 'Hayır, yok')">Evet, var</button>
-<button class="test-btn" onclick="check(1, 'Hayır, yok')">Hayır, yok</button>
+<p>Sınıfta öğretmen ___?</p>
+<button class="test-btn" onclick="check(1, 'var mı')">var mı</button>
+<button class="test-btn" onclick="check(1, 'mi')">mi</button>
+<button class="test-btn" onclick="check(1, 'mu')">mu</button>
 <p id="r1" class="result"></p>
 </div>
 
 <div class="test-box">
 <h3>Test 2</h3>
-<p>"Doktor" so'ziga qaysi savol qo'shimchasi mos keladi? [3]</p>
-<button class="test-btn" onclick="check(2, 'mu')">mı</button>
-<button class="test-btn" onclick="check(2, 'mu')">mu</button>
+<p>Sepette elma ___ (Bor)</p>
+<button class="test-btn" onclick="check(2, 'var')">var</button>
+<button class="test-btn" onclick="check(2, 'yok')">yok</button>
+<button class="test-btn" onclick="check(2, 'değil')">değil</button>
 <p id="r2" class="result"></p>
 </div>
 
 <div class="test-box">
 <h3>Test 3</h3>
-<p>Sınıfta öğretmen var mı? [1, 4]</p>
-<button class="test-btn" onclick="check(3, 'Evet, var')">Evet, var</button>
-<button class="test-btn" onclick="check(3, 'Evet, var')">Hayır, yok</button>
+<p>O iyi ___?</p>
+<button class="test-btn" onclick="check(3, 'mı')">mı</button>
+<button class="test-btn" onclick="check(3, 'mi')">mi</button>
+<button class="test-btn" onclick="check(3, 'mu')">mu</button>
 <p id="r3" class="result"></p>
 </div>
 
 <div class="test-box">
 <h3>Test 4</h3>
-<p>"Silgi" so'ziga qaysi savol qo'shimchasi mos keladi? [3]</p>
-<button class="test-btn" onclick="check(4, 'mi')">mı</button>
+<p>Televizyon açık ___?</p>
+<button class="test-btn" onclick="check(4, 'mı')">mı</button>
 <button class="test-btn" onclick="check(4, 'mi')">mi</button>
+<button class="test-btn" onclick="check(4, 'mu')">mu</button>
 <p id="r4" class="result"></p>
 </div>
 
 <div class="test-box">
 <h3>Test 5</h3>
-<p>"Sözlük" so'ziga qaysi savol qo'shimchasi mos keladi? [2]</p>
-<button class="test-btn" onclick="check(5, 'mü')">mu</button>
+<p>Onlar doktor ___?</p>
+<button class="test-btn" onclick="check(5, 'mi')">mi</button>
+<button class="test-btn" onclick="check(5, 'mu')">mu</button>
 <button class="test-btn" onclick="check(5, 'mü')">mü</button>
 <p id="r5" class="result"></p>
 </div>
 
 <div class="test-box">
 <h3>Test 6</h3>
-<p>Kitap ince mi? [3]</p>
-<button class="test-btn" onclick="check(6, 'Hayır, kalın')">Evet, ince</button>
-<button class="test-btn" onclick="check(6, 'Hayır, kalın')">Hayır, kalın</button>
+<p>Bu sözlük ___?</p>
+<button class="test-btn" onclick="check(6, 'mu')">mu</button>
+<button class="test-btn" onclick="check(6, 'mi')">mi</button>
+<button class="test-btn" onclick="check(6, 'mü')">mü</button>
 <p id="r6" class="result"></p>
 </div>
 
 <div class="test-box">
 <h3>Test 7</h3>
-<p>Adam kısa boylu mu? [3]</p>
-<button class="test-btn" onclick="check(7, 'Hayır, uzun boylu')">Hayır, uzun boylu</button>
-<button class="test-btn" onclick="check(7, 'Hayır, uzun boylu')">Evet, kısa boylu</button>
+<p>Kitap ince ___?</p>
+<button class="test-btn" onclick="check(7, 'mi')">mi</button>
+<button class="test-btn" onclick="check(7, 'mı')">mı</button>
+<button class="test-btn" onclick="check(7, 'mu')">mu</button>
 <p id="r7" class="result"></p>
 </div>
 
 <div class="test-box">
 <h3>Test 8</h3>
-<p>Tenis topu büyük mü? [5]</p>
-<button class="test-btn" onclick="check(8, 'Hayır, küçük')">Evet, büyük</button>
-<button class="test-btn" onclick="check(8, 'Hayır, küçük')">Hayır, küçük</button>
+<p>Boş odanız ___ mı?</p>
+<button class="test-btn" onclick="check(8, 'yok')">yok</button>
+<button class="test-btn" onclick="check(8, 'var')">var</button>
+<button class="test-btn" onclick="check(8, 'değil')">değil</button>
 <p id="r8" class="result"></p>
 </div>
 
 <div class="test-box">
 <h3>Test 9</h3>
-<p>Boş odanız var mı? (Maalesef...) [2, 5]</p>
-<button class="test-btn" onclick="check(9, 'Yok')">Var</button>
-<button class="test-btn" onclick="check(9, 'Yok')">Yok</button>
+<p>Sınıfta bebek ___ (Yo'q)</p>
+<button class="test-btn" onclick="check(9, 'yok')">yok</button>
+<button class="test-btn" onclick="check(9, 'var')">var</button>
+<button class="test-btn" onclick="check(9, 'değil')">değil</button>
 <p id="r9" class="result"></p>
 </div>
 
 <div class="test-box">
 <h3>Test 10</h3>
-<p>Havuzda kaç ördek var? [5]</p>
-<button class="test-btn" onclick="check(10, 'Bir ördek')">İki ördek</button>
-<button class="test-btn" onclick="check(10, 'Bir ördek')">Bir ördek</button>
+<p>"Değil" soʻzi qanday maʼnoni bildiradi?</p>
+<button class="test-btn" onclick="check(10, 'emas')">emas</button>
+<button class="test-btn" onclick="check(10, 'bor')">bor</button>
+<button class="test-btn" onclick="check(10, 'yoq')">yo'q</button>
 <p id="r10" class="result"></p>
 </div>
 
 <a href="#" class="back-btn">ORQAGA QAYTISH</a>
 
 <script>
-function check(testNum, correct) {
-  const btn = event.target;
-  const res = document.getElementById('r' + testNum);
-  if (btn.innerText === correct) {
-    res.innerHTML = "To'g'ri!";
-    res.className = "result true";
+const answers = {
+  1: 'var mı',
+  2: 'var',
+  3: 'mi',
+  4: 'mı',
+  5: 'mu',
+  6: 'mü',
+  7: 'mi',
+  8: 'var',
+  9: 'yok',
+  10: 'emas'
+};
+
+function check(qNum, userAns) {
+  const resDiv = document.getElementById('r' + qNum);
+  if (userAns === answers[qNum]) {
+    resDiv.innerHTML = "To'g'ri!";
+    resDiv.className = "result true";
   } else {
-    res.innerHTML = "Noto'g'ri!";
-    res.className = "result false";
+    resDiv.innerHTML = "Xato, qaytadan urinib ko'ring";
+    resDiv.className = "result false";
   }
 }
 </script>
@@ -216,3 +238,9 @@ function check(testNum, correct) {
 </body>
 </html>
 ```
+
+### Kod haqida ma'lumot:
+*   **Mavzu:** Manbalarda keltirilgan "Var" va "Yok" (bor/yo'q) tushunchalari, shuningdek "mı, mi, mu, mü" so'roq qo'shimchalari va "değil" inkor so'zi haqida [1-3].
+*   **Testlar:** Jami 10 ta savol, har birida 3 tadan variant bor. Savollar bevosita dars transcriptidagi misollardan (masalan: sinfda o'qituvchi bormi, kitob ingichkami, bo'sh xona bormi) olingan [1, 3-5].
+*   **Dizayn:** Siz taqdim etgan CSS uslubi to'liq saqlab qolindi.
+*   **Termux:** Ushbu kodni `.html` fayl sifatida saqlab, Termux yoki har qanday brauzerda bemalol ishlatishingiz mumkin.
