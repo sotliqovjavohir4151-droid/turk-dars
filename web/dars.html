@@ -7,86 +7,74 @@
 
 <style>
 body{
-  margin:0;
-  font-family:Arial;
-  background: radial-gradient(circle at top,#6d28d9,#020617);
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  min-height:100vh;
+  background: linear-gradient(180deg,#1e1b4b,#020617);
   color:white;
+  font-family: Arial, sans-serif;
+  padding:20px;
 }
 
-.wrapper{
-  width:95%;
-  max-width:420px;
-  background:rgba(30,30,60,0.6);
-  border-radius:30px;
-  padding:25px;
-  box-shadow:0 20px 60px rgba(0,0,0,0.6);
-  backdrop-filter:blur(20px);
-  text-align:center;
-
-  margin:auto;          /* SHU MUHIM */
-  box-sizing:border-box;/* SHU HAM MUHIM */
+/* KARTA */
+.test-box{
+  background: rgba(30,41,59,0.8);
+  backdrop-filter: blur(10px);
+  padding:20px;
+  border-radius:20px;
+  margin-top:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
 }
 
-.title{
-  text-align:center;
-  font-size:30px;
-  font-weight:bold;
+/* SAVOL */
+.test-box h3{
   margin-bottom:10px;
-  text-shadow:0 5px 20px rgba(0,0,0,0.5);
+  font-size:22px;
 }
 
-.lesson-btn{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-
+/* TUGMA */
+.test-btn{
+  display:block;
   width:100%;
-  padding:18px;
-  margin:14px 0;
+  padding:16px;
+  margin:10px 0;
   border:none;
-  border-radius:22px;
-
-  font-size:20px;
+  border-radius:14px;
+  font-size:18px;
   font-weight:bold;
   color:white;
-  text-decoration:none;
-
-  background:linear-gradient(90deg,#ff7a18,#8b5cf6,#2563eb);
-  box-shadow:0 8px 30px rgba(0,0,0,0.5);
+  cursor:pointer;
+  background: linear-gradient(45deg,#f97316,#7c3aed);
   transition:0.3s;
-
-  box-sizing:border-box;   /* ENG MUHIM */
 }
 
-.green{
-  background:linear-gradient(90deg,#22c55e,#16a34a);
-}
-
-.blue{
-  background:linear-gradient(90deg,#3b82f6,#2563eb);
-}
-
-.orange{
-  background:linear-gradient(90deg,#f59e0b,#ea580c);
-
-}
-
-.lesson-btn:hover{
-  transform:scale(1.05);
+.test-btn:hover{
+  transform:scale(1.03);
   opacity:0.9;
 }
-.subtitle{
+
+/* NATIJA */
+.result{
+  margin-top:10px;
+  font-size:18px;
+  font-weight:bold;
+}
+
+.true{
+  color:#22c55e;
+  font-weight:bold;
+  font-size:18px;
+}
+
+.false{
+  color:#ef4444;
+  font-weight:bold;
+  font-size:18px;
+}
+
+/* UMUMIY NATIJA */
+#natija{
+  font-size:24px;
   text-align:center;
-  opacity:0.8;
-  margin-bottom:25px;
-  color:#cbd5f5;
+  margin-top:20px;
+  color:#22c55e;
 }
 </style>
 </head>
