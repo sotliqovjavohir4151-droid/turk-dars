@@ -18,13 +18,11 @@ body{
   color:white;
 }
 
-/* TASHQI */
 .wrapper{
   padding:20px;
   min-height:100vh;
 }
 
-/* CARD */
 .card{
   width:100%;
   max-width:420px;
@@ -35,21 +33,14 @@ body{
   box-shadow:0 10px 30px rgba(0,0,0,0.5);
   padding:22px;
   text-align:center;
-
-  /* ENG MUHIM QISM */
-  min-height:calc(100vh - 40px);
-  display:flex;
-  flex-direction:column;
 }
 
-/* TITLE */
 .title{
   font-size:28px;
   font-weight:bold;
   margin-bottom:10px;
 }
 
-/* SUBTITLE */
 .subtitle{
   opacity:0.85;
   margin-bottom:20px;
@@ -57,7 +48,7 @@ body{
   font-size:16px;
 }
 
-/* TUGMALAR */
+/* ASOSIY TUGMALAR */
 .lesson-btn{
   display:block;
   width:100%;
@@ -78,21 +69,34 @@ body{
   opacity:0.95;
 }
 
-/* BO‘SH JOYNI BOSIB TURADI */
-.spacer{
-  flex:1;
+/* TELEGRAM TUGMALAR */
+.tg-btn{
+  display:block;
+  width:100%;
+  padding:15px;
+  margin:8px 0;
+  border-radius:14px;
+  font-size:16px;
+  font-weight:bold;
+  color:white;
+  text-decoration:none;
+  background: linear-gradient(45deg,#229ED9,#0d8ddb);
+  transition:0.25s;
 }
 
-/* ABOUT */
+.tg-btn:hover{
+  transform:scale(1.03);
+  opacity:0.95;
+}
+
 .about{
   font-size:14px;
   line-height:1.6;
   opacity:0.9;
   color:#cbd5f5;
-  margin-top:10px;
+  margin-top:15px;
 }
 
-/* FOOTER */
 .footer{
   margin-top:15px;
   font-size:13px;
@@ -108,17 +112,16 @@ body{
 <div class="wrapper">
   <div class="card">
 
-    <div>
-      <h1 class="title">🇹🇷 Turk Tilini O‘rganamiz</h1>
-      <div class="subtitle">Mini Darslik & Test Platforma</div>
+    <h1 class="title">🇹🇷 Turk Tilini O‘rganamiz</h1>
+    <div class="subtitle">Mini Darslik & Test Platforma</div>
 
-      <a href="dars.html" class="lesson-btn">📘 Darslar</a>
-      <a href="test.html" class="lesson-btn">🎓 Testlar</a>
-      <a href="atamalar.html" class="lesson-btn">📖 Atamalar</a>
-    </div>
+    <a href="dars.html" class="lesson-btn">📘 Darslar</a>
+    <a href="test.html" class="lesson-btn">🎓 Testlar</a>
+    <a href="atamalar.html" class="lesson-btn">📖 Atamalar</a>
 
-    <!-- BO‘SH JOYNI EGALLAYDI -->
-    <div class="spacer"></div>
+    <!-- TELEGRAM TUGMALAR -->
+    <a href="https://t.me/turkchani_organamiz1" class="tg-btn">💬 Konuşma Grubu</a>
+    <a href="https://t.me/turkcha_organamiz2" class="tg-btn">📢 Asosiy Kanal</a>
 
     <div class="about">
       Ushbu mini ilova orqali siz turk tilining asosiy grammatikasi,
