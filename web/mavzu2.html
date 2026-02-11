@@ -26,6 +26,23 @@ body{
   box-shadow:0 10px 30px rgba(0,0,0,0.5);
 }
 
+/* 16:9 formatini saqlash uchun maxsus klass */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .test-box h3, .card h3{
   margin-bottom:10px;
   font-size:22px;
@@ -65,7 +82,7 @@ body{
   color:#ef4444;
 }
 
-#summary{
+#summary {
   background: #1e293b;
   padding: 20px;
   border-radius: 15px;
@@ -104,9 +121,9 @@ body{
 
 <div class="card">
 <h3>Video dars</h3>
+<!-- Video konteyneri 16:9 nisbatida -->
+<div class="video-wrapper">
 <iframe
-  width="100%"
-  height="220"
   src="https://www.youtube.com/embed/D30GcM7I4OQ"
   title="YouTube video player"
   frameborder="0"
@@ -114,11 +131,12 @@ body{
   allowfullscreen>
 </iframe>
 </div>
+</div>
 
 <div class="card">
 <h3>Mavzu haqida</h3>
 <p>
-Turk tilida biror narsaning mavjudligini bildirish uchun Var, mavjud emasligini bildirish uchun esa Yok soʻzlari ishlatiladi. Savol berishda mı, mi, mu yoki mü soʻroq qoʻshimchalari unli tovushlar qoidasiga koʻra tanlanadi. Bunda a va ı harflaridan keyin mı, e va i harflaridan keyin mi qoʻllaniladi. Agar biror holatni inkor qilmoqchi boʻlsak, emas maʼnosini beruvchi değil soʻzi ishlatiladi. Mehmonxonada xona borligini soʻrash uchun Boş odanız var mı iborasi qoʻllaniladi.
+Turk tilida biror narsaning mavjudligini bildirish uchun Var, mavjud emasligini bildirish uchun esa Yok soʻzlari ishlatiladi [1]. Savol berishda mı, mi, mu yoki mü soʻroq qoʻshimchalari oxirgi unli tovushga qarab tanlanadi [2]. Masalan, a va ı harflaridan keyin mı, e va i dan keyin mi qoʻllaniladi [2]. Agar biror holatni inkor qilmoqchi boʻlsak, emas maʼnosini beruvchi değil soʻzi ishlatiladi [2, 3]. Mehmonxonada bo'sh xona borligini soʻrash uchun Boş odanız var mı iborasi ishlatiladi [4, 5].
 </p>
 </div>
 
@@ -240,7 +258,7 @@ let wrongCount = 0;
 let answeredQuestions = {};
 
 function check(qNum, userAns) {
-  if (answeredQuestions[qNum]) return; // Bir marta javob berilgandan keyin to'xtatish
+  if (answeredQuestions[qNum]) return; 
 
   const resDiv = document.getElementById('r' + qNum);
   if (userAns === answers[qNum]) {
