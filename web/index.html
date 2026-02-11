@@ -18,23 +18,28 @@ body{
   color:white;
 }
 
-/* TASHQI WRAPPER */
+/* TASHQI */
 .wrapper{
-  min-height:100vh;
   padding:20px;
+  min-height:100vh;
 }
 
-/* ICHKI CARD */
+/* CARD */
 .card{
   width:100%;
   max-width:420px;
   margin:auto;
-  background: rgba(30,41,59,0.85);
+  background: rgba(30,41,59,0.9);
   backdrop-filter: blur(10px);
-  padding:22px;
   border-radius:20px;
   box-shadow:0 10px 30px rgba(0,0,0,0.5);
+  padding:22px;
   text-align:center;
+
+  /* ENG MUHIM QISM */
+  min-height:calc(100vh - 40px);
+  display:flex;
+  flex-direction:column;
 }
 
 /* TITLE */
@@ -64,7 +69,6 @@ body{
   font-weight:bold;
   color:white;
   text-decoration:none;
-  cursor:pointer;
   background: linear-gradient(45deg,#f97316,#7c3aed);
   transition:0.25s;
 }
@@ -74,18 +78,23 @@ body{
   opacity:0.95;
 }
 
-/* ABOUT MATN */
+/* BO‘SH JOYNI BOSIB TURADI */
+.spacer{
+  flex:1;
+}
+
+/* ABOUT */
 .about{
-  margin-top:18px;
   font-size:14px;
   line-height:1.6;
-  opacity:0.85;
+  opacity:0.9;
   color:#cbd5f5;
+  margin-top:10px;
 }
 
 /* FOOTER */
 .footer{
-  margin-top:18px;
+  margin-top:15px;
   font-size:13px;
   opacity:0.65;
   color:#94a3b8;
@@ -99,12 +108,17 @@ body{
 <div class="wrapper">
   <div class="card">
 
-    <h1 class="title">🇹🇷 Turk Tilini O‘rganamiz</h1>
-    <div class="subtitle">Mini Darslik & Test Platforma</div>
+    <div>
+      <h1 class="title">🇹🇷 Turk Tilini O‘rganamiz</h1>
+      <div class="subtitle">Mini Darslik & Test Platforma</div>
 
-    <a href="dars.html" class="lesson-btn">📘 Darslar</a>
-    <a href="test.html" class="lesson-btn">🎓 Testlar</a>
-    <a href="atamalar.html" class="lesson-btn">📖 Atamalar</a>
+      <a href="dars.html" class="lesson-btn">📘 Darslar</a>
+      <a href="test.html" class="lesson-btn">🎓 Testlar</a>
+      <a href="atamalar.html" class="lesson-btn">📖 Atamalar</a>
+    </div>
+
+    <!-- BO‘SH JOYNI EGALLAYDI -->
+    <div class="spacer"></div>
 
     <div class="about">
       Ushbu mini ilova orqali siz turk tilining asosiy grammatikasi,
