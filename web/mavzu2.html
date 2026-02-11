@@ -1,11 +1,8 @@
-Mana, taqdim etilgan manbalar asosida **"Var / Yok" (Bor / Yo'q)** mavzusiga oid tayyor kod. Ushbu kodda 10 ta test mavjud va dizayn siz yuborgan namunaga to'liq mos keladi.
-
-```html
 <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2-Mavzu: Var va Yok</title>
+<title>1-Mavzu</title>
 
 <style>
 .test-btn,
@@ -20,7 +17,8 @@ body{
   padding:20px;
 }
 
-.test-box, .card{
+/* KARTA */
+.test-box{
   background: rgba(30,41,59,0.8);
   backdrop-filter: blur(10px);
   padding:20px;
@@ -29,11 +27,13 @@ body{
   box-shadow:0 10px 30px rgba(0,0,0,0.5);
 }
 
-.test-box h3, .card h3{
+/* SAVOL */
+.test-box h3{
   margin-bottom:10px;
   font-size:22px;
 }
 
+/* TUGMA */
 .test-btn{
   display:block;
   width:100%;
@@ -54,6 +54,7 @@ body{
   opacity:0.9;
 }
 
+/* NATIJA */
 .result{
   margin-top:10px;
   font-size:18px;
@@ -62,19 +63,33 @@ body{
 
 .true{
   color:#22c55e;
+  font-weight:bold;
+  font-size:18px;
 }
 
 .false{
   color:#ef4444;
+  font-weight:bold;
+  font-size:18px;
+}
+
+/* UMUMIY NATIJA */
+#natija{
+  font-size:24px;
+  text-align:center;
+  margin-top:20px;
+  color:#22c55e;
 }
 
 .back-btn{
   display:block;
   width:100%;
-  margin:20px 0;
-  padding:16px;
-  font-size:18px;
-  border-radius:14px;
+
+  margin:10px 0;     /* 30px o‘rniga 10px */
+  padding:16px;      /* Test bilan bir xil */
+  font-size:18px;    /* Test bilan bir xil */
+  border-radius:14px;/* Test bilan bir xil */
+
   text-align:center;
   font-weight:bold;
   color:white;
@@ -94,153 +109,47 @@ body{
 
 <body>
 
-<h1>2-Mavzu: Var / Yok</h1>
+<h1>1-Mavzu: Nerelisin / Siz qayerdansiz</h1>
 
 <div class="card">
 <h3>Video dars</h3>
+
 <iframe
   width="100%"
   height="220"
-  src="https://www.youtube.com/embed/8E3q4f07j4E"
+  src="https://www.youtube.com/embed/Dpj6Y93_vC8"
   title="YouTube video player"
   frameborder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
   allowfullscreen>
 </iframe>
+
 </div>
 
 <div class="card">
 <h3>Mavzu haqida</h3>
 <p>
-Turk tilida biror narsaning mavjudligini bildirish uchun Var, mavjud emasligini bildirish uchun esa Yok soʻzlari ishlatiladi [1]. Savol berishda mı, mi, mu yoki mü soʻroq qoʻshimchalari unli tovushlar qoidasiga koʻra tanlanadi [2, 3]. Masalan, a va ı harflaridan keyin mı, e va i dan keyin mi qoʻllaniladi [3]. Agar biror holatni inkor qilmoqchi boʻlsak, emas maʼnosini beruvchi değil soʻzi ishlatiladi [3, 4]. Mehmonxonada xona borligini soʻrash uchun Boş odanız var mı iborasi qoʻllaniladi [4, 5].
+
+Turk tilida biror kishining qayerdan ekanini soʻrash uchun Nerelisin yoki Nerelisiniz savollari ishlatiladi. Bu savolga javob berishda shahar yoki davl>
+
+Millat nomidan til nomini yasash uchun ca, ce, ça yoki çe qoʻshimchalari ishlatiladi. Bunda ikki asosiy qoidaga amal qilinadi. Birinchisi unli tovushla>
+
+Manbalarda keltirilgan misollarga koʻra, Gori ismli oʻqituvchi Amerikalik boʻlib, ingliz tilida gaplashadi. Alvar ismli shaxs esa Sudanlik doktor boʻli>
+
+Sizga qulay boʻlishi uchun muloqotda kerak boʻladigan asosiy gaplarni ham keltirib oʻtaman: Hangi dilleri biliyorsun (Qaysi tillarni bilasan), Ben Türk>
 </p>
 </div>
 
-<!-- Testlar -->
 <div class="test-box">
 <h3>Test 1</h3>
-<p>Sınıfta öğretmen ___?</p>
-<button class="test-btn" onclick="check(1, 'var mı')">var mı</button>
-<button class="test-btn" onclick="check(1, 'mi')">mi</button>
-<button class="test-btn" onclick="check(1, 'mu')">mu</button>
+<p>"Misır" so‘ziga qaysi qo‘shimcha?</p>
+<button class="test-btn" onclick="t1('li')">-li</button>
+<button class="test-btn" onclick="t1('lu')">-lu</button>
+<button class="test-btn" onclick="t1('lı')">-lı</button>
 <p id="r1" class="result"></p>
 </div>
 
 <div class="test-box">
-<h3>Test 2</h3>
-<p>Sepette elma ___ (Bor)</p>
-<button class="test-btn" onclick="check(2, 'var')">var</button>
-<button class="test-btn" onclick="check(2, 'yok')">yok</button>
-<button class="test-btn" onclick="check(2, 'değil')">değil</button>
-<p id="r2" class="result"></p>
-</div>
 
-<div class="test-box">
-<h3>Test 3</h3>
-<p>O iyi ___?</p>
-<button class="test-btn" onclick="check(3, 'mı')">mı</button>
-<button class="test-btn" onclick="check(3, 'mi')">mi</button>
-<button class="test-btn" onclick="check(3, 'mu')">mu</button>
-<p id="r3" class="result"></p>
-</div>
-
-<div class="test-box">
-<h3>Test 4</h3>
-<p>Televizyon açık ___?</p>
-<button class="test-btn" onclick="check(4, 'mı')">mı</button>
-<button class="test-btn" onclick="check(4, 'mi')">mi</button>
-<button class="test-btn" onclick="check(4, 'mu')">mu</button>
-<p id="r4" class="result"></p>
-</div>
-
-<div class="test-box">
-<h3>Test 5</h3>
-<p>Onlar doktor ___?</p>
-<button class="test-btn" onclick="check(5, 'mi')">mi</button>
-<button class="test-btn" onclick="check(5, 'mu')">mu</button>
-<button class="test-btn" onclick="check(5, 'mü')">mü</button>
-<p id="r5" class="result"></p>
-</div>
-
-<div class="test-box">
-<h3>Test 6</h3>
-<p>Bu sözlük ___?</p>
-<button class="test-btn" onclick="check(6, 'mu')">mu</button>
-<button class="test-btn" onclick="check(6, 'mi')">mi</button>
-<button class="test-btn" onclick="check(6, 'mü')">mü</button>
-<p id="r6" class="result"></p>
-</div>
-
-<div class="test-box">
-<h3>Test 7</h3>
-<p>Kitap ince ___?</p>
-<button class="test-btn" onclick="check(7, 'mi')">mi</button>
-<button class="test-btn" onclick="check(7, 'mı')">mı</button>
-<button class="test-btn" onclick="check(7, 'mu')">mu</button>
-<p id="r7" class="result"></p>
-</div>
-
-<div class="test-box">
-<h3>Test 8</h3>
-<p>Boş odanız ___ mı?</p>
-<button class="test-btn" onclick="check(8, 'yok')">yok</button>
-<button class="test-btn" onclick="check(8, 'var')">var</button>
-<button class="test-btn" onclick="check(8, 'değil')">değil</button>
-<p id="r8" class="result"></p>
-</div>
-
-<div class="test-box">
-<h3>Test 9</h3>
-<p>Sınıfta bebek ___ (Yo'q)</p>
-<button class="test-btn" onclick="check(9, 'yok')">yok</button>
-<button class="test-btn" onclick="check(9, 'var')">var</button>
-<button class="test-btn" onclick="check(9, 'değil')">değil</button>
-<p id="r9" class="result"></p>
-</div>
-
-<div class="test-box">
-<h3>Test 10</h3>
-<p>"Değil" soʻzi qanday maʼnoni bildiradi?</p>
-<button class="test-btn" onclick="check(10, 'emas')">emas</button>
-<button class="test-btn" onclick="check(10, 'bor')">bor</button>
-<button class="test-btn" onclick="check(10, 'yoq')">yo'q</button>
-<p id="r10" class="result"></p>
-</div>
-
-<a href="#" class="back-btn">ORQAGA QAYTISH</a>
-
-<script>
-const answers = {
-  1: 'var mı',
-  2: 'var',
-  3: 'mi',
-  4: 'mı',
-  5: 'mu',
-  6: 'mü',
-  7: 'mi',
-  8: 'var',
-  9: 'yok',
-  10: 'emas'
-};
-
-function check(qNum, userAns) {
-  const resDiv = document.getElementById('r' + qNum);
-  if (userAns === answers[qNum]) {
-    resDiv.innerHTML = "To'g'ri!";
-    resDiv.className = "result true";
-  } else {
-    resDiv.innerHTML = "Xato, qaytadan urinib ko'ring";
-    resDiv.className = "result false";
-  }
-}
-</script>
-
-</body>
-</html>
-```
-
-### Kod haqida ma'lumot:
-*   **Mavzu:** Manbalarda keltirilgan "Var" va "Yok" (bor/yo'q) tushunchalari, shuningdek "mı, mi, mu, mü" so'roq qo'shimchalari va "değil" inkor so'zi haqida [1-3].
-*   **Testlar:** Jami 10 ta savol, har birida 3 tadan variant bor. Savollar bevosita dars transcriptidagi misollardan (masalan: sinfda o'qituvchi bormi, kitob ingichkami, bo'sh xona bormi) olingan [1, 3-5].
-*   **Dizayn:** Siz taqdim etgan CSS uslubi to'liq saqlab qolindi.
-*   **Termux:** Ushbu kodni `.html` fayl sifatida saqlab, Termux yoki har qanday brauzerda bemalol ishlatishingiz mumkin.
+Manashu koddan foydalanib men senga joʻnatgan YouTube video boʻyicha shunaqa kod yozib ber ichida 10 ta test ham boʻlsin. Testlar faqat mavzu doirasida turk tilini oʻrgatishga qaratilgan boʻlsin. Testlarda 3 ta variant boʻlsin.faqat koddagi sayt dizayni oʻzgarmasin. Ortiqcha yulduzcha va raqamlarsiz yozib ber. Testlarda mavzu haqida maʼlumotlarda hech qanday ortiqcha simbol raqam boʻlmasin
+Kod tayyor termuxga yuklaydigan holatda boʻlsin. Mavzu haqida degan boʻlimga mana bunaqa [2, 3] har xil ortiqcha raqam va simbollar yozma. Mana bunaqa joyi ham boʻlmasin saytta Mana, taqdim etilgan manbalar asosida "Var / Yok" (Bor / Yo'q) mavzusiga oid tayyor kod. Ushbu kodda 10 ta test mavjud va dizayn siz yuborgan namunaga to'liq mos keladi. `html
