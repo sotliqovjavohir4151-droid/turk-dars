@@ -1,8 +1,8 @@
-Mana, manbalardagi **"Var - Yok" (Bor - Yo'q)** mavzusi bo'yicha tayyorlangan, siz ko'rsatgan dizayndagi kod:
+Mana manbalar asosida tayyorlangan, "Var - Yok" va "-mı, -mi, -mu, -mü" mavzusiga oid 10 ta testni o'z ichiga olgan HTML kod:
 
 ```html
 <!DOCTYPE html>
-<html lang="uz">
+<html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>2-Mavzu: Var - Yok</title>
@@ -20,7 +20,6 @@ body{
   padding:20px;
 }
 
-/* KARTA */
 .card, .test-box{
   background: rgba(30,41,59,0.8);
   backdrop-filter: blur(10px);
@@ -30,13 +29,11 @@ body{
   box-shadow:0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* SAVOL */
 .test-box h3{
   margin-bottom:10px;
   font-size:22px;
 }
 
-/* TUGMA */
 .test-btn{
   display:block;
   width:100%;
@@ -57,7 +54,6 @@ body{
   opacity:0.9;
 }
 
-/* NATIJA */
 .result{
   margin-top:10px;
   font-size:18px;
@@ -98,15 +94,14 @@ body{
 
 <body>
 
-<h1>2-Mavzu: Var - Yok // Bor - Yo'q</h1>
+<h1>2-Mavzu: Var - Yok / Soru Eki</h1>
 
 <div class="card">
 <h3>Video dars</h3>
-<!-- Yunus Emre Enstitüsü videosi uchun havola -->
 <iframe
   width="100%"
   height="220"
-  src="https://www.youtube.com/embed/N8hFpT568Xw" 
+  src="https://www.youtube.com/embed/fA5u0k4M2Bw"
   title="YouTube video player"
   frameborder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -117,78 +112,103 @@ body{
 <div class="card">
 <h3>Mavzu haqida</h3>
 <p>
-Turk tilida biror narsaning mavjudligini bildirish uchun <b>"Var"</b> (bor), mavjud emasligini bildirish uchun esa <b>"Yok"</b> (yo'q) so'zlari ishlatiladi [1], [2]. 
-Savol berishda "Var mı?" (Bormi?) yoki "Yok mu?" (Yo'qmi?) shakllari qo'llaniladi [3]. <br><br>
-
-<b>So'roq yuklamalari (mı, mi, mu, mü):</b> <br>
-Turk tilida savol yasash uchun oxirgi unli tovushga qarab quyidagi yuklamalar qo'shiladi [4]: <br>
-- <b>a, ı</b> -> mı (masalan: Sınıfta lamba var mı?) [2] <br>
-- <b>e, i</b> -> mi (masalan: Bu silgi mi?) [4] <br>
-- <b>o, u</b> -> mu (masalan: Onlar doktor mu?) [4] <br>
-- <b>ö, ü</b> -> mü (masalan: Bu sözlük mü?) [3] <br><br>
-
-Inkor javob berishda sifatlar bilan <b>"değil"</b> (emas) so'zi ishlatiladi. Masalan: "Televizyon açık mı? Hayır, açık değil, kapalı" [4], [5].
+Turk tilida narsaning mavjudligini bildirish uchun <b>"Var"</b> (bor), yo'qligini bildirish uchun esa <b>"Yok"</b> (yo'q) so'zlari ishlatiladi [1, 2]. Savol so'rashda esa <b>"-mı, -mi, -mu, -mü"</b> qo'shimchalari unli tovushlar uyg'unligiga qarab tanlanadi: a-ı bo'lsa "-mı", e-i bo'lsa "-mi", o-u bo'lsa "-mu" va ö-ü bo'lsa "-mü" [3]. Sifatlarni inkor qilishda <b>"değil"</b> (emas) so'zidan foydalaniladi [2, 3].
 </p>
 </div>
 
+<!-- TESTLAR -->
 <div class="test-box">
 <h3>Test 1</h3>
-<p>"Sınıfta öğretmen ____?" (Sinfda o'qituvchi bormi?)</p>
-<button class="test-btn" onclick="t1('mi')">var mi</button>
-<button class="test-btn" onclick="t1('mı')">var mı</button>
-<button class="test-btn" onclick="t1('mu')">var mu</button>
+<p>Sınıfta kanepe var mı? [1]</p>
+<button class="test-btn" onclick="check(1, 'Hayır, yok')">Evet, var</button>
+<button class="test-btn" onclick="check(1, 'Hayır, yok')">Hayır, yok</button>
 <p id="r1" class="result"></p>
 </div>
 
 <div class="test-box">
 <h3>Test 2</h3>
-<p>"O iyi mi?" savoliga inkor javob bering:</p>
-<button class="test-btn" onclick="t2('yok')">Hayır, o iyi yok</button>
-<button class="test-btn" onclick="t2('değil')">Hayır, o iyi değil</button>
+<p>"Doktor" so'ziga qaysi savol qo'shimchasi mos keladi? [3]</p>
+<button class="test-btn" onclick="check(2, 'mu')">mı</button>
+<button class="test-btn" onclick="check(2, 'mu')">mu</button>
 <p id="r2" class="result"></p>
 </div>
 
 <div class="test-box">
 <h3>Test 3</h3>
-<p>"Onlar doktor ____?" (Ular shifokormi?)</p>
-<button class="test-btn" onclick="t3('mu')">mu</button>
-<button class="test-btn" onclick="t3('mı')">mı</button>
+<p>Sınıfta öğretmen var mı? [1, 4]</p>
+<button class="test-btn" onclick="check(3, 'Evet, var')">Evet, var</button>
+<button class="test-btn" onclick="check(3, 'Evet, var')">Hayır, yok</button>
 <p id="r3" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 4</h3>
+<p>"Silgi" so'ziga qaysi savol qo'shimchasi mos keladi? [3]</p>
+<button class="test-btn" onclick="check(4, 'mi')">mı</button>
+<button class="test-btn" onclick="check(4, 'mi')">mi</button>
+<p id="r4" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 5</h3>
+<p>"Sözlük" so'ziga qaysi savol qo'shimchasi mos keladi? [2]</p>
+<button class="test-btn" onclick="check(5, 'mü')">mu</button>
+<button class="test-btn" onclick="check(5, 'mü')">mü</button>
+<p id="r5" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 6</h3>
+<p>Kitap ince mi? [3]</p>
+<button class="test-btn" onclick="check(6, 'Hayır, kalın')">Evet, ince</button>
+<button class="test-btn" onclick="check(6, 'Hayır, kalın')">Hayır, kalın</button>
+<p id="r6" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 7</h3>
+<p>Adam kısa boylu mu? [3]</p>
+<button class="test-btn" onclick="check(7, 'Hayır, uzun boylu')">Hayır, uzun boylu</button>
+<button class="test-btn" onclick="check(7, 'Hayır, uzun boylu')">Evet, kısa boylu</button>
+<p id="r7" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 8</h3>
+<p>Tenis topu büyük mü? [5]</p>
+<button class="test-btn" onclick="check(8, 'Hayır, küçük')">Evet, büyük</button>
+<button class="test-btn" onclick="check(8, 'Hayır, küçük')">Hayır, küçük</button>
+<p id="r8" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 9</h3>
+<p>Boş odanız var mı? (Maalesef...) [2, 5]</p>
+<button class="test-btn" onclick="check(9, 'Yok')">Var</button>
+<button class="test-btn" onclick="check(9, 'Yok')">Yok</button>
+<p id="r9" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 10</h3>
+<p>Havuzda kaç ördek var? [5]</p>
+<button class="test-btn" onclick="check(10, 'Bir ördek')">İki ördek</button>
+<button class="test-btn" onclick="check(10, 'Bir ördek')">Bir ördek</button>
+<p id="r10" class="result"></p>
 </div>
 
 <a href="#" class="back-btn">ORQAGA QAYTISH</a>
 
 <script>
-function t1(ans) {
-  let r = document.getElementById('r1');
-  if(ans === 'mı') {
-    r.innerHTML = "To'g'ri! 'a' unlisidan keyin 'mı' ishlatiladi.";
-    r.className = "result true";
+function check(testNum, correct) {
+  const btn = event.target;
+  const res = document.getElementById('r' + testNum);
+  if (btn.innerText === correct) {
+    res.innerHTML = "To'g'ri!";
+    res.className = "result true";
   } else {
-    r.innerHTML = "Xato, qaytadan urinib ko'ring.";
-    r.className = "result false";
-  }
-}
-
-function t2(ans) {
-  let r = document.getElementById('r2');
-  if(ans === 'değil') {
-    r.innerHTML = "To'g'ri! Sifatlar inkorida 'değil' ishlatiladi.";
-    r.className = "result true";
-  } else {
-    r.innerHTML = "Xato, sifatlar bilan 'değil' ishlatiladi.";
-    r.className = "result false";
-  }
-}
-
-function t3(ans) {
-  let r = document.getElementById('r3');
-  if(ans === 'mu') {
-    r.innerHTML = "To'g'ri! 'o' unlisidan keyin 'mu' ishlatiladi.";
-    r.className = "result true";
-  } else {
-    r.innerHTML = "Xato, unli mosligiga e'tibor bering.";
-    r.className = "result false";
+    res.innerHTML = "Noto'g'ri!";
+    res.className = "result false";
   }
 }
 </script>
@@ -196,9 +216,3 @@ function t3(ans) {
 </body>
 </html>
 ```
-
-### Kodda nimalar o'zgardi:
-*   **Mavzu mazmuni:** Manbalardagi **"Var - Yok"** [1], [2] va **"mı, mi, mu, mü"** so'roq yuklamalari [4], [3] haqida qisqacha ma'lumot berildi.
-*   **Video:** Yunus Emre Enstitüsü'ning tegishli darslik videosi embed qilindi.
-*   **Testlar:** Manbalarda keltirilgan qoidalarga asoslanib, unli tovushlar uyg'unligi [4] va "değil" inkor yuklamasi [5] bo'yicha 3 ta yangi test savoli qo'shildi.
-*   **Dizayn:** Siz yuborgan CSS uslublari (gradient fon, karta ko'rinishi va tugmalar) to'liq saqlab qolindi.
