@@ -76,8 +76,25 @@ body{
   color:#22c55e;
 }
 
-.back{
+.back-btn{
+  display:block;
+  width:100%;
+  margin-top:30px;
+  padding:18px;
+  text-align:center;
+  font-size:20px;
+  font-weight:bold;
+  color:white;
+  text-decoration:none;
+  border-radius:22px;
   background:linear-gradient(90deg,#ef4444,#dc2626);
+  box-shadow:0 8px 25px rgba(0,0,0,0.5);
+  transition:0.3s;
+}
+
+.back-btn:hover{
+  transform:scale(1.05);
+  opacity:0.9;
 }
 </style>
 </head>
@@ -204,7 +221,7 @@ Sizga qulay boʻlishi uchun muloqotda kerak boʻladigan asosiy gaplarni ham kelt
 <button class="test-btn" onclick="t10('3')">öğreniyorsun</button>
 <p id="r10" class="result"></p>
 
-<a href="index.html" class="lesson-btn back">⬅ Orqaga</a>
+<a href="dars.html" class="back-btn">⬅ Orqaga</a>
 </div>
 
 <script>
