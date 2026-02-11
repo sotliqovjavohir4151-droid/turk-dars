@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Atamalar</title>
+<title>Darslar</title>
 
 <style>
 *{
@@ -15,21 +15,19 @@ body{
   font-family:Arial, sans-serif;
   background: linear-gradient(180deg,#1e1b4b,#020617);
   color:white;
-  min-height:100vh;
+  padding:20px;
 }
 
 /* KARTA */
 .wrapper{
   width:100%;
-  min-height:100vh;     /* ekran bo‘yi to‘lsin */
-  max-width:none;       /* ENG MUHIM — o‘chir */
-  border-radius:20px;      /* xohlasang 0 qil, full bo‘lsin */
-  margin:10px;
-  
-  background: rgba(30,41,59,0.85);
+  max-width:420px;
+  margin:auto;
+  background: rgba(30,41,59,0.8);
   backdrop-filter: blur(10px);
   padding:20px;
-  box-shadow:none;      /* full sahifada soya kerak emas */
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
   text-align:center;
 }
 
@@ -40,8 +38,8 @@ body{
   margin-bottom:20px;
 }
 
-/* TUGMALAR */
-.menu-btn{
+/* TUGMA */
+.lesson-btn{
   display:block;
   width:100%;
   padding:16px;
@@ -57,7 +55,7 @@ body{
   transition:0.3s;
 }
 
-.menu-btn:hover{
+.lesson-btn:hover{
   transform:scale(1.03);
   opacity:0.9;
 }
