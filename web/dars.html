@@ -10,9 +10,13 @@ body{
   margin:0;
   font-family:Arial;
   background: radial-gradient(circle at top,#6d28d9,#020617);
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
   min-height:100vh;
   color:white;
-  padding-top:40px;
 }
 
 .wrapper{
@@ -21,46 +25,68 @@ body{
   background:rgba(30,30,60,0.6);
   border-radius:30px;
   padding:25px;
-  backdrop-filter:blur(20px);
   box-shadow:0 20px 60px rgba(0,0,0,0.6);
+  backdrop-filter:blur(20px);
   text-align:center;
-  margin:auto;
+
+  margin:auto;          /* SHU MUHIM */
+  box-sizing:border-box;/* SHU HAM MUHIM */
 }
 
 .title{
-  font-size:32px;
+  text-align:center;
+  font-size:30px;
   font-weight:bold;
-  margin-bottom:20px;
+  margin-bottom:10px;
+  text-shadow:0 5px 20px rgba(0,0,0,0.5);
 }
 
 .lesson-btn{
-  display:block;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+
   width:100%;
   padding:18px;
-  margin:12px 0;
+  margin:14px 0;
   border:none;
   border-radius:22px;
+
   font-size:20px;
   font-weight:bold;
   color:white;
   text-decoration:none;
-  text-align:center;
-  transition:0.3s;
+
+  background:linear-gradient(90deg,#ff7a18,#8b5cf6,#2563eb);
   box-shadow:0 8px 30px rgba(0,0,0,0.5);
+  transition:0.3s;
+
+  box-sizing:border-box;   /* ENG MUHIM */
+}
+
+.green{
+  background:linear-gradient(90deg,#22c55e,#16a34a);
+}
+
+.blue{
+  background:linear-gradient(90deg,#3b82f6,#2563eb);
+}
+
+.orange{
+  background:linear-gradient(90deg,#f59e0b,#ea580c);
+
 }
 
 .lesson-btn:hover{
   transform:scale(1.05);
   opacity:0.9;
 }
-
-/* Ranglar */
-.gradient{
-  background:linear-gradient(90deg,#ff7a18,#8b5cf6,#2563eb);
-}
-
-.back{
-  background:linear-gradient(90deg,#ef4444,#dc2626);
+.subtitle{
+  text-align:center;
+  opacity:0.8;
+  margin-bottom:25px;
+  color:#cbd5f5;
 }
 </style>
 </head>
