@@ -1,0 +1,204 @@
+Mana, manbalardagi **"Var - Yok" (Bor - Yo'q)** mavzusi bo'yicha tayyorlangan, siz ko'rsatgan dizayndagi kod:
+
+```html
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2-Mavzu: Var - Yok</title>
+
+<style>
+.test-btn,
+.back-btn{
+  box-sizing: border-box;
+}
+
+body{
+  background: linear-gradient(180deg,#1e1b4b,#020617);
+  color:white;
+  font-family: Arial, sans-serif;
+  padding:20px;
+}
+
+/* KARTA */
+.card, .test-box{
+  background: rgba(30,41,59,0.8);
+  backdrop-filter: blur(10px);
+  padding:20px;
+  border-radius:20px;
+  margin-top:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* SAVOL */
+.test-box h3{
+  margin-bottom:10px;
+  font-size:22px;
+}
+
+/* TUGMA */
+.test-btn{
+  display:block;
+  width:100%;
+  padding:16px;
+  margin:10px 0;
+  border:none;
+  border-radius:14px;
+  font-size:18px;
+  font-weight:bold;
+  color:white;
+  cursor:pointer;
+  background: linear-gradient(45deg,#f97316,#7c3aed);
+  transition:0.3s;
+}
+
+.test-btn:hover{
+  transform:scale(1.03);
+  opacity:0.9;
+}
+
+/* NATIJA */
+.result{
+  margin-top:10px;
+  font-size:18px;
+  font-weight:bold;
+}
+
+.true{
+  color:#22c55e;
+}
+
+.false{
+  color:#ef4444;
+}
+
+.back-btn{
+  display:block;
+  width:100%;
+  margin:10px 0;
+  padding:16px;
+  font-size:18px;
+  border-radius:14px;
+  text-align:center;
+  font-weight:bold;
+  color:white;
+  text-decoration:none;
+  border:none;
+  background:linear-gradient(90deg,#ef4444,#dc2626);
+  box-shadow:0 8px 25px rgba(0,0,0,0.5);
+  transition:0.3s;
+}
+
+.back-btn:hover{
+  transform:scale(1.03);
+  opacity:0.9;
+}
+</style>
+</head>
+
+<body>
+
+<h1>2-Mavzu: Var - Yok // Bor - Yo'q</h1>
+
+<div class="card">
+<h3>Video dars</h3>
+<!-- Yunus Emre Enstitüsü videosi uchun havola -->
+<iframe
+  width="100%"
+  height="220"
+  src="https://www.youtube.com/embed/N8hFpT568Xw" 
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen>
+</iframe>
+</div>
+
+<div class="card">
+<h3>Mavzu haqida</h3>
+<p>
+Turk tilida biror narsaning mavjudligini bildirish uchun <b>"Var"</b> (bor), mavjud emasligini bildirish uchun esa <b>"Yok"</b> (yo'q) so'zlari ishlatiladi [1], [2]. 
+Savol berishda "Var mı?" (Bormi?) yoki "Yok mu?" (Yo'qmi?) shakllari qo'llaniladi [3]. <br><br>
+
+<b>So'roq yuklamalari (mı, mi, mu, mü):</b> <br>
+Turk tilida savol yasash uchun oxirgi unli tovushga qarab quyidagi yuklamalar qo'shiladi [4]: <br>
+- <b>a, ı</b> -> mı (masalan: Sınıfta lamba var mı?) [2] <br>
+- <b>e, i</b> -> mi (masalan: Bu silgi mi?) [4] <br>
+- <b>o, u</b> -> mu (masalan: Onlar doktor mu?) [4] <br>
+- <b>ö, ü</b> -> mü (masalan: Bu sözlük mü?) [3] <br><br>
+
+Inkor javob berishda sifatlar bilan <b>"değil"</b> (emas) so'zi ishlatiladi. Masalan: "Televizyon açık mı? Hayır, açık değil, kapalı" [4], [5].
+</p>
+</div>
+
+<div class="test-box">
+<h3>Test 1</h3>
+<p>"Sınıfta öğretmen ____?" (Sinfda o'qituvchi bormi?)</p>
+<button class="test-btn" onclick="t1('mi')">var mi</button>
+<button class="test-btn" onclick="t1('mı')">var mı</button>
+<button class="test-btn" onclick="t1('mu')">var mu</button>
+<p id="r1" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 2</h3>
+<p>"O iyi mi?" savoliga inkor javob bering:</p>
+<button class="test-btn" onclick="t2('yok')">Hayır, o iyi yok</button>
+<button class="test-btn" onclick="t2('değil')">Hayır, o iyi değil</button>
+<p id="r2" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 3</h3>
+<p>"Onlar doktor ____?" (Ular shifokormi?)</p>
+<button class="test-btn" onclick="t3('mu')">mu</button>
+<button class="test-btn" onclick="t3('mı')">mı</button>
+<p id="r3" class="result"></p>
+</div>
+
+<a href="#" class="back-btn">ORQAGA QAYTISH</a>
+
+<script>
+function t1(ans) {
+  let r = document.getElementById('r1');
+  if(ans === 'mı') {
+    r.innerHTML = "To'g'ri! 'a' unlisidan keyin 'mı' ishlatiladi.";
+    r.className = "result true";
+  } else {
+    r.innerHTML = "Xato, qaytadan urinib ko'ring.";
+    r.className = "result false";
+  }
+}
+
+function t2(ans) {
+  let r = document.getElementById('r2');
+  if(ans === 'değil') {
+    r.innerHTML = "To'g'ri! Sifatlar inkorida 'değil' ishlatiladi.";
+    r.className = "result true";
+  } else {
+    r.innerHTML = "Xato, sifatlar bilan 'değil' ishlatiladi.";
+    r.className = "result false";
+  }
+}
+
+function t3(ans) {
+  let r = document.getElementById('r3');
+  if(ans === 'mu') {
+    r.innerHTML = "To'g'ri! 'o' unlisidan keyin 'mu' ishlatiladi.";
+    r.className = "result true";
+  } else {
+    r.innerHTML = "Xato, unli mosligiga e'tibor bering.";
+    r.className = "result false";
+  }
+}
+</script>
+
+</body>
+</html>
+```
+
+### Kodda nimalar o'zgardi:
+*   **Mavzu mazmuni:** Manbalardagi **"Var - Yok"** [1], [2] va **"mı, mi, mu, mü"** so'roq yuklamalari [4], [3] haqida qisqacha ma'lumot berildi.
+*   **Video:** Yunus Emre Enstitüsü'ning tegishli darslik videosi embed qilindi.
+*   **Testlar:** Manbalarda keltirilgan qoidalarga asoslanib, unli tovushlar uyg'unligi [4] va "değil" inkor yuklamasi [5] bo'yicha 3 ta yangi test savoli qo'shildi.
+*   **Dizayn:** Siz yuborgan CSS uslublari (gradient fon, karta ko'rinishi va tugmalar) to'liq saqlab qolindi.
