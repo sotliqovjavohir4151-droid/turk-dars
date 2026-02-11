@@ -15,19 +15,21 @@ body{
   font-family:Arial, sans-serif;
   background: linear-gradient(180deg,#1e1b4b,#020617);
   color:white;
-  padding:20px;
+  min-height:100vh;
 }
 
 /* KARTA */
 .wrapper{
   width:100%;
-  max-width:420px;
-  margin:auto;
-  background: rgba(30,41,59,0.8);
+  min-height:100vh;     /* ekran bo‘yi to‘lsin */
+  max-width:none;       /* ENG MUHIM — o‘chir */
+  border-radius:20px;      /* xohlasang 0 qil, full bo‘lsin */
+  margin:10px;
+  
+  background: rgba(30,41,59,0.85);
   backdrop-filter: blur(10px);
   padding:20px;
-  border-radius:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+  box-shadow:none;      /* full sahifada soya kerak emas */
   text-align:center;
 }
 
