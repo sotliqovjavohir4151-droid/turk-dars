@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Şimdiki Zaman - Test</title>
+
+<style>
+.test-btn,
+.back-btn,
+.result-btn {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(180deg,#1e1b4b,#020617);
+  color:white;
+  font-family: Arial, sans-serif;
+  padding:20px;
+}
+
+/* KARTA */
+.test-box, .card {
+  background: rgba(30,41,59,0.8);
+  backdrop-filter: blur(10px);
+  padding:20px;
+  border-radius:20px;
+  margin-top:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* SAVOL */
+.test-box h3 {
+  margin-bottom:10px;
+  font-size:22px;
+}
+
+/* TUGMALAR */
+.test-btn {
+  display:block;
+  width:100%;
+  padding:16px;
+  margin:10px 0;
+  border:none;
+  border-radius:14px;
+  font-size:18px;
+  font-weight:bold;
+  color:white;
+  cursor:pointer;
+  background: linear-gradient(45deg,#f97316,#7c3aed);
+  transition:0.3s;
+}
+
+.test-btn:hover {
+  transform:scale(1.02);
+  opacity:0.9;
+}
+
+.result-btn {
+  display:block;
+  width:100%;
+  padding:16px;
+  margin:20px 0;
+  border:none;
+  border-radius:14px;
+  font-size:18px;
+  font-weight:bold;
+  color:white;
+  cursor:pointer;
+  background: linear-gradient(90deg,#2563eb,#3b82f6);
+  box-shadow:0 8px 25px rgba(0,0,0,0.5);
+  transition:0.3s;
+}
+
+.back-btn {
+  display:block;
+  width:100%;
+  margin:10px 0;
+  padding:16px;
+  font-size:18px;
+  border-radius:14px;
+  text-align:center;
+  font-weight:bold;
+  color:white;
+  text-decoration:none;
+  border:none;
+  background:linear-gradient(90deg,#ef4444,#dc2626);
+  box-shadow:0 8px 25px rgba(0,0,0,0.5);
+  transition:0.3s;
+}
+
+.result {
+  margin-top:10px;
+  font-size:18px;
+  font-weight:bold;
+}
+
+.true { color:#22c55e; }
+.false { color:#ef4444; }
+
+#final-score {
+  font-size:24px;
+  text-align:center;
+  margin-top:20px;
+  color:#60a5fa;
+  display:none;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Mavzu: Şimdiki Zaman (Hozirgi Zamon)</h1>
+
+<div class="card">
+<h3>Video dars</h3>
+<iframe
+  width="100%"
+  height="220"
+  src="https://www.youtube.com/embed/nPfZ4gVXcBI"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen>
+</iframe>
+</div>
+
+<div class="card">
+<h3>Mavzu haqida</h3>
+<p>
+Turk tilida biror kishining ayni damda nima qilayotganini so'rash uchun "Ne yapıyorsun?" savoli beriladi. Hozirgi zamon qo'shimchasi "-yor" bo'lib, u fe'lning oxirgi unli tovushiga qarab -ıyor, -iyor, -uyor yoki -üyor shakllariga o'zgaradi. Masalan, "oku" fe'li "okuyor", "gel" fe'li esa "geliyor" bo'ladi. Inkor shaklida "-ma/-me" qo'shimchalari ishlatiladi va ular ham unli uyg'unligiga ko'ra o'zgaradi (bakmıyor, gelmiyor). Shuningdek, "gitmek" fe'li "gidiyor"ga, "yemek" fe'li esa "yiyor"ga aylanishi kabi maxsus qoidalari mavjud.
+</p>
+</div>
+
+<!-- TESTLAR -->
+<div id="test-container">
+  <!-- Test 1 -->
+  <div class="test-box">
+    <h3>Test 1</h3>
+    <p>"Ben kitap _____" (O'qiyapman)</p>
+    <button class="test-btn" onclick="check(1, false, this)">okuyorsun</button>
+    <button class="test-btn" onclick="check(1, true, this)">okuyorum</button>
+    <button class="test-btn" onclick="check(1, false, this)">okuyor</button>
+    <p id="res1" class="result"></p>
+  </div>
+
+  <!-- Test 2 -->
+  <div class="test-box">
+    <h3>Test 2</h3>
+    <p>"Siz nereye ____?" (Siz qayerga ketyapsiz?)</p>
+    <button class="test-btn" onclick="check(2, true, this)">gidiyorsunuz</button>
+    <button class="test-btn" onclick="check(2, false, this)">gidiyoruz</button>
+    <button class="test-btn" onclick="check(2, false, this)">gidiyorsun</button>
+    <p id="res2" class="result"></p>
+  </div>
+
+  <!-- Test 3 -->
+  <div class="test-box">
+    <h3>Test 3</h3>
+    <p>"O televizyon ____" (U televizor ko'ryapti)</p>
+    <button class="test-btn" onclick="check(3, false, this)">izliyorlar</button>
+    <button class="test-btn" onclick="check(3, false, this)">izliyorum</button>
+    <button class="test-btn" onclick="check(3, true, this)">izliyor</button>
+    <p id="res3" class="result"></p>
+  </div>
+
+  <!-- Test 4 -->
+  <div class="test-box">
+    <h3>Test 4</h3>
+    <p>"Yemek" fe'lining to'g'ri shakli qaysi?</p>
+    <button class="test-btn" onclick="check(4, false, this)">yeyiyor</button>
+    <button class="test-btn" onclick="check(4, true, this)">yiyor</button>
+    <button class="test-btn" onclick="check(4, false, this)">yemekyor</button>
+    <p id="res4" class="result"></p>
+  </div>
+
+  <!-- Test 5 -->
+  <div class="test-box">
+    <h3>Test 5</h3>
+    <p>"Biz ders _____" (Biz dars qilyapmiz)</p>
+    <button class="test-btn" onclick="check(5, true, this)">çalışıyoruz</button>
+    <button class="test-btn" onclick="check(5, false, this)">çalışıyorsunuz</button>
+    <button class="test-btn" onclick="check(5, false, this)">çalışıyor</button>
+    <p id="res5" class="result"></p>
+  </div>
+
+  <!-- Test 6 -->
+  <div class="test-box">
+    <h3>Test 6</h3>
+    <p>"Sen Türkçe ____?" (Sen turkcha gapiryapsanmi?)</p>
+    <button class="test-btn" onclick="check(6, false, this)">konuşuyor musunuz</button>
+    <button class="test-btn" onclick="check(6, true, this)">konuşuyor musun</button>
+    <button class="test-btn" onclick="check(6, false, this)">konuşuyor mu</button>
+    <p id="res6" class="result"></p>
+  </div>
+
+  <!-- Test 7 -->
+  <div class="test-box">
+    <h3>Test 7</h3>
+    <p>"Bebek ____" (Chaqaloq uxlayapti)</p>
+    <button class="test-btn" onclick="check(7, true, this)">uyuyor</button>
+    <button class="test-btn" onclick="check(7, false, this)">uyuyorlar</button>
+    <button class="test-btn" onclick="check(7, false, this)">uyuyorum</button>
+    <p id="res7" class="result"></p>
+  </div>
+
+  <!-- Test 8 -->
+  <div class="test-box">
+    <h3>Test 8</h3>
+    <p>"Onlar futbol ____" (Ular futbol o'ynashyapti)</p>
+    <button class="test-btn" onclick="check(8, false, this)">oynamıyor</button>
+    <button class="test-btn" onclick="check(8, true, this)">oynuyorlar</button>
+    <button class="test-btn" onclick="check(8, false, this)">oynuyor</button>
+    <p id="res8" class="result"></p>
+  </div>
+
+  <!-- Test 9 -->
+  <div class="test-box">
+    <h3>Test 9</h3>
+    <p>"Bakmak" fe'lining inkor shakli (O):</p>
+    <button class="test-btn" onclick="check(9, true, this)">bakmıyor</button>
+    <button class="test-btn" onclick="check(9, false, this)">bakıyor</button>
+    <button class="test-btn" onclick="check(9, false, this)">bakmam</button>
+    <p id="res9" class="result"></p>
+  </div>
+
+  <!-- Test 10 -->
+  <div class="test-box">
+    <h3>Test 10</h3>
+    <p>"Gül" fe'li uchun qaysi qo'shimcha to'g'ri?</p>
+    <button class="test-btn" onclick="check(10, false, this)">-ıyor</button>
+    <button class="test-btn" onclick="check(10, false, this)">-uyor</button>
+    <button class="test-btn" onclick="check(10, true, this)">-üyor</button>
+    <p id="res10" class="result"></p>
+  </div>
+</div>
+
+<p id="final-score"></p>
+
+<button class="result-btn" onclick="showResults()">Natijalarni ko'rish</button>
+<a href="dars.html" class="back-btn">Orqaga</a>
+
+<script>
+let scores = {};
+let totalQuestions = 10;
+
+function check(qNum, isCorrect, btn) {
+  let resP = document.getElementById('res' + qNum);
+  let parent = btn.parentElement;
+  let buttons = parent.querySelectorAll('.test-btn');
+  
+  // Faqat bir marta javob berishni ta'minlash
+  buttons.forEach(b => b.disabled = true);
+
+  if(isCorrect) {
+    resP.innerHTML = "To'g'ri!";
+    resP.className = "result true";
+    scores[qNum] = true;
+  } else {
+    resP.innerHTML = "Xato!";
+    resP.className = "result false";
+    scores[qNum] = false;
+  }
+}
+
+function showResults() {
+  let correctCount = 0;
+  let answeredCount = Object.keys(scores).length;
+
+  for (let q in scores) {
+    if (scores[q] === true) correctCount++;
+  }
+
+  let finalP = document.getElementById('final-score');
+  let wrongCount = answeredCount - correctCount;
+  
+  finalP.style.display = "block";
+  finalP.innerHTML = "Jami: " + answeredCount + " tadan " + correctCount + " ta to'g'ri, " + wrongCount + " ta xato.";
+  
+  window.scrollTo(0, document.body.scrollHeight);
+}
+</script>
+
+</body>
+</html>
