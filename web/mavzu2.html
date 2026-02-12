@@ -2,11 +2,12 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2-Mavzu: Var va Yok</title>
+<title>2-Mavzu: Var - Yok</title>
 
 <style>
 .test-btn,
-.back-btn{
+.back-btn,
+.result-btn{
   box-sizing: border-box;
 }
 
@@ -17,6 +18,7 @@ body{
   padding:20px;
 }
 
+/* KARTA */
 .test-box, .card{
   background: rgba(30,41,59,0.8);
   backdrop-filter: blur(10px);
@@ -26,31 +28,13 @@ body{
   box-shadow:0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* 16:9 formatini saqlash uchun maxsus klass */
-.video-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 15px;
-  overflow: hidden;
-  background: black;
-}
-
-.video-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-.test-box h3, .card h3{
+/* SAVOL */
+.test-box h3{
   margin-bottom:10px;
   font-size:22px;
 }
 
+/* TUGMA */
 .test-btn{
   display:block;
   width:100%;
@@ -71,6 +55,7 @@ body{
   opacity:0.9;
 }
 
+/* NATIJA */
 .result{
   margin-top:10px;
   font-size:18px;
@@ -85,19 +70,33 @@ body{
   color:#ef4444;
 }
 
-#summary {
-  background: #1e293b;
-  padding: 20px;
-  border-radius: 15px;
-  margin-top: 25px;
-  text-align: center;
-  border: 2px solid #7c3aed;
+/* UMUMIY NATIJA */
+#final-score{
+  font-size:24px;
+  text-align:center;
+  margin-top:20px;
+  display:none;
+}
+
+.result-btn{
+  display:block;
+  width:100%;
+  margin:20px 0;
+  padding:16px;
+  font-size:18px;
+  border-radius:14px;
+  text-align:center;
+  font-weight:bold;
+  color:white;
+  border:none;
+  background: linear-gradient(90deg,#2563eb,#1d4ed8);
+  cursor:pointer;
 }
 
 .back-btn{
   display:block;
   width:100%;
-  margin:20px 0;
+  margin:10px 0;
   padding:16px;
   font-size:18px;
   border-radius:14px;
@@ -120,164 +119,169 @@ body{
 
 <body>
 
-<h1>2-Mavzu: Var / Yok</h1>
+<h1>2-Mavzu: Var - Yok (Bor - Yo'q)</h1>
 
 <div class="card">
 <h3>Video dars</h3>
-
-<div class="video-wrapper">
 <iframe
-  src="https://www.youtube.com/embed/D30GcM7I4OQ?rel=0&modestbranding=1&controls=1&fs=1"
+  width="100%"
+  height="220"
+  src="https://www.youtube.com/embed/D30GcM7I4OQ"
   title="YouTube video player"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-  referrerpolicy="strict-origin-when-cross-origin"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
   allowfullscreen>
 </iframe>
-</div>
-
 </div>
 
 <div class="card">
 <h3>Mavzu haqida</h3>
 <p>
-Turk tilida biror narsaning mavjudligini bildirish uchun Var, mavjud emasligini bildirish uchun esa Yok soʻzlari ishlatiladi [1]. Savol berishda mı, mi, mu yoki mü soʻroq qoʻshimchalari oxirgi unli tovushga qarab tanlanadi [2]. Masalan, a va ı harflaridan keyin mı, e va i dan keyin mi qoʻllaniladi [2]. Agar biror holatni inkor qilmoqchi boʻlsak, emas maʼnosini beruvchi değil soʻzi ishlatiladi [2, 3]. Mehmonxonada bo'sh xona borligini soʻrash uchun Boş odanız var mı iborasi ishlatiladi [4, 5].
+Turk tilida narsa-buyumlarning mavjudligini ifodalash uchun Var (bor) va Yok (yo'q) so'zlari ishlatiladi. So'roq shakli uchun esa so'z oxiridagi unli tovushga qarab mı, mi, mu, mü qo'shimchalari qo'shiladi. Masalan, unli tovushlar a va ı bo'lsa mı, e va i bo'lsa mi ishlatiladi.
 </p>
 </div>
 
 <!-- Testlar -->
 <div class="test-box">
 <h3>Test 1</h3>
-<p>Sınıfta öğretmen ___?</p>
-<button class="test-btn" onclick="check(1, 'var mı')">var mı</button>
+<p>Sepette elma ... (Savatda olma bor)</p>
+<button class="test-btn" onclick="check(1, 'var')">var</button>
+<button class="test-btn" onclick="check(1, 'yok')">yok</button>
 <button class="test-btn" onclick="check(1, 'mi')">mi</button>
-<button class="test-btn" onclick="check(1, 'mu')">mu</button>
-<p id="r1" class="result"></p>
+<p id="res1" class="result"></p>
 </div>
 
 <div class="test-box">
 <h3>Test 2</h3>
-<p>Sepette elma ___ (Bor ma'nosida)</p>
-<button class="test-btn" onclick="check(2, 'var')">var</button>
-<button class="test-btn" onclick="check(2, 'yok')">yok</button>
-<button class="test-btn" onclick="check(2, 'değil')">değil</button>
-<p id="r2" class="result"></p>
+<p>Sınıfta öğrenci var ... ? (Sinfda o'quvchi bormi?)</p>
+<button class="test-btn" onclick="check(2, 'mi')">mi</button>
+<button class="test-btn" onclick="check(2, 'mı')">mı</button>
+<button class="test-btn" onclick="check(2, 'mu')">mu</button>
+<p id="res2" class="result"></p>
 </div>
 
 <div class="test-box">
 <h3>Test 3</h3>
-<p>O iyi ___?</p>
-<button class="test-btn" onclick="check(3, 'mı')">mı</button>
-<button class="test-btn" onclick="check(3, 'mi')">mi</button>
-<button class="test-btn" onclick="check(3, 'mu')">mu</button>
-<p id="r3" class="result"></p>
+<p>Sınıfta kanepe var mı? (Videoga ko'ra javob bering)</p>
+<button class="test-btn" onclick="check(3, 'Evet var')">Evet var</button>
+<button class="test-btn" onclick="check(3, 'Hayır yok')">Hayır yok</button>
+<button class="test-btn" onclick="check(3, 'Var')">Var</button>
+<p id="res3" class="result"></p>
 </div>
 
 <div class="test-box">
 <h3>Test 4</h3>
-<p>Televizyon açık ___?</p>
-<button class="test-btn" onclick="check(4, 'mı')">mı</button>
+<p>"Bu silgi ..." (Bu o'chirgichmi?) savol qo'shimchasini tanlang:</p>
 <button class="test-btn" onclick="check(4, 'mi')">mi</button>
+<button class="test-btn" onclick="check(4, 'mı')">mı</button>
 <button class="test-btn" onclick="check(4, 'mu')">mu</button>
-<p id="r4" class="result"></p>
+<p id="res4" class="result"></p>
 </div>
 
 <div class="test-box">
 <h3>Test 5</h3>
-<p>Onlar doktor ___?</p>
+<p>"Onlar doktor ..." (Ular shifokormi?) savol qo'shimchasini tanlang:</p>
 <button class="test-btn" onclick="check(5, 'mi')">mi</button>
-<button class="test-btn" onclick="check(5, 'mu')">mu</button>
 <button class="test-btn" onclick="check(5, 'mü')">mü</button>
-<p id="r5" class="result"></p>
+<button class="test-btn" onclick="check(5, 'mu')">mu</button>
+<p id="res5" class="result"></p>
 </div>
 
 <div class="test-box">
 <h3>Test 6</h3>
-<p>Bu sözlük ___?</p>
-<button class="test-btn" onclick="check(6, 'mu')">mu</button>
-<button class="test-btn" onclick="check(6, 'mi')">mi</button>
-<button class="test-btn" onclick="check(6, 'mü')">mü</button>
-<p id="r6" class="result"></p>
+<p>"Televizyon açık mı?" (Videoga ko'ra to'g'ri javob)</p>
+<button class="test-btn" onclick="check(6, 'Evet açık')">Evet açık</button>
+<button class="test-btn" onclick="check(6, 'Hayır açık')">Hayır açık</button>
+<button class="test-btn" onclick="check(6, 'Kapalı değil')">Kapalı değil</button>
+<p id="res6" class="result"></p>
 </div>
 
 <div class="test-box">
 <h3>Test 7</h3>
-<p>Kitap ince ___?</p>
-<button class="test-btn" onclick="check(7, 'mi')">mi</button>
-<button class="test-btn" onclick="check(7, 'mı')">mı</button>
+<p>"Onlar gözlük ..." (Ular ko'zoynakmi?) savol qo'shimchasini tanlang:</p>
 <button class="test-btn" onclick="check(7, 'mu')">mu</button>
-<p id="r7" class="result"></p>
+<button class="test-btn" onclick="check(7, 'mü')">mü</button>
+<button class="test-btn" onclick="check(7, 'mi')">mi</button>
+<p id="res7" class="result"></p>
 </div>
 
 <div class="test-box">
 <h3>Test 8</h3>
-<p>Boş odanız ___ mı?</p>
-<button class="test-btn" onclick="check(8, 'yok')">yok</button>
-<button class="test-btn" onclick="check(8, 'var')">var</button>
-<button class="test-btn" onclick="check(8, 'değil')">değil</button>
-<p id="r8" class="result"></p>
+<p>İrfan mehmonxonada nima deb so'radi?</p>
+<button class="test-btn" onclick="check(8, 'Boş odanız var mı?')">Boş odanız var mı?</button>
+<button class="test-btn" onclick="check(8, 'Adınız ne?')">Adınız ne?</button>
+<button class="test-btn" onclick="check(8, 'Nasılsınız?')">Nasılsınız?</button>
+<p id="res8" class="result"></p>
 </div>
 
 <div class="test-box">
 <h3>Test 9</h3>
-<p>Sınıfta bebek ___ (Yo'q ma'nosida)</p>
-<button class="test-btn" onclick="check(9, 'yok')">yok</button>
-<button class="test-btn" onclick="check(9, 'var')">var</button>
-<button class="test-btn" onclick="check(9, 'değil')">değil</button>
-<p id="r9" class="result"></p>
+<p>Bahçede ağaç var mı? (Videoga ko'ra)</p>
+<button class="test-btn" onclick="check(9, 'Hayır yok')">Hayır yok</button>
+<button class="test-btn" onclick="check(9, 'Evet var')">Evet var</button>
+<button class="test-btn" onclick="check(9, 'Belki var')">Belki var</button>
+<p id="res9" class="result"></p>
 </div>
 
 <div class="test-box">
 <h3>Test 10</h3>
-<p>"Değil" soʻzi qanday maʼnoni bildiradi?</p>
-<button class="test-btn" onclick="check(10, 'emas')">emas</button>
-<button class="test-btn" onclick="check(10, 'bor')">bor</button>
-<button class="test-btn" onclick="check(10, 'yoq')">yo'q</button>
-<p id="r10" class="result"></p>
+<p>Havuzda kaç ördek var?</p>
+<button class="test-btn" onclick="check(10, 'İki ördek')">İki ördek</button>
+<button class="test-btn" onclick="check(10, 'Beş ördek')">Beş ördek</button>
+<button class="test-btn" onclick="check(10, 'Bir ördek')">Bir ördek</button>
+<p id="res10" class="result"></p>
 </div>
 
-<div id="summary">
-  <h3>Natijalar:</h3>
-  <p>To'g'ri javoblar: <span id="correctScore">0</span></p>
-  <p>Xato javoblar: <span id="wrongScore">0</span></p>
-</div>
+<div id="final-score"></div>
 
-<a href="dars.html" class="back-btn">ORQAGA</a>
+<button class="result-btn" onclick="showResults()">Natijani ko'rish</button>
+<a href="dars.html" class="back-btn">Orqaga</a>
 
 <script>
 const answers = {
-  1: 'var mı',
-  2: 'var',
-  3: 'mi',
-  4: 'mı',
+  1: 'var',
+  2: 'mı',
+  3: 'Hayır yok',
+  4: 'mi',
   5: 'mu',
-  6: 'mü',
-  7: 'mi',
-  8: 'var',
-  9: 'yok',
-  10: 'emas'
+  6: 'Evet açık',
+  7: 'mü',
+  8: 'Boş odanız var mı?',
+  9: 'Evet var',
+  10: 'Bir ördek'
 };
 
-let correctCount = 0;
-let wrongCount = 0;
-let answeredQuestions = {};
+let userAnswers = {};
 
-function check(qNum, userAns) {
-  if (answeredQuestions[qNum]) return; 
+function check(qNum, choice) {
+  userAnswers[qNum] = choice;
+  const resDiv = document.getElementById('res' + qNum);
 
-  const resDiv = document.getElementById('r' + qNum);
-  if (userAns === answers[qNum]) {
+  if(choice === answers[qNum]) {
     resDiv.innerHTML = "To'g'ri!";
     resDiv.className = "result true";
-    correctCount++;
   } else {
     resDiv.innerHTML = "Xato!";
     resDiv.className = "result false";
-    wrongCount++;
   }
-  
-  answeredQuestions[qNum] = true;
-  document.getElementById('correctScore').innerText = correctCount;
-  document.getElementById('wrongScore').innerText = wrongCount;
+}
+
+function showResults() {
+  let correct = 0;
+  let incorrect = 0;
+
+  for(let i=1; i<=10; i++) {
+    if(userAnswers[i] === answers[i]) {
+      correct++;
+    } else {
+      incorrect++;
+    }
+  }
+
+  const finalDiv = document.getElementById('final-score');
+  finalDiv.style.display = "block";
+  finalDiv.innerHTML = "To'g'ri: <span class='true'>" + correct + "</span> | Xato: <span class='false'>" + incorrect + "</span>";
+  window.scrollTo(0, document.body.scrollHeight);
 }
 </script>
 
