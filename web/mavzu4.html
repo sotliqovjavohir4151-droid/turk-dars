@@ -1,150 +1,283 @@
+
 <!DOCTYPE html>
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Turk Tili Testi - Evim ve Renkler</title>
+<title>Evim va Ranglar</title>
+
 <style>
-  body { font-family: sans-serif; padding: 20px; background-color: #f4f4f4; }
-  .test-box { background: white; padding: 15px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-  h3 { margin-top: 0; color: #333; }
-  .test-btn { display: block; width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; background: #fff; cursor: pointer; border-radius: 5px; text-align: left; }
-  .test-btn:hover { background: #f0f0f0; }
-  .result { font-weight: bold; margin-top: 10px; display: none; }
-  .true { color: green; display: block; }
-  .false { color: red; display: block; }
-  .result-btn { background-color: blue; color: white; padding: 12px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; margin-top: 10px; }
-  .back-btn { background-color: red; color: white; padding: 12px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; text-decoration: none; display: inline-block; margin-top: 10px; }
-  #final-result { margin-top: 20px; font-weight: bold; font-size: 18px; display: none; padding: 15px; background: #e0e0e0; border-radius: 5px; }
+.test-btn,
+.back-btn,
+.result-btn {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(180deg,#1e1b4b,#020617);
+  color:white;
+  font-family: Arial, sans-serif;
+  padding:20px;
+}
+
+/* KARTA */
+.card, .test-box {
+  background: rgba(30,41,59,0.8);
+  backdrop-filter: blur(10px);
+  padding:20px;
+  border-radius:20px;
+  margin-top:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* SAVOL */
+.test-box h3 {
+  margin-bottom:10px;
+  font-size:22px;
+}
+
+/* TUGMALAR */
+.test-btn {
+  display:block;
+  width:100%;
+  padding:16px;
+  margin:10px 0;
+  border:none;
+  border-radius:14px;
+  font-size:18px;
+  font-weight:bold;
+  color:white;
+  cursor:pointer;
+  background: linear-gradient(45deg,#f97316,#7c3aed);
+  transition:0.3s;
+}
+
+.test-btn:hover {
+  transform:scale(1.03);
+  opacity:0.9;
+}
+
+/* NATIJA */
+.result {
+  margin-top:10px;
+  font-size:18px;
+  font-weight:bold;
+  min-height: 24px;
+}
+
+.true {
+  color:#22c55e;
+}
+
+.false {
+  color:#ef4444;
+}
+
+#yakuniy-natija {
+  font-size:24px;
+  text-align:center;
+  margin-top:20px;
+  color:#22c55e;
+  display: none;
+  background: rgba(34, 197, 94, 0.1);
+  padding: 20px;
+  border-radius: 15px;
+}
+
+/* MAXSUS TUGMALAR */
+.result-btn {
+  display:block;
+  width:100%;
+  padding:16px;
+  margin:20px 0 10px 0;
+  border:none;
+  border-radius:14px;
+  font-size:18px;
+  font-weight:bold;
+  color:white;
+  cursor:pointer;
+  background: linear-gradient(90deg,#2563eb,#3b82f6);
+  text-align: center;
+}
+
+.back-btn {
+  display:block;
+  width:100%;
+  margin:10px 0;
+  padding:16px;
+  font-size:18px;
+  border-radius:14px;
+  text-align:center;
+  font-weight:bold;
+  color:white;
+  text-decoration:none;
+  border:none;
+  background:linear-gradient(90deg,#ef4444,#dc2626);
+  box-shadow:0 8px 25px rgba(0,0,0,0.5);
+  transition:0.3s;
+}
+
+.back-btn:hover {
+  transform:scale(1.03);
+  opacity:0.9;
+}
+
+iframe {
+  border-radius: 15px;
+}
 </style>
 </head>
+
 <body>
 
-<div class="test-box" id="q1">
-<h3>Test 1</h3>
-<p>"Mutfak" so'zining o'zbekcha ma'nosi nima?</p>
-<button class="test-btn" onclick="check(1, 'A', 'B')">A) Mehmonxona</button>
-<button class="test-btn" onclick="check(1, 'B', 'B')">B) Oshxona</button>
-<button class="test-btn" onclick="check(1, 'C', 'B')">C) Yotoqxona</button>
-<p id="r1" class="result"></p>
+<h1>Mavzu: Mening uyim va Ranglar</h1>
+
+<div class="card">
+<h3>Video dars</h3>
+<iframe
+  width="100%"
+  height="220"
+  src="https://www.youtube.com/embed/j1DPMTfF0fo"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen>
+</iframe>
 </div>
 
-<div class="test-box" id="q2">
-<h3>Test 2</h3>
-<p>Videoga ko'ra "Tencere" (qozon) odatda qayerda bo'ladi?</p>
-<button class="test-btn" onclick="check(2, 'A', 'A')">A) Mutfakta</button>
-<button class="test-btn" onclick="check(2, 'B', 'A')">B) Banyoda</button>
-<button class="test-btn" onclick="check(2, 'C', 'A')">C) Salonda</button>
-<p id="r2" class="result"></p>
+<div class="card">
+<h3>Mavzu haqida</h3>
+<p>
+Ushbu darsda turk tilida uy jihozlari, xonalar va ranglar nomini o'rganamiz. Uyda qaysi xonalar borligini aytish uchun oturma odası, mutfak, yatak odası kabi so'zlar ishlatiladi. Biror buyumning qayerda ekanligini so'rash uchun Nerede savoli beriladi. Masalan, Kedi nerede (Mushuk qayerda). Javob berishda -da, -de, -ta, -te qo'shimchalari qo'shiladi. Shuningdek, dars davomida asosiy ranglar: kırmızı, mavi, yeşil, sarı kabi ranglar ham o'rgatiladi.
+</p>
 </div>
 
-<div class="test-box" id="q3">
-<h3>Test 3</h3>
-<p>Banyoda qaysi buyum bo'ladi?</p>
-<button class="test-btn" onclick="check(3, 'A', 'C')">A) Televizyon</button>
-<button class="test-btn" onclick="check(3, 'B', 'C')">B) Ocak</button>
-<button class="test-btn" onclick="check(3, 'C', 'C')">C) Havlu</button>
-<p id="r3" class="result"></p>
+<!-- Testlar -->
+<div id="testlar-konteyner">
+    <div class="test-box" id="q1">
+        <h3>Test 1</h3>
+        <p>"Mutfak" so'ziga qaysi qo'shimcha to'g'ri keladi?</p>
+        <button class="test-btn" onclick="check(1, 'da', false)">-da</button>
+        <button class="test-btn" onclick="check(1, 'ta', true)">-ta</button>
+        <button class="test-btn" onclick="check(1, 'de', false)">-de</button>
+        <p id="r1" class="result"></p>
+    </div>
+
+    <div class="test-box" id="q2">
+        <h3>Test 2</h3>
+        <p>"Buzdolabı" qaysi xonada bo'ladi?</p>
+        <button class="test-btn" onclick="check(2, 'A', true)">Mutfak</button>
+        <button class="test-btn" onclick="check(2, 'B', false)">Banyo</button>
+        <button class="test-btn" onclick="check(2, 'C', false)">Bahçe</button>
+        <p id="r2" class="result"></p>
+    </div>
+
+    <div class="test-box" id="q3">
+        <h3>Test 3</h3>
+        <p>"Yatak" qayerda bo'ladi?</p>
+        <button class="test-btn" onclick="check(3, 'A', false)">Oturma odası</button>
+        <button class="test-btn" onclick="check(3, 'B', true)">Yatak odası</button>
+        <button class="test-btn" onclick="check(3, 'C', false)">Mutfak</button>
+        <p id="r3" class="result"></p>
+    </div>
+
+    <div class="test-box" id="q4">
+        <h3>Test 4</h3>
+        <p>"Yeşil" qaysi rang?</p>
+        <button class="test-btn" onclick="check(4, 'A', false)">Qizil</button>
+        <button class="test-btn" onclick="check(4, 'B', false)">Ko'k</button>
+        <button class="test-btn" onclick="check(4, 'C', true)">Yashil</button>
+        <p id="r4" class="result"></p>
+    </div>
+
+    <div class="test-box" id="q5">
+        <h3>Test 5</h3>
+        <p>"Balkon" so'ziga qaysi qo'shimcha to'g'ri?</p>
+        <button class="test-btn" onclick="check(5, 'A', true)">-da</button>
+        <button class="test-btn" onclick="check(5, 'B', false)">-de</button>
+        <button class="test-btn" onclick="check(5, 'C', false)">-ta</button>
+        <p id="r5" class="result"></p>
+    </div>
+
+    <div class="test-box" id="q6">
+        <h3>Test 6</h3>
+        <p>"Mavi" qaysi rang?</p>
+        <button class="test-btn" onclick="check(6, 'A', true)">Ko'k</button>
+        <button class="test-btn" onclick="check(6, 'B', false)">Sariq</button>
+        <button class="test-btn" onclick="check(6, 'C', false)">Oq</button>
+        <p id="r6" class="result"></p>
+    </div>
+
+    <div class="test-box" id="q7">
+        <h3>Test 7</h3>
+        <p>Videodagi Ömer qayerda yashaydi?</p>
+        <button class="test-btn" onclick="check(7, 'A', false)">Apartman</button>
+        <button class="test-btn" onclick="check(7, 'B', true)">Bahçeli ev</button>
+        <button class="test-btn" onclick="check(7, 'C', false)">Sınıf</button>
+        <p id="r7" class="result"></p>
+    </div>
+
+    <div class="test-box" id="q8">
+        <h3>Test 8</h3>
+        <p>"Sarı" qaysi rang?</p>
+        <button class="test-btn" onclick="check(8, 'A', false)">Qora</button>
+        <button class="test-btn" onclick="check(8, 'B', false)">Jigarrang</button>
+        <button class="test-btn" onclick="check(8, 'C', true)">Sariq</button>
+        <p id="r8" class="result"></p>
+    </div>
+
+    <div class="test-box" id="q9">
+        <h3>Test 9</h3>
+        <p>"Televizyon" odatda qayerda bo'ladi?</p>
+        <button class="test-btn" onclick="check(9, 'A', true)">Oturma odası</button>
+        <button class="test-btn" onclick="check(9, 'B', false)">Banyo</button>
+        <button class="test-btn" onclick="check(9, 'C', false)">Bahçe</button>
+        <p id="r9" class="result"></p>
+    </div>
+
+    <div class="test-box" id="q10">
+        <h3>Test 10</h3>
+        <p>"Beyaz" qaysi rang?</p>
+        <button class="test-btn" onclick="check(10, 'A', false)">Pushti</button>
+        <button class="test-btn" onclick="check(10, 'B', true)">Oq</button>
+        <button class="test-btn" onclick="check(10, 'C', false)">Kulrang</button>
+        <p id="r10" class="result"></p>
+    </div>
 </div>
 
-<div class="test-box" id="q4">
-<h3>Test 4</h3>
-<p>"Sarı" rangi qaysi variantda to'g'ri berilgan?</p>
-<button class="test-btn" onclick="check(4, 'A', 'A')">A) Sariq</button>
-<button class="test-btn" onclick="check(4, 'B', 'A')">B) Qizil</button>
-<button class="test-btn" onclick="check(4, 'C', 'A')">C) Yashil</button>
-<p id="r4" class="result"></p>
-</div>
+<button class="result-btn" onclick="showFinalResult()">Natijalarni ko'rish</button>
+<div id="yakuniy-natija"></div>
 
-<div class="test-box" id="q5">
-<h3>Test 5</h3>
-<p>Videodagi Ömerning xonasida ("benim odamda") nimalar bor?</p>
-<button class="test-btn" onclick="check(5, 'A', 'B')">A) Buzdolabı va fırın</button>
-<button class="test-btn" onclick="check(5, 'B', 'B')">B) Yatak va bilgisayar</button>
-<button class="test-btn" onclick="check(5, 'C', 'B')">C) Küvet va ayna</button>
-<p id="r5" class="result"></p>
-</div>
-
-<div class="test-box" id="q6">
-<h3>Test 6</h3>
-<p>"Lacivert" qaysi rangni anglatadi?</p>
-<button class="test-btn" onclick="check(6, 'A', 'C')">A) Och ko'k</button>
-<button class="test-btn" onclick="check(6, 'B', 'C')">B) Binafsha</button>
-<button class="test-btn" onclick="check(6, 'C', 'C')">C) To'q ko'k</button>
-<p id="r6" class="result"></p>
-</div>
-
-<div class="test-box" id="q7">
-<h3>Test 7</h3>
-<p>"Mavi perde" (ko'k parda) qaysi xonada joylashgan?</p>
-<button class="test-btn" onclick="check(7, 'A', 'A')">A) Oturma odasında</button>
-<button class="test-btn" onclick="check(7, 'B', 'A')">B) Mutfakta</button>
-<button class="test-btn" onclick="check(7, 'C', 'A')">C) Banyoda</button>
-<p id="r7" class="result"></p>
-</div>
-
-<div class="test-box" id="q8">
-<h3>Test 8</h3>
-<p>"Kahverengi" so'zi qaysi rangni bildiradi?</p>
-<button class="test-btn" onclick="check(8, 'A', 'B')">A) Qora</button>
-<button class="test-btn" onclick="check(8, 'B', 'B')">B) Jigarrang</button>
-<button class="test-btn" onclick="check(8, 'C', 'B')">C) Pushti</button>
-<p id="r8" class="result"></p>
-</div>
-
-<div class="test-box" id="q9">
-<h3>Test 9</h3>
-<p>"Sandalye" (stul) videoda qayerda turibdi?</p>
-<button class="test-btn" onclick="check(9, 'A', 'C')">A) Gardıropta</button>
-<button class="test-btn" onclick="check(9, 'B', 'C')">B) Ocakta</button>
-<button class="test-btn" onclick="check(9, 'C', 'C')">C) Balkonda</button>
-<p id="r9" class="result"></p>
-</div>
-
-<div class="test-box" id="q10">
-<h3>Test 10</h3>
-<p>"Pembe" qaysi rang?</p>
-<button class="test-btn" onclick="check(10, 'A', 'A')">A) Pushti</button>
-<button class="test-btn" onclick="check(10, 'B', 'A')">B) Kulrang</button>
-<button class="test-btn" onclick="check(10, 'C', 'A')">C) To'q qizil</button>
-<p id="r10" class="result"></p>
-</div>
-
-<button class="result-btn" onclick="showFinal()">Natijalarni ko'rish</button>
 <a href="dars.html" class="back-btn">Orqaga</a>
-
-<p id="final-result"></p>
 
 <script>
 let score = 0;
-let answers = {};
+let answered = new Array(11).fill(false);
 
-function check(qNum, choice, correct) {
-  if (answers[qNum]) return;
-
-  answers[qNum] = choice;
-  const resultDisplay = document.getElementById('r' + qNum);
-  const buttons = document.querySelectorAll('#q' + qNum + ' .test-btn');
-
-  if (choice === correct) {
-    score++;
-    resultDisplay.innerHTML = "To'g'ri!";
-    resultDisplay.className = "result true";
-  } else {
-    resultDisplay.innerHTML = "Xato!";
-    resultDisplay.className = "result false";
-  }
-
-  buttons.forEach(btn => btn.disabled = true);
+function check(qNum, choice, isCorrect) {
+    if (answered[qNum]) return;
+    
+    answered[qNum] = true;
+    let resId = "r" + qNum;
+    let resElem = document.getElementById(resId);
+    
+    if (isCorrect) {
+        score++;
+        resElem.innerHTML = "To'g'ri!";
+        resElem.className = "result true";
+    } else {
+        resElem.innerHTML = "Xato!";
+        resElem.className = "result false";
+    }
 }
 
-function showFinal() {
-  const finalDisplay = document.getElementById('final-result');
-  const total = 10;
-  const wrong = total - score;
-  finalDisplay.style.display = "block";
-  finalDisplay.innerHTML = "To'g'ri: " + score + " | Xato: " + wrong;
-  window.scrollTo(0, document.body.scrollHeight);
+function showFinalResult() {
+    let totalAnswered = answered.filter(a => a === true).length;
+    let wrong = totalAnswered - score;
+    let resultDiv = document.getElementById("yakuniy-natija");
+    resultDiv.style.display = "block";
+    resultDiv.innerHTML = "To'g'ri: " + score + " ta<br>Xato: " + wrong + " ta";
+    window.scrollTo(0, document.body.scrollHeight);
 }
 </script>
 
