@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>36-Mavzu: -Ip ve -mAyIp Ulaçları</title>
+
+<style>
+.test-btn,
+.back-btn,
+.result-btn{
+  box-sizing: border-box;
+}
+
+body{
+  background: linear-gradient(180deg,#1e1b4b,#020617);
+  color:white;
+  font-family: Arial, sans-serif;
+  padding:20px;
+}
+
+/* KARTA */
+.test-box, .card{
+  background: rgba(30,41,59,0.8);
+  backdrop-filter: blur(10px);
+  padding:20px;
+  border-radius:20px;
+  margin-top:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* SAVOL */
+.test-box h3{
+  margin-bottom:10px;
+  font-size:22px;
+}
+
+/* TUGMA */
+.test-btn{
+  display:block;
+  width:100%;
+  padding:16px;
+  margin:10px 0;
+  border:none;
+  border-radius:14px;
+  font-size:18px;
+  font-weight:bold;
+  color:white;
+  cursor:pointer;
+  background: linear-gradient(45deg,#f97316,#7c3aed);
+  transition:0.3s;
+}
+
+.test-btn:hover{
+  transform:scale(1.03);
+  opacity:0.9;
+}
+
+/* NATIJA */
+.result{
+  margin-top:10px;
+  font-size:18px;
+  font-weight:bold;
+}
+
+.true{
+  color:#22c55e;
+}
+
+.false{
+  color:#ef4444;
+}
+
+/* UMUMIY NATIJA */
+#final-score{
+  font-size:24px;
+  text-align:center;
+  margin-top:20px;
+  display:none;
+}
+
+.result-btn{
+  display:block;
+  width:100%;
+  margin:20px 0;
+  padding:16px;
+  font-size:18px;
+  border-radius:14px;
+  text-align:center;
+  font-weight:bold;
+  color:white;
+  border:none;
+  background: linear-gradient(90deg,#2563eb,#1d4ed8);
+  cursor:pointer;
+}
+
+.back-btn{
+  display:block;
+  width:100%;
+  margin:10px 0;
+  padding:16px;
+  font-size:18px;
+  border-radius:14px;
+  text-align:center;
+  font-weight:bold;
+  color:white;
+  text-decoration:none;
+  border:none;
+  background:linear-gradient(90deg,#ef4444,#dc2626);
+  box-shadow:0 8px 25px rgba(0,0,0,0.5);
+  transition:0.3s;
+}
+
+.back-btn:hover{
+  transform:scale(1.03);
+  opacity:0.9;
+}
+</style>
+</head>
+
+<body>
+
+<h1>36-Mavzu: -Ip ve -mAyIp Ulaçları (Zarf-fiillar)</h1>
+
+<div class="card">
+<h3>Video dars</h3>
+<iframe
+  width="100%"
+  height="220"
+  src="https://www.youtube.com/embed/Q1g6GtmLM_Y"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen>
+</iframe>
+</div>
+
+<div class="card">
+<h3>Mavzu haqida</h3>
+<p>
+Turk tilida -Ip qoʻshimchasi ketma-ket bajarilgan ikki harakatni bogʻlash uchun ishlatiladi va gapdagi va soʻzini oʻrnini bosadi. Bu qoʻshimcha unli uygʻunligiga koʻra -ıp, -ip, -up, -üp shakllarida boʻladi. Agar feʼl unli bilan tugasa y yordamchi harfi qoʻshiladi. -mAyIp qoʻshimchasi esa -Ip ning inkor shakli boʻlib, birinchi ishni qilmasdan ikkinchisini qilishni yoki tanlovni ifodalaydi.
+</p>
+</div>
+
+<!-- Testlar -->
+<div class="test-box">
+<h3>Test 1</h3>
+<p>"Elmayı soydum ve yedim" gapini -Ip qo'shimchasi bilan qanday yozish mumkin?</p>
+<button class="test-btn" onclick="check(1, 'soyup')">Elmayı soyup yedim</button>
+<button class="test-btn" onclick="check(1, 'soyip')">Elmayı soyip yedim</button>
+<button class="test-btn" onclick="check(1, 'soymayıp')">Elmayı soymayıp yedim</button>
+<p id="res1" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 2</h3>
+<p>"Gitmek" fe'li -Ip qo'shimchasi bilan qanday o'zgaradi?</p>
+<button class="test-btn" onclick="check(2, 'gitip')">gitip</button>
+<button class="test-btn" onclick="check(2, 'gidip')">gidip</button>
+<button class="test-btn" onclick="check(2, 'gidup')">gidup</button>
+<p id="res2" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 3</h3>
+<p>"Televizyonu kapat... uyudum" (Televizorni o'chirib uxladim) nuqtalar o'rniga qaysi qo'shimcha mos?</p>
+<button class="test-btn" onclick="check(3, 'kapatıp')">kapatıp</button>
+<button class="test-btn" onclick="check(3, 'kapatip')">kapatip</button>
+<button class="test-btn" onclick="check(3, 'kapatup')">kapatup</button>
+<p id="res3" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 4</h3>
+<p>"Oku-" (o'qimoq) fe'liga -Ip qo'shimchasi qanday qo'shiladi?</p>
+<button class="test-btn" onclick="check(4, 'okup')">okup</button>
+<button class="test-btn" onclick="check(4, 'okuyup')">okuyup</button>
+<button class="test-btn" onclick="check(4, 'okumayıp')">okumayıp</button>
+<p id="res4" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 5</h3>
+<p>"Sinemaya git... evde oturduk" (Kinoga bormay uyda o'tirdik) gapida inkor va tanlov ma'nosi uchun qaysi shakl to'g'ri?</p>
+<button class="test-btn" onclick="check(5, 'gitmeyip')">gitmeyip</button>
+<button class="test-btn" onclick="check(5, 'gitmeyip')">gitmeyip</button>
+<button class="test-btn" onclick="check(5, 'gitmeyip')">gitmeyip</button>
+<!-- variantlar bir xil bo'lib qolmasligi uchun -->
+<button class="test-btn" onclick="check(5, 'gitip')">gitip</button>
+<button class="test-btn" onclick="check(5, 'gitmayip')">gitmayip</button>
+<p id="res5" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 6</h3>
+<p>"Gülmek ve eğlenmek" (Kulish va vaqtichog'lik qilish) birgalikda qanday qo'llaniladi?</p>
+<button class="test-btn" onclick="check(6, 'gülüp eğlenmek')">gülüp eğlenmek</button>
+<button class="test-btn" onclick="check(6, 'gülip eğlenmek')">gülip eğlenmek</button>
+<button class="test-btn" onclick="check(6, 'gülmeyip eğlenmek')">gülmeyip eğlenmek</button>
+<p id="res6" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 7</h3>
+<p>"Düş-" (yiqilmoq) fe'li uchun to'g'ri qo'shimchani tanlang:</p>
+<button class="test-btn" onclick="check(7, 'düşüp')">düşüp</button>
+<button class="test-btn" onclick="check(7, 'düşip')">düşip</button>
+<button class="test-btn" onclick="check(7, 'düşıp')">düşıp</button>
+<p id="res7" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 8</h3>
+<p>"Ödev yap... oyun oynadı" (Dars qilmay o'yin o'ynadi) gapida tanlovni qaysi shakl ifodalaydi?</p>
+<button class="test-btn" onclick="check(8, 'yapıp')">yapıp</button>
+<button class="test-btn" onclick="check(8, 'yapmayıp')">yapmayıp</button>
+<button class="test-btn" onclick="check(8, 'yapip')">yapip</button>
+<p id="res8" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 9</h3>
+<p>"Dur-" (to'xtamoq) fe'liga -Ip qo'shimchasi qanday qo'shiladi?</p>
+<button class="test-btn" onclick="check(9, 'durup')">durup</button>
+<button class="test-btn" onclick="check(9, 'durip')">durip</button>
+<button class="test-btn" onclick="check(9, 'durıp')">durıp</button>
+<p id="res9" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 10</h3>
+<p>"Dinle-" (tinglamoq) fe'lining inkor ulaç shakli qaysi?</p>
+<button class="test-btn" onclick="check(10, 'dinleyip')">dinleyip</button>
+<button class="test-btn" onclick="check(10, 'dinlemeyip')">dinlemeyip</button>
+<button class="test-btn" onclick="check(10, 'dinlemeyıp')">dinlemeyıp</button>
+<p id="res10" class="result"></p>
+</div>
+
+<div id="final-score"></div>
+
+<button class="result-btn" onclick="showResults()">Natijani ko'rish</button>
+<a href="dars.html" class="back-btn">Orqaga</a>
+
+<script>
+const answers = {
+  1: 'soyup',
+  2: 'gidip',
+  3: 'kapatıp',
+  4: 'okuyup',
+  5: 'gitmeyip',
+  6: 'gülüp eğlenmek',
+  7: 'düşüp',
+  8: 'yapmayıp',
+  9: 'durup',
+  10: 'dinlemeyip'
+};
+
+let userAnswers = {};
+
+function check(qNum, choice) {
+  userAnswers[qNum] = choice;
+  const resDiv = document.getElementById('res' + qNum);
+
+  if(choice === answers[qNum]) {
+    resDiv.innerHTML = "To'g'ri!";
+    resDiv.className = "result true";
+  } else {
+    resDiv.innerHTML = "Xato!";
+    resDiv.className = "result false";
+  }
+}
+
+function showResults() {
+  let correct = 0;
+  let incorrect = 0;
+
+  for(let i=1; i<=10; i++) {
+    if(userAnswers[i] === answers[i]) {
+      correct++;
+    } else {
+      incorrect++;
+    }
+  }
+
+  const finalDiv = document.getElementById('final-score');
+  finalDiv.style.display = "block";
+  finalDiv.innerHTML = "To'g'ri: <span class='true'>" + correct + "</span> | Xato: <span class='false'>" + incorrect + "</span>";
+  window.scrollTo(0, document.body.scrollHeight);
+}
+</script>
+
+</body>
+</html>

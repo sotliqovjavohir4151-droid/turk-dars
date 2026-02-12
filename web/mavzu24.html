@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>24-Mavzu: -DEn beri / -DIr</title>
+
+<style>
+.test-btn,
+.back-btn,
+.result-btn{
+  box-sizing: border-box;
+}
+
+body{
+  background: linear-gradient(180deg,#1e1b4b,#020617);
+  color:white;
+  font-family: Arial, sans-serif;
+  padding:20px;
+}
+
+/* KARTA */
+.test-box, .card{
+  background: rgba(30,41,59,0.8);
+  backdrop-filter: blur(10px);
+  padding:20px;
+  border-radius:20px;
+  margin-top:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* SAVOL */
+.test-box h3{
+  margin-bottom:10px;
+  font-size:22px;
+}
+
+/* TUGMA */
+.test-btn{
+  display:block;
+  width:100%;
+  padding:16px;
+  margin:10px 0;
+  border:none;
+  border-radius:14px;
+  font-size:18px;
+  font-weight:bold;
+  color:white;
+  cursor:pointer;
+  background: linear-gradient(45deg,#f97316,#7c3aed);
+  transition:0.3s;
+}
+
+.test-btn:hover{
+  transform:scale(1.03);
+  opacity:0.9;
+}
+
+/* NATIJA */
+.result{
+  margin-top:10px;
+  font-size:18px;
+  font-weight:bold;
+}
+
+.true{
+  color:#22c55e;
+}
+
+.false{
+  color:#ef4444;
+}
+
+/* UMUMIY NATIJA */
+#final-score{
+  font-size:24px;
+  text-align:center;
+  margin-top:20px;
+  display:none;
+}
+
+.result-btn{
+  display:block;
+  width:100%;
+  margin:20px 0;
+  padding:16px;
+  font-size:18px;
+  border-radius:14px;
+  text-align:center;
+  font-weight:bold;
+  color:white;
+  border:none;
+  background: linear-gradient(90deg,#2563eb,#1d4ed8);
+  cursor:pointer;
+}
+
+.back-btn{
+  display:block;
+  width:100%;
+  margin:10px 0;
+  padding:16px;
+  font-size:18px;
+  border-radius:14px;
+  text-align:center;
+  font-weight:bold;
+  color:white;
+  text-decoration:none;
+  border:none;
+  background:linear-gradient(90deg,#ef4444,#dc2626);
+  box-shadow:0 8px 25px rgba(0,0,0,0.5);
+  transition:0.3s;
+}
+
+.back-btn:hover{
+  transform:scale(1.03);
+  opacity:0.9;
+}
+</style>
+</head>
+
+<body>
+
+<h1>24-Mavzu: -DEn beri va -DIr qo‘shimchalari</h1>
+
+<div class="card">
+<h3>Video dars</h3>
+<iframe
+  width="100%"
+  height="220"
+  src="https://www.youtube.com/embed/a3cq3u_slAA"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen>
+</iframe>
+</div>
+
+<div class="card">
+<h3>Mavzu haqida</h3>
+<p>
+Turk tilida biror ish-harakatning o'tmishda boshlanib, hozir ham davom etayotganini ifodalash uchun -DEn beri va -DIr qo'shimchalari ishlatiladi. Agar harakatning aniq boshlanish vaqti aytilsa -DEn beri, harakatning qancha vaqt davom etgani (muddati) aytilsa -DIr ishlatiladi.
+</p>
+</div>
+
+<!-- Testlar -->
+<div class="test-box">
+<h3>Test 1</h3>
+<p>"Sabah" so‘ziga qaysi qo‘shimcha to‘g‘ri keladi?</p>
+<button class="test-btn" onclick="check(1, 'sabahtan beri')">sabahtan beri</button>
+<button class="test-btn" onclick="check(1, 'sabah beri')">sabah beri</button>
+<button class="test-btn" onclick="check(1, 'sabah tır')">sabah tır</button>
+<p id="res1" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 2</h3>
+<p>"Beş saat..." bo‘sh joyni to‘ldiring (davomiylik):</p>
+<button class="test-btn" onclick="check(2, 'beş saattan beri')">beş saattan beri</button>
+<button class="test-btn" onclick="check(2, 'beş saattir')">beş saattir</button>
+<button class="test-btn" onclick="check(2, 'beş saatten beri')">beş saatten beri</button>
+<p id="res2" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 3</h3>
+<p>"Pazartesi" (Dushanba) kunidan boshlab harakatni qanday aytamiz?</p>
+<button class="test-btn" onclick="check(3, 'Pazartesi beri')">Pazartesi beri</button>
+<button class="test-btn" onclick="check(3, 'Pazartesidir')">Pazartesidir</button>
+<button class="test-btn" onclick="check(3, 'Pazartesiden beri')">Pazartesiden beri</button>
+<p id="res3" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 4</h3>
+<p>"İki gün..." (Ikki kundan beri davom etmoqda):</p>
+<button class="test-btn" onclick="check(4, 'iki gündür')">iki gündür</button>
+<button class="test-btn" onclick="check(4, 'iki günden beri')">iki günden beri</button>
+<button class="test-btn" onclick="check(4, 'ikkisi ham to‘g‘ri')">ikkisi ham to‘g‘ri</button>
+<p id="res4" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 5</h3>
+<p>"2012 yılından..." jumlasi qanday davom etadi?</p>
+<button class="test-btn" onclick="check(5, 'beri')">beri</button>
+<button class="test-btn" onclick="check(5, 'dir')">dir</button>
+<button class="test-btn" onclick="check(5, 'tür')">tür</button>
+<p id="res5" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 6</h3>
+<p>"Üç ay..." (Uch oydan beri):</p>
+<button class="test-btn" onclick="check(6, 'üç aydır')">üç aydır</button>
+<button class="test-btn" onclick="check(6, 'üç aydan')">üç aydan</button>
+<button class="test-btn" onclick="check(6, 'üç ay beri')">üç ay beri</button>
+<p id="res6" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 7</h3>
+<p>"Dün" (Kecha) so‘ziga qaysi biri mos?</p>
+<button class="test-btn" onclick="check(7, 'dündür')">dündür</button>
+<button class="test-btn" onclick="check(7, 'dünden beri')">dünden beri</button>
+<button class="test-btn" onclick="check(7, 'dün beri')">dün beri</button>
+<p id="res7" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 8</h3>
+<p>"Çocukluk" (Bolalik) so‘zi bilan qaysi qo‘shimcha qo‘llaniladi?</p>
+<button class="test-btn" onclick="check(8, 'çocukluktan beri')">çocukluktan beri</button>
+<button class="test-btn" onclick="check(8, 'çocukluktur')">çocukluktur</button>
+<button class="test-btn" onclick="check(8, 'çocukluk beri')">çocukluk beri</button>
+<p id="res8" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 9</h3>
+<p>"Uzun zaman..." bo‘sh joyni to‘ldiring:</p>
+<button class="test-btn" onclick="check(9, 'uzun zaman beri')">uzun zaman beri</button>
+<button class="test-btn" onclick="check(9, 'uzun zamandır')">uzun zamandır</button>
+<button class="test-btn" onclick="check(9, 'uzun zamandan')">uzun zamandan</button>
+<p id="res9" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 10</h3>
+<p>"Hafta" (Hafta) so‘ziga -DIr qo‘shimchasini qo‘shing:</p>
+<button class="test-btn" onclick="check(10, 'haftadır')">haftadır</button>
+<button class="test-btn" onclick="check(10, 'haftatır')">haftatır</button>
+<button class="test-btn" onclick="check(10, 'haftadir')">haftadir</button>
+<p id="res10" class="result"></p>
+</div>
+
+<div id="final-score"></div>
+
+<button class="result-btn" onclick="showResults()">Natijani ko'rish</button>
+<a href="dars.html" class="back-btn">Orqaga</a>
+
+<script>
+const answers = {
+  1: 'sabahtan beri',
+  2: 'beş saattir',
+  3: 'Pazartesiden beri',
+  4: 'ikkisi ham to‘g‘ri',
+  5: 'beri',
+  6: 'üç aydır',
+  7: 'dünden beri',
+  8: 'çocukluktan beri',
+  9: 'uzun zamandır',
+  10: 'haftadır'
+};
+
+let userAnswers = {};
+
+function check(qNum, choice) {
+  userAnswers[qNum] = choice;
+  const resDiv = document.getElementById('res' + qNum);
+
+  if(choice === answers[qNum]) {
+    resDiv.innerHTML = "To'g'ri!";
+    resDiv.className = "result true";
+  } else {
+    resDiv.innerHTML = "Xato!";
+    resDiv.className = "result false";
+  }
+}
+
+function showResults() {
+  let correct = 0;
+  let incorrect = 0;
+
+  for(let i=1; i<=10; i++) {
+    if(userAnswers[i] === answers[i]) {
+      correct++;
+    } else {
+      incorrect++;
+    }
+  }
+
+  const finalDiv = document.getElementById('final-score');
+  finalDiv.style.display = "block";
+  finalDiv.innerHTML = "To'g'ri: <span class='true'>" + correct + "</span> | Xato: <span class='false'>" + incorrect + "</span>";
+  window.scrollTo(0, document.body.scrollHeight);
+}
+</script>
+
+</body>
+</html>

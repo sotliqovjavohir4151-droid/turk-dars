@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>32-Mavzu: -ce / -ca Qo'shimchasi</title>
+
+<style>
+.test-btn,
+.back-btn,
+.result-btn{
+  box-sizing: border-box;
+}
+
+body{
+  background: linear-gradient(180deg,#1e1b4b,#020617);
+  color:white;
+  font-family: Arial, sans-serif;
+  padding:20px;
+}
+
+/* KARTA */
+.test-box, .card{
+  background: rgba(30,41,59,0.8);
+  backdrop-filter: blur(10px);
+  padding:20px;
+  border-radius:20px;
+  margin-top:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* SAVOL */
+.test-box h3{
+  margin-bottom:10px;
+  font-size:22px;
+}
+
+/* TUGMA */
+.test-btn{
+  display:block;
+  width:100%;
+  padding:16px;
+  margin:10px 0;
+  border:none;
+  border-radius:14px;
+  font-size:18px;
+  font-weight:bold;
+  color:white;
+  cursor:pointer;
+  background: linear-gradient(45deg,#f97316,#7c3aed);
+  transition:0.3s;
+}
+
+.test-btn:hover{
+  transform:scale(1.03);
+  opacity:0.9;
+}
+
+/* NATIJA */
+.result{
+  margin-top:10px;
+  font-size:18px;
+  font-weight:bold;
+}
+
+.true{
+  color:#22c55e;
+}
+
+.false{
+  color:#ef4444;
+}
+
+/* UMUMIY NATIJA */
+#final-score{
+  font-size:24px;
+  text-align:center;
+  margin-top:20px;
+  display:none;
+}
+
+.result-btn{
+  display:block;
+  width:100%;
+  margin:20px 0;
+  padding:16px;
+  font-size:18px;
+  border-radius:14px;
+  text-align:center;
+  font-weight:bold;
+  color:white;
+  border:none;
+  background: linear-gradient(90deg,#2563eb,#1d4ed8);
+  cursor:pointer;
+}
+
+.back-btn{
+  display:block;
+  width:100%;
+  margin:10px 0;
+  padding:16px;
+  font-size:18px;
+  border-radius:14px;
+  text-align:center;
+  font-weight:bold;
+  color:white;
+  text-decoration:none;
+  border:none;
+  background:linear-gradient(90deg,#ef4444,#dc2626);
+  box-shadow:0 8px 25px rgba(0,0,0,0.5);
+  transition:0.3s;
+}
+
+.back-btn:hover{
+  transform:scale(1.03);
+  opacity:0.9;
+}
+</style>
+</head>
+
+<body>
+
+<h1>32-Mavzu: -ce / -ca (Ekvativ qo'shimchasi)</h1>
+
+<div class="card">
+<h3>Video dars</h3>
+<iframe
+  width="100%"
+  height="220"
+  src="https://www.youtube.com/embed/H43t8GSOhHY"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen>
+</iframe>
+</div>
+
+<div class="card">
+<h3>Mavzu haqida</h3>
+<p>
+Turk tilida -ce, -ca, -çe, -ça qo'shimchasi juda keng qo'llaniladi. Bu qo'shimcha til nomlarini yasashda, shaxsiy fikrni bildirishda (bence), miqdoriy ko'plikni ifodalashda (yıllarca), ish-harakatning qay holatda bajarilishini (sessizce) va o'xshatishni (çocukça) ifodalash uchun xizmat qiladi.
+</p>
+</div>
+
+<!-- Testlar -->
+<div class="test-box">
+<h3>Test 1</h3>
+<p>"İngiliz" so'ziga qaysi qo'shimcha qo'shilsa til nomi hosil bo'ladi?</p>
+<button class="test-btn" onclick="check(1, 'İngilizce')">İngilizce</button>
+<button class="test-btn" onclick="check(1, 'İngilizca')">İngilizca</button>
+<button class="test-btn" onclick="check(1, 'İngilizceyi')">İngilizceyi</button>
+<p id="res1" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 2</h3>
+<p>"Mening fikrimcha" ma'nosini qaysi so'z anglatadi?</p>
+<button class="test-btn" onclick="check(2, 'Sence')">Sence</button>
+<button class="test-btn" onclick="check(2, 'Bizce')">Bizce</button>
+<button class="test-btn" onclick="check(2, 'Bence')">Bence</button>
+<p id="res2" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 3</h3>
+<p>"Ko'p yillar davomida" ma'nosini qaysi shakl to'g'ri ifodalaydi?</p>
+<button class="test-btn" onclick="check(3, 'Yıllarca')">Yıllarca</button>
+<button class="test-btn" onclick="check(3, 'Yılca')">Yılca</button>
+<button class="test-btn" onclick="check(3, 'Yıllarce')">Yıllarce</button>
+<p id="res3" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 4</h3>
+<p>"O kadar çok para" (Shuncha ko'p pul) birikmasi qanday aytiladi?</p>
+<button class="test-btn" onclick="check(4, 'Bunca para')">Bunca para</button>
+<button class="test-btn" onclick="check(4, 'Onca para')">Onca para</button>
+<button class="test-btn" onclick="check(4, 'Şunca para')">Şunca para</button>
+<p id="res4" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 5</h3>
+<p>"Sessiz bir shaklda" ma'nosini beruvchi so'zni toping:</p>
+<button class="test-btn" onclick="check(5, 'Sessizce')">Sessizce</button>
+<button class="test-btn" onclick="check(5, 'Sessizca')">Sessizca</button>
+<button class="test-btn" onclick="check(5, 'Sessiz')">Sessiz</button>
+<p id="res5" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 6</h3>
+<p>"Biroz katta" (Büyük mü? Hayır, biraz büyük) ma'nosini tanlang:</p>
+<button class="test-btn" onclick="check(6, 'Büyükçe')">Büyükçe</button>
+<button class="test-btn" onclick="check(6, 'Büyükce')">Büyükce</button>
+<button class="test-btn" onclick="check(6, 'Büyükca')">Büyükca</button>
+<p id="res6" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 7</h3>
+<p>"Butun oila birgalikda" ma'nosini qaysi so'z bildiradi?</p>
+<button class="test-btn" onclick="check(7, 'Aileler')">Aileler</button>
+<button class="test-btn" onclick="check(7, 'Ailece')">Ailece</button>
+<button class="test-btn" onclick="check(7, 'Aileceye')">Aileceye</button>
+<p id="res7" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 8</h3>
+<p>"Bola kabi" (Çocuk gibi) ma'nosini beruvchi so'zni toping:</p>
+<button class="test-btn" onclick="check(8, 'Çocukça')">Çocukça</button>
+<button class="test-btn" onclick="check(8, 'Çocukce')">Çocukce</button>
+<button class="test-btn" onclick="check(8, 'Çocuklar')">Çocuklar</button>
+<p id="res8" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 9</h3>
+<p>"Osonlik bilan" (Kolay bir şekilde) ma'nosini tanlang:</p>
+<button class="test-btn" onclick="check(9, 'Kolayca')">Kolayca</button>
+<button class="test-btn" onclick="check(9, 'Kolayçe')">Kolayçe</button>
+<button class="test-btn" onclick="check(9, 'Kolayce')">Kolayce</button>
+<p id="res9" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 10</h3>
+<p>"Sizning fikringizcha" so'zining to'g'ri shakli qaysi?</p>
+<button class="test-btn" onclick="check(10, 'Sizca')">Sizca</button>
+<button class="test-btn" onclick="check(10, 'Sizce')">Sizce</button>
+<button class="test-btn" onclick="check(10, 'Sizlarce')">Sizlarce</button>
+<p id="res10" class="result"></p>
+</div>
+
+<div id="final-score"></div>
+
+<button class="result-btn" onclick="showResults()">Natijani ko'rish</button>
+<a href="dars.html" class="back-btn">Orqaga</a>
+
+<script>
+const answers = {
+  1: 'İngilizce',
+  2: 'Bence',
+  3: 'Yıllarca',
+  4: 'Onca para',
+  5: 'Sessizce',
+  6: 'Büyükçe',
+  7: 'Ailece',
+  8: 'Çocukça',
+  9: 'Kolayca',
+  10: 'Sizce'
+};
+
+let userAnswers = {};
+
+function check(qNum, choice) {
+  userAnswers[qNum] = choice;
+  const resDiv = document.getElementById('res' + qNum);
+
+  if(choice === answers[qNum]) {
+    resDiv.innerHTML = "To'g'ri!";
+    resDiv.className = "result true";
+  } else {
+    resDiv.innerHTML = "Xato!";
+    resDiv.className = "result false";
+  }
+}
+
+function showResults() {
+  let correct = 0;
+  let incorrect = 0;
+
+  for(let i=1; i<=10; i++) {
+    if(userAnswers[i] === answers[i]) {
+      correct++;
+    } else {
+      incorrect++;
+    }
+  }
+
+  const finalDiv = document.getElementById('final-score');
+  finalDiv.style.display = "block";
+  finalDiv.innerHTML = "To'g'ri: <span class='true'>" + correct + "</span> | Xato: <span class='false'>" + incorrect + "</span>";
+  window.scrollTo(0, document.body.scrollHeight);
+}
+</script>
+
+</body>
+</html>

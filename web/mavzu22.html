@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>22-Mavzu: Hava Durumu</title>
+
+<style>
+.test-btn,
+.back-btn,
+.result-btn{
+  box-sizing: border-box;
+}
+
+body{
+  background: linear-gradient(180deg,#1e1b4b,#020617);
+  color:white;
+  font-family: Arial, sans-serif;
+  padding:20px;
+}
+
+/* KARTA */
+.test-box, .card{
+  background: rgba(30,41,59,0.8);
+  backdrop-filter: blur(10px);
+  padding:20px;
+  border-radius:20px;
+  margin-top:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* SAVOL */
+.test-box h3{
+  margin-bottom:10px;
+  font-size:22px;
+}
+
+/* TUGMA */
+.test-btn{
+  display:block;
+  width:100%;
+  padding:16px;
+  margin:10px 0;
+  border:none;
+  border-radius:14px;
+  font-size:18px;
+  font-weight:bold;
+  color:white;
+  cursor:pointer;
+  background: linear-gradient(45deg,#f97316,#7c3aed);
+  transition:0.3s;
+}
+
+.test-btn:hover{
+  transform:scale(1.03);
+  opacity:0.9;
+}
+
+/* NATIJA */
+.result{
+  margin-top:10px;
+  font-size:18px;
+  font-weight:bold;
+}
+
+.true{
+  color:#22c55e;
+}
+
+.false{
+  color:#ef4444;
+}
+
+/* UMUMIY NATIJA */
+#final-score{
+  font-size:24px;
+  text-align:center;
+  margin-top:20px;
+  display:none;
+}
+
+.result-btn{
+  display:block;
+  width:100%;
+  margin:20px 0;
+  padding:16px;
+  font-size:18px;
+  border-radius:14px;
+  text-align:center;
+  font-weight:bold;
+  color:white;
+  border:none;
+  background: linear-gradient(90deg,#2563eb,#1d4ed8);
+  cursor:pointer;
+}
+
+.back-btn{
+  display:block;
+  width:100%;
+  margin:10px 0;
+  padding:16px;
+  font-size:18px;
+  border-radius:14px;
+  text-align:center;
+  font-weight:bold;
+  color:white;
+  text-decoration:none;
+  border:none;
+  background:linear-gradient(90deg,#ef4444,#dc2626);
+  box-shadow:0 8px 25px rgba(0,0,0,0.5);
+  transition:0.3s;
+}
+
+.back-btn:hover{
+  transform:scale(1.03);
+  opacity:0.9;
+}
+</style>
+</head>
+
+<body>
+
+<h1>22-Mavzu: Hava Durumu (Ob-havo)</h1>
+
+<div class="card">
+<h3>Video dars</h3>
+<iframe
+  width="100%"
+  height="220"
+  src="https://www.youtube.com/embed/BASdTmY4oiw"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen>
+</iframe>
+</div>
+
+<div class="card">
+<h3>Mavzu haqida</h3>
+<p>
+Turk tilida ob-havo holatini so'rash uchun "Bugün hava nasıl?" savoli ishlatiladi. Ob-havo quyoshli (güneşli), yomg'irli (yağmurlu), bulutli (bulutlu) yoki qorli (karlı) bo'lishi mumkin. Shuningdek, harorat darajasiga qarab havo issiq (sıcak), sovuq (soğuk), iliq (ılık) yoki salqin (serin) deb ta'riflanadi.
+</p>
+</div>
+
+<!-- Testlar -->
+<div class="test-box">
+<h3>Test 1</h3>
+<p>Osmonda quyosh bo'lsa, havo qanday bo'ladi?</p>
+<button class="test-btn" onclick="check(1, 'Güneşli')">Güneşli</button>
+<button class="test-btn" onclick="check(1, 'Yağmurlu')">Yağmurlu</button>
+<button class="test-btn" onclick="check(1, 'Bulutlu')">Bulutlu</button>
+<p id="res1" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 2</h3>
+<p>Harorat 40 daraja bo'lsa, havo qanday?</p>
+<button class="test-btn" onclick="check(2, 'Serin')">Serin</button>
+<button class="test-btn" onclick="check(2, 'Bunaltıcı sıcak')">Bunaltıcı sıcak</button>
+<button class="test-btn" onclick="check(2, 'Dondurucu soğuk')">Dondurucu soğuk</button>
+<p id="res2" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 3</h3>
+<p>Yomg'ir yog'ayotgan vaqtda nima ishlatiladi?</p>
+<button class="test-btn" onclick="check(3, 'Gözlük')">Gözlük</button>
+<button class="test-btn" onclick="check(3, 'Şapka')">Şapka</button>
+<button class="test-btn" onclick="check(3, 'Şemsiye')">Şemsiye</button>
+<p id="res3" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 4</h3>
+<p>"Hava raporu" so'zining ma'nosi nima?</p>
+<button class="test-btn" onclick="check(4, 'Hava durumu')">Hava durumu</button>
+<button class="test-btn" onclick="check(4, 'Yol durumu')">Yol durumu</button>
+<button class="test-btn" onclick="check(4, 'Deniz durumu')">Deniz durumu</button>
+<p id="res4" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 5</h3>
+<p>Harorat -10 daraja bo'lsa, bu qanday havo?</p>
+<button class="test-btn" onclick="check(5, 'Ilık')">Ilık</button>
+<button class="test-btn" onclick="check(5, 'Dondurucu soğuk')">Dondurucu soğuk</button>
+<button class="test-btn" onclick="check(5, 'Sıcak')">Sıcak</button>
+<p id="res5" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 6</h3>
+<p>Kuzda daraxt barglari nima bo'ladi?</p>
+<button class="test-btn" onclick="check(6, 'Çiçek açıyor')">Çiçek açıyor</button>
+<button class="test-btn" onclick="check(6, 'Sararıyor')">Sararıyor</button>
+<button class="test-btn" onclick="check(6, 'Kar yağıyor')">Kar yağıyor</button>
+<p id="res6" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 7</h3>
+<p>Dengizda suzish uchun qaysi fasl mos keladi?</p>
+<button class="test-btn" onclick="check(7, 'Kış')">Kış</button>
+<button class="test-btn" onclick="check(7, 'Sonbahar')">Sonbahar</button>
+<button class="test-btn" onclick="check(7, 'Yaz')">Yaz</button>
+<p id="res7" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 8</h3>
+<p>Kuchli shamol bo'layotgan havo qanday ataladi?</p>
+<button class="test-btn" onclick="check(8, 'Rüzgarlı')">Rüzgarlı</button>
+<button class="test-btn" onclick="check(8, 'Sakin')">Sakin</button>
+<button class="test-btn" onclick="check(8, 'Açık')">Açık</button>
+<p id="res8" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 9</h3>
+<p>Havo 18 daraja bo'lsa, u qanday havo hisoblanadi?</p>
+<button class="test-btn" onclick="check(9, 'Çok sıcak')">Çok sıcak</button>
+<button class="test-btn" onclick="check(9, 'Ilık')">Ilık</button>
+<button class="test-btn" onclick="check(9, 'Karlı')">Karlı</button>
+<p id="res9" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 10</h3>
+<p>Osmonda bulutlar ko'p bo'lsa, havo qanday?</p>
+<button class="test-btn" onclick="check(10, 'Güneşli')">Güneşli</button>
+<button class="test-btn" onclick="check(10, 'Açık')">Açık</button>
+<button class="test-btn" onclick="check(10, 'Bulutlu')">Bulutlu</button>
+<p id="res10" class="result"></p>
+</div>
+
+<div id="final-score"></div>
+
+<button class="result-btn" onclick="showResults()">Natijani ko'rish</button>
+<a href="dars.html" class="back-btn">Orqaga</a>
+
+<script>
+const answers = {
+  1: 'Güneşli',
+  2: 'Bunaltıcı sıcak',
+  3: 'Şemsiye',
+  4: 'Hava durumu',
+  5: 'Dondurucu soğuk',
+  6: 'Sararıyor',
+  7: 'Yaz',
+  8: 'Rüzgarlı',
+  9: 'Ilık',
+  10: 'Bulutlu'
+};
+
+let userAnswers = {};
+
+function check(qNum, choice) {
+  userAnswers[qNum] = choice;
+  const resDiv = document.getElementById('res' + qNum);
+
+  if(choice === answers[qNum]) {
+    resDiv.innerHTML = "To'g'ri!";
+    resDiv.className = "result true";
+  } else {
+    resDiv.innerHTML = "Xato!";
+    resDiv.className = "result false";
+  }
+}
+
+function showResults() {
+  let correct = 0;
+  let incorrect = 0;
+
+  for(let i=1; i<=10; i++) {
+    if(userAnswers[i] === answers[i]) {
+      correct++;
+    } else {
+      incorrect++;
+    }
+  }
+
+  const finalDiv = document.getElementById('final-score');
+  finalDiv.style.display = "block";
+  finalDiv.innerHTML = "To'g'ri: <span class='true'>" + correct + "</span> | Xato: <span class='false'>" + incorrect + "</span>";
+  window.scrollTo(0, document.body.scrollHeight);
+}
+</script>
+
+</body>
+</html>
