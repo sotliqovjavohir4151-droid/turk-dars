@@ -2,11 +2,12 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>1-Mavzu</title>
+<title>3-Mavzu: Nerelisin?</title>
 
 <style>
 .test-btn,
-.back-btn{
+.back-btn,
+.result-btn{
   box-sizing: border-box;
 }
 
@@ -18,7 +19,7 @@ body{
 }
 
 /* KARTA */
-.test-box{
+.test-box, .card{
   background: rgba(30,41,59,0.8);
   backdrop-filter: blur(10px);
   padding:20px;
@@ -63,33 +64,42 @@ body{
 
 .true{
   color:#22c55e;
-  font-weight:bold;
-  font-size:18px;
 }
 
 .false{
   color:#ef4444;
-  font-weight:bold;
-  font-size:18px;
 }
 
 /* UMUMIY NATIJA */
-#natija{
+#final-score{
   font-size:24px;
   text-align:center;
   margin-top:20px;
-  color:#22c55e;
+  display:none;
+}
+
+.result-btn{
+  display:block;
+  width:100%;
+  margin:20px 0;
+  padding:16px;
+  font-size:18px;
+  border-radius:14px;
+  text-align:center;
+  font-weight:bold;
+  color:white;
+  border:none;
+  background: linear-gradient(90deg,#2563eb,#1d4ed8);
+  cursor:pointer;
 }
 
 .back-btn{
   display:block;
   width:100%;
-
-  margin:10px 0;     /* 30px o‘rniga 10px */
-  padding:16px;      /* Test bilan bir xil */
-  font-size:18px;    /* Test bilan bir xil */
-  border-radius:14px;/* Test bilan bir xil */
-
+  margin:10px 0;
+  padding:16px;
+  font-size:18px;
+  border-radius:14px;
   text-align:center;
   font-weight:bold;
   color:white;
@@ -109,13 +119,12 @@ body{
 
 <body>
 
-<h1>1-Mavzu: Nerelisin / Siz qayerdansiz</h1>
+<h1>1-Mavzu: Nerelisin? (Qayerliksan?)</h1>
 
 <div class="card">
 <h3>Video dars</h3>
-
-<iframe 
-  width="100%" 
+<iframe
+  width="100%"
   height="220"
   src="https://www.youtube.com/embed/Dpj6Y93_vC8"
   title="YouTube video player"
@@ -123,149 +132,160 @@ body{
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
   allowfullscreen>
 </iframe>
-
 </div>
 
 <div class="card">
 <h3>Mavzu haqida</h3>
 <p>
-
-Turk tilida biror kishining qayerdan ekanini soʻrash uchun Nerelisin yoki Nerelisiniz savollari ishlatiladi. Bu savolga javob berishda shahar yoki davlat nomiga unli tovushlar uygʻunligi asosida lı, li, lu yoki lü qoʻshimchalari qoʻshiladi. Agar soʻzning oxirgi unlisi a yoki ı boʻlsa lı (masalan, Mısırlı), e yoki i boʻlsa li (masalan, Norveçli), o yoki u boʻlsa lu (masalan, Tunuslu), ö yoki ü boʻlsa lü (masalan, Ürdünlü) qoʻshimchasi tanlanadi.
-
-Millat nomidan til nomini yasash uchun ca, ce, ça yoki çe qoʻshimchalari ishlatiladi. Bunda ikki asosiy qoidaga amal qilinadi. Birinchisi unli tovushlar uygʻunligi boʻlsa, ikkinchisi Fıstıkçı Şahap qoidasidir. Agar millat nomi f, s, t, k, ç, s, h, p harflari bilan tugasa, qoʻshimcha ça yoki çe shaklida yoziladi. Masalan, Türkçe, Arapça va Rusça soʻzlari shunday yasalgan. Agar millat nomi boshqa harflar bilan tugasa, ca yoki ce qoʻshimchasi ishlatiladi, masalan, İngilizce, Japonca yoki Bulgarca.
-
-Manbalarda keltirilgan misollarga koʻra, Gori ismli oʻqituvchi Amerikalik boʻlib, ingliz tilida gaplashadi. Alvar ismli shaxs esa Sudanlik doktor boʻlib, uning tili arabchadir. Shuningdek, darslikda Zehra va Elida ismli talabalar haqida maʼlumot berilgan. Zehra Ankaralik, Elida esa Ruminiyalik boʻlib, ularning ikkalasi ham Ankara universitetida tahsil olishadi.
-
-Sizga qulay boʻlishi uchun muloqotda kerak boʻladigan asosiy gaplarni ham keltirib oʻtaman: Hangi dilleri biliyorsun (Qaysi tillarni bilasan), Ben Türkçe biliyorum (Men turkchani bilaman), Hangi dili konuşuyorsun (Qaysi tilda gaplashyapsan), Ben şimdi Türkçe konuşuyorum (Men hozir turkchada gaplashyapman).
+Ushbu mavzuda kishilarning qayerdan ekanligini so'rash va unga javob berishni o'rganamiz. "Nerelisin?" savoliga javob berish uchun mamlakat nomiga unli uyg'unligiga qarab -lı, -li, -lu, -lü qo'shimchalari qo'shiladi. Shuningdek, tillarni hosil qilishda millat nomlariga -ca, -ce yoki -ça, -çe qo'shimchalari qo'shiladi.
 </p>
 </div>
 
+<!-- Testlar -->
 <div class="test-box">
 <h3>Test 1</h3>
-<p>"Misır" so‘ziga qaysi qo‘shimcha?</p>
-<button class="test-btn" onclick="t1('li')">-li</button>
-<button class="test-btn" onclick="t1('lu')">-lu</button>
-<button class="test-btn" onclick="t1('lı')">-lı</button>
-<p id="r1" class="result"></p>
+<p>"Nerelisin?" savoliga qanday to'g'ri javob beriladi?</p>
+<button class="test-btn" onclick="check(1, 'Türkiyeliyim')">Türkiyeliyim</button>
+<button class="test-btn" onclick="check(1, 'Türkçe')">Türkçe</button>
+<button class="test-btn" onclick="check(1, 'Türkiye')">Türkiye</button>
+<p id="res1" class="result"></p>
 </div>
 
 <div class="test-box">
 <h3>Test 2</h3>
-<p>"Bolu" so‘ziga qaysi qo‘shimcha?</p>
-<button class="test-btn" onclick="t2('lu')">-lu</button>
-<button class="test-btn" onclick="t2('lü')">-lü</button>
-<button class="test-btn" onclick="t2('lı')">-lı</button>
-<p id="r2" class="result"></p>
+<p>"Norveç" davlati uchun qaysi qo'shimcha mos keladi?</p>
+<button class="test-btn" onclick="check(2, 'Norveçlı')">Norveçlı</button>
+<button class="test-btn" onclick="check(2, 'Norveçli')">Norveçli</button>
+<button class="test-btn" onclick="check(2, 'Norveçlu')">Norveçlu</button>
+<p id="res2" class="result"></p>
 </div>
 
 <div class="test-box">
 <h3>Test 3</h3>
-<p>"Ürdün" uchun qaysi shakl?</p>
-<button class="test-btn" onclick="t3('lu')">-lu</button>
-<button class="test-btn" onclick="t3('li')">-li</button>
-<button class="test-btn" onclick="t3('lü')">-lü</button>
-<p id="r3" class="result"></p>
+<p>"Mısır" davlati uchun qaysi qo'shimcha mos keladi?</p>
+<button class="test-btn" onclick="check(3, 'Mısırlı')">Mısırlı</button>
+<button class="test-btn" onclick="check(3, 'Mısırlü')">Mısırlü</button>
+<button class="test-btn" onclick="check(3, 'Mısırlu')">Mısırlu</button>
+<p id="res3" class="result"></p>
 </div>
 
 <div class="test-box">
 <h3>Test 4</h3>
-<p>"Norveç" so‘ziga qaysi qo‘shimcha?</p>
-<button class="test-btn" onclick="t4('lı')">-lı</button>
-<button class="test-btn" onclick="t4('li')">-li</button>
-<button class="test-btn" onclick="t4('lu')">-lu</button>
-<p id="r4" class="result"></p>
+<p>"Ürdün" davlati uchun qaysi qo'shimcha mos keladi?</p>
+<button class="test-btn" onclick="check(4, 'Ürdünlü')">Ürdünlü</button>
+<button class="test-btn" onclick="check(4, 'Ürdünli')">Ürdünli</button>
+<button class="test-btn" onclick="check(4, 'Ürdünlı')">Ürdünlı</button>
+<p id="res4" class="result"></p>
 </div>
 
 <div class="test-box">
 <h3>Test 5</h3>
-<p>Til yasovchi qo‘shimchalar?</p>
-<button class="test-btn" onclick="t5('1')">-lı -li -lu -lü</button>
-<button class="test-btn" onclick="t5('2')">-ca -ce -ça -çe</button>
-<button class="test-btn" onclick="t5('3')">-dan -den</button>
-<p id="r5" class="result"></p>
+<p>Tillarni hosil qilishda qaysi qo'shimcha ishlatiladi?</p>
+<button class="test-btn" onclick="check(5, '-lı/-li')">-lı/-li</button>
+<button class="test-btn" onclick="check(5, '-ca/-ce')">-ca/-ce</button>
+<button class="test-btn" onclick="check(5, '-m/-ım')">-m/-ım</button>
+<p id="res5" class="result"></p>
 </div>
 
 <div class="test-box">
 <h3>Test 6</h3>
-<p>"Türk" til qo‘shimchasi?</p>
-<button class="test-btn" onclick="t6('ce')">-ce</button>
-<button class="test-btn" onclick="t6('ca')">-ca</button>
-<button class="test-btn" onclick="t6('çe')">-çe</button>
-<p id="r6" class="result"></p>
+<p>"Rus" millati uchun qaysi til qo'shimchasi to'g'ri?</p>
+<button class="test-btn" onclick="check(6, 'Rusca')">Rusca</button>
+<button class="test-btn" onclick="check(6, 'Rusça')">Rusça</button>
+<button class="test-btn" onclick="check(6, 'Rusçe')">Rusçe</button>
+<p id="res6" class="result"></p>
 </div>
 
 <div class="test-box">
 <h3>Test 7</h3>
-<p>"Arap" til qo‘shimchasi?</p>
-<button class="test-btn" onclick="t7('ça')">-ça</button>
-<button class="test-btn" onclick="t7('ca')">-ca</button>
-<button class="test-btn" onclick="t7('ce')">-ce</button>
-<p id="r7" class="result"></p>
+<p>"İngiliz" millati uchun qaysi til qo'shimchasi to'g'ri?</p>
+<button class="test-btn" onclick="check(7, 'İngilizca')">İngilizca</button>
+<button class="test-btn" onclick="check(7, 'İngilizce')">İngilizce</button>
+<button class="test-btn" onclick="check(7, 'İngilizli')">İngilizli</button>
+<p id="res7" class="result"></p>
 </div>
 
 <div class="test-box">
 <h3>Test 8</h3>
-<p>"Rus" til qo‘shimchasi?</p>
-<button class="test-btn" onclick="t8('ca')">-ca</button>
-<button class="test-btn" onclick="t8('ça')">-ça</button>
-<button class="test-btn" onclick="t8('ce')">-ce</button>
-<p id="r8" class="result"></p>
+<p>Videoga ko'ra, Elida qayerlik?</p>
+<button class="test-btn" onclick="check(8, 'Romanyalı')">Romanyalı</button>
+<button class="test-btn" onclick="check(8, 'Türkiyeli')">Türkiyeli</button>
+<button class="test-btn" onclick="check(8, 'İranlı')">İranlı</button>
+<p id="res8" class="result"></p>
 </div>
 
 <div class="test-box">
 <h3>Test 9</h3>
-<p>"Japon" til qo‘shimchasi?</p>
-<button class="test-btn" onclick="t9('ca')">-ca</button>
-<button class="test-btn" onclick="t9('ça')">-ça</button>
-<button class="test-btn" onclick="t9('ce')">-ce</button>
-<p id="r9" class="result"></p>
+<p>Videoga ko'ra, Olga qayerlik?</p>
+<button class="test-btn" onclick="check(9, 'Kanadalı')">Kanadalı</button>
+<button class="test-btn" onclick="check(9, 'Rusyalı')">Rusyalı</button>
+<button class="test-btn" onclick="check(9, 'Lübnanlı')">Lübnanlı</button>
+<p id="res9" class="result"></p>
 </div>
 
 <div class="test-box">
 <h3>Test 10</h3>
-<p>Hangi dilleri ______?</p>
-<button class="test-btn" onclick="t10('1')">biliyorsun</button>
-<button class="test-btn" onclick="t10('2')">konuşuyorsun</button>
-<button class="test-btn" onclick="t10('3')">öğreniyorsun</button>
-<p id="r10" class="result"></p>
-
-<a href="dars.html" class="back-btn">⬅ Orqaga</a>
+<p>"Hangi dilleri biliyorsun?" savolining ma'nosi nima?</p>
+<button class="test-btn" onclick="check(10, 'Qaysi tillarni bilasan?')">Qaysi tillarni bilasan?</button>
+<button class="test-btn" onclick="check(10, 'Qayerda yashaysan?')">Qayerda yashaysan?</button>
+<button class="test-btn" onclick="check(10, 'Millating nima?')">Millating nima?</button>
+<p id="res10" class="result"></p>
 </div>
+
+<div id="final-score"></div>
+
+<button class="result-btn" onclick="showResults()">Natijani ko'rish</button>
+<a href="dars.html" class="back-btn">Orqaga</a>
 
 <script>
-var ball = 0;
+const answers = {
+  1: 'Türkiyeliyim',
+  2: 'Norveçli',
+  3: 'Mısırlı',
+  4: 'Ürdünlü',
+  5: '-ca/-ce',
+  6: 'Rusça',
+  7: 'İngilizce',
+  8: 'Romanyalı',
+  9: 'Rusyalı',
+  10: 'Qaysi tillarni bilasan?'
+};
 
-function korsat(){
-  document.getElementById("natija").innerHTML = ball + " / 10";
+let userAnswers = {};
+
+function check(qNum, choice) {
+  userAnswers[qNum] = choice;
+  const resDiv = document.getElementById('res' + qNum);
+
+  if(choice === answers[qNum]) {
+    resDiv.innerHTML = "To'g'ri!";
+    resDiv.className = "result true";
+  } else {
+    resDiv.innerHTML = "Xato!";
+    resDiv.className = "result false";
+  }
 }
 
-function ok(id){
-  document.getElementById(id).innerHTML = "✔ To‘g‘ri";
-  document.getElementById(id).className = "result true";
-  ball++;
-  korsat();
-}
+function showResults() {
+  let correct = 0;
+  let incorrect = 0;
 
-function no(id){
-  document.getElementById(id).innerHTML = "✖ Noto‘g‘ri";
-  document.getElementById(id).className = "result false";
-  korsat();
-}
+  for(let i=1; i<=10; i++) {
+    if(userAnswers[i] === answers[i]) {
+      correct++;
+    } else {
+      incorrect++;
+    }
+  }
 
-function t1(x){x=="lı"?ok("r1"):no("r1")}
-function t2(x){x=="lu"?ok("r2"):no("r2")}
-function t3(x){x=="lü"?ok("r3"):no("r3")}
-function t4(x){x=="li"?ok("r4"):no("r4")}
-function t5(x){x=="2"?ok("r5"):no("r5")}
-function t6(x){x=="çe"?ok("r6"):no("r6")}
-function t7(x){x=="ça"?ok("r7"):no("r7")}
-function t8(x){x=="ça"?ok("r8"):no("r8")}
-function t9(x){x=="ca"?ok("r9"):no("r9")}
-function t10(x){x=="1"?ok("r10"):no("r10")}
+  const finalDiv = document.getElementById('final-score');
+  finalDiv.style.display = "block";
+  finalDiv.innerHTML = "To'g'ri: <span class='true'>" + correct + "</span> | Xato: <span class='false'>" + incorrect + "</span>";
+  window.scrollTo(0, document.body.scrollHeight);
+}
 </script>
-<div class="card">
-  <h2>Natija</h2>
-  <p id="natija">0 / 10</p>
-</div>
+
 </body>
 </html>
+
+Ushbu kod "Nerelisin?" mavzusidagi videoga asoslangan bo'lib, unda mamlakat nomlaridan millat yasash va tillarni ifodalash qoidalari aks etgan [1-3]. Testlardagi barcha savollar manbalarda keltirilgan ma'lumotlarga (masalan, Elidaning Ruminiyadan ekanligi yoki Rus tilining "Rusça" deb atalishi) asoslangan [3, 4].
