@@ -1,0 +1,288 @@
+İstediğiniz kriterlere uygun olarak, "Sayılar ve Çoğul Ekleri" konusunu kapsayan, 10 soruluk testi ve konu anlatımını içeren HTML kodunu aşağıda bulabilirsiniz.
+
+Bu ders içeriği, kaynaklarda belirtilen Türkçe sayılar (0-1.000.000), çoğul ekleri (-lar/-ler) ve sıra sayıları (-ıncı/-inci) kurallarına dayanmaktadır [1, 2]. Kaynaklara göre Türkçede sayılardan sonra gelen isimlere çoğul eki getirilmez (örneğin "5 kitap" doğrudur, "5 kitaplar" yanlıştır) [2]. Ayrıca "saat", "kalp" ve "hayal" gibi yabancı kökenli bazı kelimelerin istisna olarak "-ler" eki aldığı belirtilmiştir [3].
+
+Aşağıdaki kodu bir dosya olarak (örneğin `index.html`) kaydedip Termux veya herhangi bir tarayıcıda çalıştırabilirsiniz:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sayılar ve Çoğul Ekleri</title>
+
+<style>
+.test-btn,
+.back-btn{
+  box-sizing: border-box;
+}
+
+body{
+  background: linear-gradient(180deg,#1e1b4b,#020617);
+  color:white;
+  font-family: Arial, sans-serif;
+  padding:20px;
+}
+
+.card, .test-box{
+  background: rgba(30,41,59,0.8);
+  backdrop-filter: blur(10px);
+  padding:20px;
+  border-radius:20px;
+  margin-top:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+.test-box h3{
+  margin-bottom:10px;
+  font-size:22px;
+}
+
+.test-btn{
+  display:block;
+  width:100%;
+  padding:16px;
+  margin:10px 0;
+  border:none;
+  border-radius:14px;
+  font-size:18px;
+  font-weight:bold;
+  color:white;
+  cursor:pointer;
+  background: linear-gradient(45deg,#f97316,#7c3aed);
+  transition:0.3s;
+}
+
+.test-btn:hover{
+  transform:scale(1.03);
+  opacity:0.9;
+}
+
+.test-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.result{
+  margin-top:10px;
+  font-size:18px;
+  font-weight:bold;
+}
+
+.true{
+  color:#22c55e;
+}
+
+.false{
+  color:#ef4444;
+}
+
+#final-score{
+  font-size:24px;
+  text-align:center;
+  margin-top:20px;
+  padding: 20px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 15px;
+  display: none;
+}
+
+.back-btn{
+  display:block;
+  width:100%;
+  margin:10px 0;
+  padding:16px;
+  font-size:18px;
+  border-radius:14px;
+  text-align:center;
+  font-weight:bold;
+  color:white;
+  text-decoration:none;
+  border:none;
+  background:linear-gradient(90deg,#ef4444,#dc2626);
+  box-shadow:0 8px 25px rgba(0,0,0,0.5);
+  transition:0.3s;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Sayılar ve Çoğul Ekleri</h1>
+
+<div class="card">
+<h3>Video dars</h3>
+<iframe
+  width="100%"
+  height="220"
+  src="https://www.youtube.com/embed/Dpj6Y93_vC8"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen>
+</iframe>
+</div>
+
+<div class="card">
+<h3>Mavzu haqida</h3>
+<p>
+Turk tilida sonlar noldan milliongacha ishlatiladi. Masalan: bir, on, yuz, bin, milyon. Sonlardan keyin keladigan otlarga ko'plik qo'shimchasi qo'shilmaydi. Masalan, besh talaba deyish to'g'ri, lekin besh talabalar deyish xatodir. 
+</p>
+<p>
+Ko'plik qo'shimchalari ikki xil: -lar va -ler. Agar so'zning oxirgi unlisi a, i, o, u bo'lsa -lar, agar e, i, ö, ü bo'lsa -ler qo'shimchasi qo'shiladi. Biroq, saat va hayal kabi chet tilidan kirib kelgan ba'zi so'zlar istisno tariqasida -ler qo'shimchasini oladi.
+</p>
+<p>
+Tartib sonlarni yasash uchun -ıncı, -inci, -uncu, -üncü qo'shimchalari ishlatiladi. Masalan: birinci, ikinci, uchinchi va hokazo.
+</p>
+</div>
+
+<div id="quiz-container">
+  <!-- Test 1 -->
+  <div class="test-box" id="q1">
+    <h3>Test 1</h3>
+    <p>16 sonining yozilishini toping:</p>
+    <button class="test-btn" onclick="check(1, false, this)">On bir</button>
+    <button class="test-btn" onclick="check(1, true, this)">On altı</button>
+    <button class="test-btn" onclick="check(1, false, this)">On yedi</button>
+    <p id="r1" class="result"></p>
+  </div>
+
+  <!-- Test 2 -->
+  <div class="test-box" id="q2">
+    <h3>Test 2</h3>
+    <p>"Kitap" so'zining ko'plik shakli qaysi?</p>
+    <button class="test-btn" onclick="check(2, true, this)">Kitaplar</button>
+    <button class="test-btn" onclick="check(2, false, this)">Kitapler</button>
+    <button class="test-btn" onclick="check(2, false, this)">Kitaplar-lar</button>
+    <p id="r2" class="result"></p>
+  </div>
+
+  <!-- Test 3 -->
+  <div class="test-box" id="q3">
+    <h3>Test 3</h3>
+    <p>"İki" (2) soniga qaysi tartib qo'shimchasi qo'shiladi?</p>
+    <button class="test-btn" onclick="check(3, false, this)">-inci</button>
+    <button class="test-btn" onclick="check(3, true, this)">-nci</button>
+    <button class="test-btn" onclick="check(3, false, this)">-üncü</button>
+    <p id="r3" class="result"></p>
+  </div>
+
+  <!-- Test 4 -->
+  <div class="test-box" id="q4">
+    <h3>Test 4</h3>
+    <p>Qaysi birikma to'g'ri yozilgan?</p>
+    <button class="test-btn" onclick="check(4, false, this)">3 çocuklar</button>
+    <button class="test-btn" onclick="check(4, true, this)">3 çocuk</button>
+    <button class="test-btn" onclick="check(4, false, this)">Üç çocuklar</button>
+    <p id="r4" class="result"></p>
+  </div>
+
+  <!-- Test 5 -->
+  <div class="test-box" id="q5">
+    <h3>Test 5</h3>
+    <p>"Çanta" so'ziga qaysi ko'plik qo'shimchasi mos keladi?</p>
+    <button class="test-btn" onclick="check(5, true, this)">-lar</button>
+    <button class="test-btn" onclick="check(5, false, this)">-ler</button>
+    <button class="test-btn" onclick="check(5, false, this)">-nar</button>
+    <p id="r5" class="result"></p>
+  </div>
+
+  <!-- Test 6 -->
+  <div class="test-box" id="q6">
+    <h3>Test 6</h3>
+    <p>80 sonining turkcha nomini toping:</p>
+    <button class="test-btn" onclick="check(6, false, this)">Yetmiş</button>
+    <button class="test-btn" onclick="check(6, true, this)">Seksen</button>
+    <button class="test-btn" onclick="check(6, false, this)">Doksan</button>
+    <p id="r6" class="result"></p>
+  </div>
+
+  <!-- Test 7 -->
+  <div class="test-box" id="q7">
+    <h3>Test 7</h3>
+    <p>Istisno so'zni toping: "Saat..."</p>
+    <button class="test-btn" onclick="check(7, false, this)">Saatlar</button>
+    <button class="test-btn" onclick="check(7, true, this)">Saatler</button>
+    <button class="test-btn" onclick="check(7, false, this)">Saatlar-lar</button>
+    <p id="r7" class="result"></p>
+  </div>
+
+  <!-- Test 8 -->
+  <div class="test-box" id="q8">
+    <h3>Test 8</h3>
+    <p>"On" (10) sonining tartib shakli qaysi?</p>
+    <button class="test-btn" onclick="check(8, true, this)">Onuncu</button>
+    <button class="test-btn" onclick="check(8, false, this)">Oninci</button>
+    <button class="test-btn" onclick="check(8, false, this)">Onuncu-lar</button>
+    <p id="r8" class="result"></p>
+  </div>
+
+  <!-- Test 9 -->
+  <div class="test-box" id="q9">
+    <h3>Test 9</h3>
+    <p>"Kalem" so'zining ko'pligi qaysi?</p>
+    <button class="test-btn" onclick="check(9, false, this)">Kalemlar</button>
+    <button class="test-btn" onclick="check(9, true, this)">Kalemler</button>
+    <button class="test-btn" onclick="check(9, false, this)">Kalem-lar</button>
+    <p id="r9" class="result"></p>
+  </div>
+
+  <!-- Test 10 -->
+  <div class="test-box" id="q10">
+    <h3>Test 10</h3>
+    <p>42 sonining yozilishini toping:</p>
+    <button class="test-btn" onclick="check(10, true, this)">Kırk iki</button>
+    <button class="test-btn" onclick="check(10, false, this)">Elli iki</button>
+    <button class="test-btn" onclick="check(10, false, this)">Otuz iki</button>
+    <p id="r10" class="result"></p>
+  </div>
+</div>
+
+<div id="final-score"></div>
+
+<button class="back-btn" onclick="showResult()">Natijani ko'rish</button>
+<a href="dars.html" class="back-btn" style="background:linear-gradient(90deg,#4ade80,#16a34a)">Orqaga</a>
+
+<script>
+let correct = 0;
+let incorrect = 0;
+let answeredCount = 0;
+const totalQuestions = 10;
+const answeredQuestions = new Set();
+
+function check(qNum, isCorrect, btn) {
+  if (answeredQuestions.has(qNum)) return;
+
+  const resultEl = document.getElementById('r' + qNum);
+  const buttons = document.getElementById('q' + qNum).querySelectorAll('.test-btn');
+  
+  buttons.forEach(b => b.disabled = true);
+  answeredQuestions.add(qNum);
+  answeredCount++;
+
+  if (isCorrect) {
+    correct++;
+    resultEl.innerHTML = "To'g'ri!";
+    resultEl.className = "result true";
+    btn.style.background = "#22c55e";
+  } else {
+    incorrect++;
+    resultEl.innerHTML = "Xato!";
+    resultEl.className = "result false";
+    btn.style.background = "#ef4444";
+  }
+}
+
+function showResult() {
+  const finalEl = document.getElementById('final-score');
+  finalEl.style.display = "block";
+  finalEl.innerHTML = `Natija: ${correct} ta to'g'ri, ${incorrect} ta xato. <br> (${answeredCount} ta savolga javob berildi)`;
+  window.scrollTo(0, document.body.scrollHeight);
+}
+</script>
+
+</body>
+</html>
+```
