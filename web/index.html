@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
+
+<!-- PWA (Ilova ko‘rinishi uchun) -->
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#7c3aed">
+
+<!-- Asosiy sozlamalar -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Turk Tili Mini App</title>
 
+<!-- Zamonaviy font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+/* Barcha elementlarni tekislash */
 *{
   box-sizing:border-box;
   margin:0;
   padding:0;
 }
 
+/* Sahifa umumiy ko‘rinishi */
 body{
   font-family: 'Poppins', Arial, sans-serif;
   background: linear-gradient(180deg,#1e1b4b,#020617);
   color:white;
 }
 
+/* Tashqi konteyner */
 .wrapper{
   padding:20px;
   min-height:100vh;
 }
 
+/* Asosiy karta (oyna) */
 .card{
   width:100%;
   max-width:420px;
@@ -39,12 +49,14 @@ body{
   text-align:center;
 }
 
+/* Sarlavha */
 .title{
   font-size:28px;
-  font-weight:bold;
+  font-weight:700;
   margin-bottom:10px;
 }
 
+/* Tag yozuv */
 .subtitle{
   opacity:0.85;
   margin-bottom:20px;
@@ -52,19 +64,20 @@ body{
   font-size:16px;
 }
 
-/* ASOSIY TUGMALAR */
+/* ===== ASOSIY MENYU TUGMALARI ===== */
 .lesson-btn{
   display:block;
   width:100%;
   padding:16px;
   margin:10px 0;
   border:none;
-  border-radius:14px;
+  border-radius:20px;
   font-size:18px;
-  font-weight:bold;
+  font-weight:600;
   color:white;
   text-decoration:none;
   background: linear-gradient(45deg,#f97316,#7c3aed);
+  box-shadow:0 8px 25px rgba(0,0,0,0.3);
   transition:0.25s;
 }
 
@@ -73,18 +86,19 @@ body{
   opacity:0.95;
 }
 
-/* TELEGRAM TUGMALAR */
+/* ===== TELEGRAM TUGMALARI ===== */
 .tg-btn{
   display:block;
   width:100%;
   padding:15px;
   margin:8px 0;
-  border-radius:14px;
+  border-radius:18px;
   font-size:16px;
-  font-weight:bold;
+  font-weight:600;
   color:white;
   text-decoration:none;
   background: linear-gradient(45deg,#229ED9,#0d8ddb);
+  box-shadow:0 8px 25px rgba(0,0,0,0.25);
   transition:0.25s;
 }
 
@@ -93,6 +107,7 @@ body{
   opacity:0.95;
 }
 
+/* Tavsif matni */
 .about{
   font-size:14px;
   line-height:1.6;
@@ -101,14 +116,15 @@ body{
   margin-top:15px;
 }
 
+/* Pastki yozuv */
 .footer{
   margin-top:15px;
   font-size:13px;
   opacity:0.65;
   color:#94a3b8;
 }
-</style>
 
+</style>
 </head>
 
 <body>
@@ -116,26 +132,29 @@ body{
 <div class="wrapper">
   <div class="card">
 
-    <h1 class="title">🇹🇷 Turk Tilini O‘rganamiz</h1>
-    <div class="subtitle">Mini Darslik & Test Platforma</div>
+    <!-- Sarlavha -->
+    <h1 class="title">Turk Tilini O‘rganamiz</h1>
+    <p class="subtitle">Oson va tez usul</p>
 
+    <!-- ASOSIY BO‘LIMLAR -->
     <a href="dars.html" class="lesson-btn">📚 Darslar</a>
     <a href="test.html" class="lesson-btn">🧠 Testlar</a>
     <a href="atamalar.html" class="lesson-btn">📖 Atamalar</a>
 
-    <!-- TELEGRAM TUGMALAR -->
+    <!-- TELEGRAM LINKLAR -->
     <a href="https://t.me/turkchani_organamiz1" class="tg-btn">💬 Konuşma Grubu</a>
     <a href="https://t.me/turkcha_organamiz2" class="tg-btn">🔔 Asosiy Kanal</a>
 
+    <!-- TAVSIF -->
     <div class="about">
       Ushbu mini ilova orqali siz turk tilining asosiy grammatikasi,
       kundalik so‘zlashuv iboralari va testlar yordamida bilimlaringizni
-      mustahkamlashingiz mumkin.Darslarni to‘liq yakunlasangiz, 3 oy ichida turk tilida
-      B2 darajaga chiqishingiz mumkin. <br>
-
+      mustahkamlashingiz mumkin. Darslarni to‘liq yakunlasangiz,
+      3 oy ichida turk tilida B2 darajaga chiqishingiz mumkin.
     </div>
 
-    <div class="footer">Turk tili Bot © 2026</div>
+    <!-- PASTKI YOZUV -->
+    <div class="footer">Turk Tili Bot © 2026</div>
 
   </div>
 </div>
