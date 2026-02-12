@@ -1,24 +1,28 @@
+Mana, Yunus Emre Enstitüsü tomonidan taqdim etilgan **"Yönelme Hâli"** (Yo‘nalish kelishigi) mavzusidagi YouTube videosi asosida tayyorlangan kod. Ushbu kodda 10 ta test mavjud va barcha talablaringiz bajarilgan.
+
+```html
 <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>7-Mavzu: Belirtme ve Ayrılma Hâli</title>
+<title>3-Mavzu: Yönelme Hâli</title>
 
 <style>
 .test-btn,
 .back-btn,
-.result-btn {
+.result-btn{
   box-sizing: border-box;
 }
 
-body {
+body{
   background: linear-gradient(180deg,#1e1b4b,#020617);
   color:white;
   font-family: Arial, sans-serif;
   padding:20px;
 }
 
-.card, .test-box {
+/* KARTA */
+.test-box, .card{
   background: rgba(30,41,59,0.8);
   backdrop-filter: blur(10px);
   padding:20px;
@@ -27,8 +31,26 @@ body {
   box-shadow:0 10px 30px rgba(0,0,0,0.5);
 }
 
-h1, h3 {
+/* SAVOL */
+.test-box h3{
   margin-bottom:10px;
+  font-size:22px;
+}
+
+/* TUGMA */
+.test-btn{
+  display:block;
+  width:100%;
+  padding:16px;
+  margin:10px 0;
+  border:none;
+  border-radius:14px;
+  font-size:18px;
+  font-weight:bold;
+  color:white;
+  cursor:pointer;
+  background: linear-gradient(45deg,#f97316,#7c3aed);
+  transition:0.3s;
 }
 
 .test-btn:hover{
@@ -95,20 +117,19 @@ h1, h3 {
   transform:scale(1.03);
   opacity:0.9;
 }
-
 </style>
 </head>
 
 <body>
 
-<h1>2-Mavzu: Ismning holatlari</h1>
+<h1>3-Mavzu: Yönelme Hâli (Yo‘nalish kelishigi)</h1>
 
 <div class="card">
 <h3>Video dars</h3>
 <iframe
   width="100%"
   height="220"
-  src="https://www.youtube.com/embed/fukh_GhmqAo"
+  src="https://www.youtube.com/embed/cC3LVTjWkJk"
   title="YouTube video player"
   frameborder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -119,120 +140,118 @@ h1, h3 {
 <div class="card">
 <h3>Mavzu haqida</h3>
 <p>
-Turk tilida Belirtme eki (tushum kelishigi) predmetni aniq ko'rsatish uchun ishlatiladi va -ı, -i, -u, -ü qo'shimchalari orqali yasaladi [1]. Agar so'z unli bilan tugasa, "y" yordamchi harfi qo'shiladi, masalan: tahtayı, Ayşe'yi [1]. P, Ç, T, K bilan tugaydigan so'zlarga bu qo'shimcha qo'shilganda, ular B, C, D, Ğ harflariga o'zgaradi: bebek-bebeği, ağaç-ağacı [2]. Ayrılma eki (chiqish kelishigi) esa -dan, -den, -tan, -ten qo'shimchalari bilan yasalib, "qayerdan?" yoki "kimdan?" degan savollarga javob beradi [3]. "Fıstıkçı Şahap" qoidasiga ko'ra, qattiq undoshlardan keyin -tan yoki -ten qo'shimchalari ishlatiladi [3, 4].
+Turk tilida yo‘nalish kelishigi -a yoki -e qo‘shimchalari orqali yasaladi. Bu qo‘shimchalar qayerga (nereye) va kimga (kime) degan savollarga javob beradi. Agar so‘z unli harf bilan tugasa, -ya yoki -ye qo‘shimchasi qo‘shiladi. Shuningdek, p, ç, t, k harflari bilan tugagan ba’zi so‘zlarda tovush o‘zgarishi sodir bo‘ladi.
 </p>
 </div>
 
 <!-- Testlar -->
-<div id="quiz-container">
-  <div class="test-box">
-    <h3>Test 1</h3>
-    <p>"Tahta" so'ziga Belirtme eki (Accusative) qanday qo'shiladi?</p>
-    <button class="test-btn" onclick="check(1, 'tahtayı', this)">tahtayı</button>
-    <button class="test-btn" onclick="check(1, 'tahtanı', this)">tahtanı</button>
-    <button class="test-btn" onclick="check(1, 'tahtai', this)">tahtai</button>
-    <p id="r1" class="result"></p>
-  </div>
-
-  <div class="test-box">
-    <h3>Test 2</h3>
-    <p>"Bebek" so'ziga Belirtme eki qo'shilganda qaysi shakl to'g'ri?</p>
-    <button class="test-btn" onclick="check(2, 'bebeki', this)">bebeki</button>
-    <button class="test-btn" onclick="check(2, 'bebeği', this)">bebeği</button>
-    <button class="test-btn" onclick="check(2, 'bebehi', this)">bebehi</button>
-    <p id="r2" class="result"></p>
-  </div>
-
-  <div class="test-box">
-    <h3>Test 3</h3>
-    <p>"İstanbul" so'ziga Belirtme eki qo'shing:</p>
-    <button class="test-btn" onclick="check(3, 'İstanbul\'u', this)">İstanbul'u</button>
-    <button class="test-btn" onclick="check(3, 'İstanbul\'i', this)">İstanbul'i</button>
-    <button class="test-btn" onclick="check(3, 'İstanbul\'y', this)">İstanbul'y</button>
-    <p id="r3" class="result"></p>
-  </div>
-
-  <div class="test-box">
-    <h3>Test 4</h3>
-    <p>"Okul" so'zidan keyin chiqish kelishigi (Ayrılma) qanday bo'ladi?</p>
-    <button class="test-btn" onclick="check(4, 'okulten', this)">okulten</button>
-    <button class="test-btn" onclick="check(4, 'okuldan', this)">okuldan</button>
-    <button class="test-btn" onclick="check(4, 'okulda', this)">okulda</button>
-    <p id="r4" class="result"></p>
-  </div>
-
-  <div class="test-box">
-    <h3>Test 5</h3>
-    <p>"Kurs" so'ziga qaysi Chiqish kelishigi qo'shimchasi mos keladi?</p>
-    <button class="test-btn" onclick="check(5, 'kurstan', this)">kurstan</button>
-    <button class="test-btn" onclick="check(5, 'kursdan', this)">kursdan</button>
-    <button class="test-btn" onclick="check(5, 'kursten', this)">kursten</button>
-    <p id="r5" class="result"></p>
-  </div>
-
-  <div class="test-box">
-    <h3>Test 6</h3>
-    <p>"Market" so'ziga Chiqish kelishigi qo'shing:</p>
-    <button class="test-btn" onclick="check(6, 'marketdan', this)">marketdan</button>
-    <button class="test-btn" onclick="check(6, 'marketden', this)">marketden</button>
-    <button class="test-btn" onclick="check(6, 'marketten', this)">marketten</button>
-    <p id="r6" class="result"></p>
-  </div>
-
-  <div class="test-box">
-    <h3>Test 7</h3>
-    <p>"Sen" olmoshining Belirtme shakli qaysi?</p>
-    <button class="test-btn" onclick="check(7, 'seni', this)">seni</button>
-    <button class="test-btn" onclick="check(7, 'senin', this)">senin</button>
-    <button class="test-btn" onclick="check(7, 'sene', this)">sene</button>
-    <p id="r7" class="result"></p>
-  </div>
-
-  <div class="test-box">
-    <h3>Test 8</h3>
-    <p>"Biz" olmoshining Chiqish kelishigi shakli qaysi?</p>
-    <button class="test-btn" onclick="check(8, 'bizdan', this)">bizdan</button>
-    <button class="test-btn" onclick="check(8, 'bizden', this)">bizden</button>
-    <button class="test-btn" onclick="check(8, 'bizten', this)">bizten</button>
-    <p id="r8" class="result"></p>
-  </div>
-
-  <div class="test-box">
-    <h3>Test 9</h3>
-    <p>"Ağaç" so'ziga Belirtme eki qo'shing:</p>
-    <button class="test-btn" onclick="check(9, 'ağaçı', this)">ağaçı</button>
-    <button class="test-btn" onclick="check(9, 'ağacı', this)">ağacı</button>
-    <button class="test-btn" onclick="check(9, 'ağaçyi', this)">ağaçyi</button>
-    <p id="r9" class="result"></p>
-  </div>
-
-  <div class="test-box">
-    <h3>Test 10</h3>
-    <p>"Uçak" so'ziga Chiqish kelishigi qo'shing:</p>
-    <button class="test-btn" onclick="check(10, 'uçaktan', this)">uçaktan</button>
-    <button class="test-btn" onclick="check(10, 'uçakdan', this)">uçakdan</button>
-    <button class="test-btn" onclick="check(10, 'uçakten', this)">uçakten</button>
-    <p id="r10" class="result"></p>
-  </div>
+<div class="test-box">
+<h3>Test 1</h3>
+<p>"Okul" so'ziga yo'nalish kelishigi qanday qo'shiladi?</p>
+<button class="test-btn" onclick="check(1, 'okula')">okula</button>
+<button class="test-btn" onclick="check(1, 'okule')">okule</button>
+<button class="test-btn" onclick="check(1, 'okulyay')">okulya</button>
+<p id="res1" class="result"></p>
 </div>
 
-<button class="result-btn" onclick="showFinalResult()">Natijalarni ko'rish</button>
-<p id="final-score"></p>
+<div class="test-box">
+<h3>Test 2</h3>
+<p>"Kime bakıyorsun?" savoliga "Sen" shaxsi uchun to'g'ri javobni tanlang:</p>
+<button class="test-btn" onclick="check(2, 'seni')">seni</button>
+<button class="test-btn" onclick="check(2, 'sana')">sana</button>
+<button class="test-btn" onclick="check(2, 'sene')">sene</button>
+<p id="res2" class="result"></p>
+</div>
 
+<div class="test-box">
+<h3>Test 3</h3>
+<p>"Kitap" so'ziga yo'nalish qo'shimchasi qo'shilganda qaysi shakl to'g'ri bo'ladi?</p>
+<button class="test-btn" onclick="check(3, 'kitapa')">kitapa</button>
+<button class="test-btn" onclick="check(3, 'kitaba')">kitaba</button>
+<button class="test-btn" onclick="check(3, 'kitabe')">kitabe</button>
+<p id="res3" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 4</h3>
+<p>"Kütüphane" so'zidan keyin qaysi qo'shimcha keladi?</p>
+<button class="test-btn" onclick="check(4, 'kütüphaneye')">kütüphaneye</button>
+<button class="test-btn" onclick="check(4, 'kütüphanea')">kütüphanea</button>
+<button class="test-btn" onclick="check(4, 'kütüphaneya')">kütüphaneya</button>
+<p id="res4" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 5</h3>
+<p>Sema hastaneden çıkıyor, ... gidiyor. (Universitetga)</p>
+<button class="test-btn" onclick="check(5, 'üniversitea')">üniversitea</button>
+<button class="test-btn" onclick="check(5, 'üniversiteye')">üniversiteye</button>
+<button class="test-btn" onclick="check(5, 'üniversitede')">üniversitede</button>
+<p id="res5" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 6</h3>
+<p>"Ben" olmoshi yo'nalish kelishigida qanday bo'ladi?</p>
+<button class="test-btn" onclick="check(6, 'bene')">bene</button>
+<button class="test-btn" onclick="check(6, 'bana')">bana</button>
+<button class="test-btn" onclick="check(6, 'beni')">beni</button>
+<p id="res6" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 7</h3>
+<p>"Ağaç" (Daraxt) so'ziga yo'nalish qo'shimchasi qo'shing:</p>
+<button class="test-btn" onclick="check(7, 'ağaca')">ağaca</button>
+<button class="test-btn" onclick="check(7, 'ağaça')">ağaça</button>
+<button class="test-btn" onclick="check(7, 'ağace')">ağace</button>
+<p id="res7" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 8</h3>
+<p>Hasan marketten çıkıyor, ... gidiyor. (Uyga)</p>
+<button class="test-btn" onclick="check(8, 'eva')">eva</button>
+<button class="test-btn" onclick="check(8, 'eve')">eve</button>
+<button class="test-btn" onclick="check(8, 'evya')">evya</button>
+<p id="res8" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 9</h3>
+<p>Videoga ko'ra, "Kedi nereye tırmanıyor?"</p>
+<button class="test-btn" onclick="check(9, 'ağaca')">ağaca</button>
+<button class="test-btn" onclick="check(9, 'masa')">masaya</button>
+<button class="test-btn" onclick="check(9, 'eve')">eve</button>
+<p id="res9" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 10</h3>
+<p>"Piknik" so'ziga yo'nalish kelishigi qo'shilganda qanday yoziladi?</p>
+<button class="test-btn" onclick="check(10, 'piknike')">piknike</button>
+<button class="test-btn" onclick="check(10, 'pikniğe')">pikniğe</button>
+<button class="test-btn" onclick="check(10, 'piknika')">piknika</button>
+<p id="res10" class="result"></p>
+</div>
+
+<div id="final-score"></div>
+
+<button class="result-btn" onclick="showResults()">Natijani ko'rish</button>
 <a href="dars.html" class="back-btn">Orqaga</a>
 
 <script>
 const answers = {
-  1: 'tahtayı',
-  2: 'bebeği',
-  3: "İstanbul'u",
-  4: 'okuldan',
-  5: 'kurstan',
-  6: 'marketten',
-  7: 'seni',
-  8: 'bizden',
-  9: 'ağacı',
-  10: 'uçaktan'
+  1: 'okula',
+  2: 'sana',
+  3: 'kitaba',
+  4: 'kütüphaneye',
+  5: 'üniversiteye',
+  6: 'bana',
+  7: 'ağaca',
+  8: 'eve',
+  9: 'ağaca',
+  10: 'pikniğe'
 };
 
 let userAnswers = {};
@@ -271,3 +290,4 @@ function showResults() {
 
 </body>
 </html>
+```
