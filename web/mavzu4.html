@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Turk Tili Testi - Evim ve Renkler</title>
+<style>
+  body { font-family: sans-serif; padding: 20px; background-color: #f4f4f4; }
+  .test-box { background: white; padding: 15px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+  h3 { margin-top: 0; color: #333; }
+  .test-btn { display: block; width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; background: #fff; cursor: pointer; border-radius: 5px; text-align: left; }
+  .test-btn:hover { background: #f0f0f0; }
+  .result { font-weight: bold; margin-top: 10px; display: none; }
+  .true { color: green; display: block; }
+  .false { color: red; display: block; }
+  .result-btn { background-color: blue; color: white; padding: 12px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; margin-top: 10px; }
+  .back-btn { background-color: red; color: white; padding: 12px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; text-decoration: none; display: inline-block; margin-top: 10px; }
+  #final-result { margin-top: 20px; font-weight: bold; font-size: 18px; display: none; padding: 15px; background: #e0e0e0; border-radius: 5px; }
+</style>
+</head>
+<body>
+
+<div class="test-box" id="q1">
+<h3>Test 1</h3>
+<p>"Mutfak" so'zining o'zbekcha ma'nosi nima?</p>
+<button class="test-btn" onclick="check(1, 'A', 'B')">A) Mehmonxona</button>
+<button class="test-btn" onclick="check(1, 'B', 'B')">B) Oshxona</button>
+<button class="test-btn" onclick="check(1, 'C', 'B')">C) Yotoqxona</button>
+<p id="r1" class="result"></p>
+</div>
+
+<div class="test-box" id="q2">
+<h3>Test 2</h3>
+<p>Videoga ko'ra "Tencere" (qozon) odatda qayerda bo'ladi?</p>
+<button class="test-btn" onclick="check(2, 'A', 'A')">A) Mutfakta</button>
+<button class="test-btn" onclick="check(2, 'B', 'A')">B) Banyoda</button>
+<button class="test-btn" onclick="check(2, 'C', 'A')">C) Salonda</button>
+<p id="r2" class="result"></p>
+</div>
+
+<div class="test-box" id="q3">
+<h3>Test 3</h3>
+<p>Banyoda qaysi buyum bo'ladi?</p>
+<button class="test-btn" onclick="check(3, 'A', 'C')">A) Televizyon</button>
+<button class="test-btn" onclick="check(3, 'B', 'C')">B) Ocak</button>
+<button class="test-btn" onclick="check(3, 'C', 'C')">C) Havlu</button>
+<p id="r3" class="result"></p>
+</div>
+
+<div class="test-box" id="q4">
+<h3>Test 4</h3>
+<p>"Sarı" rangi qaysi variantda to'g'ri berilgan?</p>
+<button class="test-btn" onclick="check(4, 'A', 'A')">A) Sariq</button>
+<button class="test-btn" onclick="check(4, 'B', 'A')">B) Qizil</button>
+<button class="test-btn" onclick="check(4, 'C', 'A')">C) Yashil</button>
+<p id="r4" class="result"></p>
+</div>
+
+<div class="test-box" id="q5">
+<h3>Test 5</h3>
+<p>Videodagi Ömerning xonasida ("benim odamda") nimalar bor?</p>
+<button class="test-btn" onclick="check(5, 'A', 'B')">A) Buzdolabı va fırın</button>
+<button class="test-btn" onclick="check(5, 'B', 'B')">B) Yatak va bilgisayar</button>
+<button class="test-btn" onclick="check(5, 'C', 'B')">C) Küvet va ayna</button>
+<p id="r5" class="result"></p>
+</div>
+
+<div class="test-box" id="q6">
+<h3>Test 6</h3>
+<p>"Lacivert" qaysi rangni anglatadi?</p>
+<button class="test-btn" onclick="check(6, 'A', 'C')">A) Och ko'k</button>
+<button class="test-btn" onclick="check(6, 'B', 'C')">B) Binafsha</button>
+<button class="test-btn" onclick="check(6, 'C', 'C')">C) To'q ko'k</button>
+<p id="r6" class="result"></p>
+</div>
+
+<div class="test-box" id="q7">
+<h3>Test 7</h3>
+<p>"Mavi perde" (ko'k parda) qaysi xonada joylashgan?</p>
+<button class="test-btn" onclick="check(7, 'A', 'A')">A) Oturma odasında</button>
+<button class="test-btn" onclick="check(7, 'B', 'A')">B) Mutfakta</button>
+<button class="test-btn" onclick="check(7, 'C', 'A')">C) Banyoda</button>
+<p id="r7" class="result"></p>
+</div>
+
+<div class="test-box" id="q8">
+<h3>Test 8</h3>
+<p>"Kahverengi" so'zi qaysi rangni bildiradi?</p>
+<button class="test-btn" onclick="check(8, 'A', 'B')">A) Qora</button>
+<button class="test-btn" onclick="check(8, 'B', 'B')">B) Jigarrang</button>
+<button class="test-btn" onclick="check(8, 'C', 'B')">C) Pushti</button>
+<p id="r8" class="result"></p>
+</div>
+
+<div class="test-box" id="q9">
+<h3>Test 9</h3>
+<p>"Sandalye" (stul) videoda qayerda turibdi?</p>
+<button class="test-btn" onclick="check(9, 'A', 'C')">A) Gardıropta</button>
+<button class="test-btn" onclick="check(9, 'B', 'C')">B) Ocakta</button>
+<button class="test-btn" onclick="check(9, 'C', 'C')">C) Balkonda</button>
+<p id="r9" class="result"></p>
+</div>
+
+<div class="test-box" id="q10">
+<h3>Test 10</h3>
+<p>"Pembe" qaysi rang?</p>
+<button class="test-btn" onclick="check(10, 'A', 'A')">A) Pushti</button>
+<button class="test-btn" onclick="check(10, 'B', 'A')">B) Kulrang</button>
+<button class="test-btn" onclick="check(10, 'C', 'A')">C) To'q qizil</button>
+<p id="r10" class="result"></p>
+</div>
+
+<button class="result-btn" onclick="showFinal()">Natijalarni ko'rish</button>
+<a href="dars.html" class="back-btn">Orqaga</a>
+
+<p id="final-result"></p>
+
+<script>
+let score = 0;
+let answers = {};
+
+function check(qNum, choice, correct) {
+  if (answers[qNum]) return;
+
+  answers[qNum] = choice;
+  const resultDisplay = document.getElementById('r' + qNum);
+  const buttons = document.querySelectorAll('#q' + qNum + ' .test-btn');
+
+  if (choice === correct) {
+    score++;
+    resultDisplay.innerHTML = "To'g'ri!";
+    resultDisplay.className = "result true";
+  } else {
+    resultDisplay.innerHTML = "Xato!";
+    resultDisplay.className = "result false";
+  }
+
+  buttons.forEach(btn => btn.disabled = true);
+}
+
+function showFinal() {
+  const finalDisplay = document.getElementById('final-result');
+  const total = 10;
+  const wrong = total - score;
+  finalDisplay.style.display = "block";
+  finalDisplay.innerHTML = "To'g'ri: " + score + " | Xato: " + wrong;
+  window.scrollTo(0, document.body.scrollHeight);
+}
+</script>
+
+</body>
+</html>
