@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>52-Mavzu: Şart Kipi (-sa/-se)</title>
+
+<style>
+.test-btn,
+.back-btn,
+.result-btn{
+  box-sizing: border-box;
+}
+
+body{
+  background: linear-gradient(180deg,#1e1b4b,#020617);
+  color:white;
+  font-family: Arial, sans-serif;
+  padding:20px;
+}
+
+/* KARTA */
+.test-box, .card{
+  background: rgba(30,41,59,0.8);
+  backdrop-filter: blur(10px);
+  padding:20px;
+  border-radius:20px;
+  margin-top:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* SAVOL */
+.test-box h3{
+  margin-bottom:10px;
+  font-size:22px;
+}
+
+/* TUGMA */
+.test-btn{
+  display:block;
+  width:100%;
+  padding:16px;
+  margin:10px 0;
+  border:none;
+  border-radius:14px;
+  font-size:18px;
+  font-weight:bold;
+  color:white;
+  cursor:pointer;
+  background: linear-gradient(45deg,#f97316,#7c3aed);
+  transition:0.3s;
+}
+
+.test-btn:hover{
+  transform:scale(1.03);
+  opacity:0.9;
+}
+
+/* NATIJA */
+.result{
+  margin-top:10px;
+  font-size:18px;
+  font-weight:bold;
+}
+
+.true{
+  color:#22c55e;
+}
+
+.false{
+  color:#ef4444;
+}
+
+/* UMUMIY NATIJA */
+#final-score{
+  font-size:24px;
+  text-align:center;
+  margin-top:20px;
+  display:none;
+}
+
+.result-btn{
+  display:block;
+  width:100%;
+  margin:20px 0;
+  padding:16px;
+  font-size:18px;
+  border-radius:14px;
+  text-align:center;
+  font-weight:bold;
+  color:white;
+  border:none;
+  background: linear-gradient(90deg,#2563eb,#1d4ed8);
+  cursor:pointer;
+}
+
+.back-btn{
+  display:block;
+  width:100%;
+  margin:10px 0;
+  padding:16px;
+  font-size:18px;
+  border-radius:14px;
+  text-align:center;
+  font-weight:bold;
+  color:white;
+  text-decoration:none;
+  border:none;
+  background:linear-gradient(90deg,#ef4444,#dc2626);
+  box-shadow:0 8px 25px rgba(0,0,0,0.5);
+  transition:0.3s;
+}
+
+.back-btn:hover{
+  transform:scale(1.03);
+  opacity:0.9;
+}
+</style>
+</head>
+
+<body>
+
+<h1>52-Mavzu: Şart Kipi (-sa/-se)</h1>
+
+<div class="card">
+<h3>Video dars</h3>
+<iframe
+  width="100%"
+  height="220"
+  src="https://www.youtube.com/embed/CFbpgtvXWxE"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen>
+</iframe>
+</div>
+
+<div class="card">
+<h3>Mavzu haqida</h3>
+<p>
+Turk tilida shart mayli ish-harakat yoki holatning bajarilishi uchun ma'lum bir shart borligini bildiradi. Ismlarga va sifatlarga -sa yoki -se qo'shimchalari shaxs qo'shimchalari bilan birga qo'shiladi. Inkor shakli emas so'zi o'rniga değil yordamida hosil qilinadi.
+</p>
+</div>
+
+<!-- Testlar -->
+<div class="test-box">
+<h3>Test 1</h3>
+<p>"O yorgun" (U charchagan) jumlasiga shart qo'shimchasi qanday qo'shiladi?</p>
+<button class="test-btn" onclick="check(1, 'yorgunsa')">yorgunsa</button>
+<button class="test-btn" onclick="check(1, 'yorgunse')">yorgunse</button>
+<button class="test-btn" onclick="check(1, 'yorgunsan')">yorgunsan</button>
+<p id="res1" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 2</h3>
+<p>"Hava soğuk değil" (Havo sovuq emas) jumlasining shart shakli qaysi?</p>
+<button class="test-btn" onclick="check(2, 'soğuk değilse')">soğuk değilse</button>
+<button class="test-btn" onclick="check(2, 'soğuksa değil')">soğuksa değil</button>
+<button class="test-btn" onclick="check(2, 'soğuk değilsa')">soğuk değilsa</button>
+<p id="res2" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 3</h3>
+<p>"Ben hastayım" (Men kasalman) shaxsi uchun to'g'ri shart shaklini tanlang:</p>
+<button class="test-btn" onclick="check(3, 'hastaysam')">hastaysam</button>
+<button class="test-btn" onclick="check(3, 'hastaysan')">hastaysan</button>
+<button class="test-btn" onclick="check(3, 'hastaysa')">hastaysa</button>
+<p id="res3" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 4</h3>
+<p>"Para var" (Pul bor) bo'lsa, "Agar puling bo'lsa" qanday aytiladi?</p>
+<button class="test-btn" onclick="check(4, 'paran varse')">paran varse</button>
+<button class="test-btn" onclick="check(4, 'paran varsa')">paran varsa</button>
+<button class="test-btn" onclick="check(4, 'paran varken')">paran varken</button>
+<p id="res4" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 5</h3>
+<p>"Siz hazırsınız" (Siz tayyorsiz) shart shakli qanday bo'ladi?</p>
+<button class="test-btn" onclick="check(5, 'hazırsasa')">hazırsasa</button>
+<button class="test-btn" onclick="check(5, 'hazırsanız')">hazırsanız</button>
+<button class="test-btn" onclick="check(5, 'hazırsalar')">hazırsalar</button>
+<p id="res5" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 6</h3>
+<p>"Ekmek yok" bo'lsa, "Agar non bo'lmasa" qaysi biri to'g'ri?</p>
+<button class="test-btn" onclick="check(6, 'ekmek yoksa')">ekmek yoksa</button>
+<button class="test-btn" onclick="check(6, 'ekmek yokse')">ekmek yokse</button>
+<button class="test-btn" onclick="check(6, 'ekmek değilse')">ekmek değilse</button>
+<p id="res6" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 7</h3>
+<p>"Sen meşgul değilsin" (Sen band emassan) shart shakli qaysi?</p>
+<button class="test-btn" onclick="check(7, 'meşgul değilsen')">meşgul değilsen</button>
+<button class="test-btn" onclick="check(7, 'meşgul değilsa')">meşgul değilsa</button>
+<button class="test-btn" onclick="check(7, 'meşgulsan')">meşgulsan</button>
+<p id="res7" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 8</h3>
+<p>"Mutlu" so'ziga "O" shaxsi uchun shart qo'shimchasi qanday qo'shiladi?</p>
+<button class="test-btn" onclick="check(8, 'mutlusa')">mutlusa</button>
+<button class="test-btn" onclick="check(8, 'mutluyse')">mutluyse</button>
+<button class="test-btn" onclick="check(8, 'mutluyysa')">mutluyysa</button>
+<p id="res8" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 9</h3>
+<p>"Biz arkadaşız" (Biz do'stmiz) shart shaklida qanday yoziladi?</p>
+<button class="test-btn" onclick="check(9, 'arkadaşsak')">arkadaşsak</button>
+<button class="test-btn" onclick="check(9, 'arkadaşsek')">arkadaşsek</button>
+<button class="test-btn" onclick="check(9, 'arkadaşsakız')">arkadaşsakız</button>
+<p id="res9" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 10</h3>
+<p>"Onlar öğrenci" (Ular talaba) shart shakli qaysi?</p>
+<button class="test-btn" onclick="check(10, 'öğrenciyseler')">öğrenciyseler</button>
+<button class="test-btn" onclick="check(10, 'öğrenciysalar')">öğrenciysalar</button>
+<button class="test-btn" onclick="check(10, 'öğrencisalar')">öğrencisalar</button>
+<p id="res10" class="result"></p>
+</div>
+
+<div id="final-score"></div>
+
+<button class="result-btn" onclick="showResults()">Natijani ko'rish</button>
+<a href="dars.html" class="back-btn">Orqaga</a>
+
+<script>
+const answers = {
+  1: 'yorgunsa',
+  2: 'soğuk değilse',
+  3: 'hastaysam',
+  4: 'paran varsa',
+  5: 'hazırsanız',
+  6: 'ekmek yoksa',
+  7: 'meşgul değilsen',
+  8: 'mutluyysa',
+  9: 'arkadaşsak',
+  10: 'öğrenciyseler'
+};
+
+let userAnswers = {};
+
+function check(qNum, choice) {
+  userAnswers[qNum] = choice;
+  const resDiv = document.getElementById('res' + qNum);
+
+  if(choice === answers[qNum]) {
+    resDiv.innerHTML = "To'g'ri!";
+    resDiv.className = "result true";
+  } else {
+    resDiv.innerHTML = "Xato!";
+    resDiv.className = "result false";
+  }
+}
+
+function showResults() {
+  let correct = 0;
+  let incorrect = 0;
+
+  for(let i=1; i<=10; i++) {
+    if(userAnswers[i] === answers[i]) {
+      correct++;
+    } else {
+      incorrect++;
+    }
+  }
+
+  const finalDiv = document.getElementById('final-score');
+  finalDiv.style.display = "block";
+  finalDiv.innerHTML = "To'g'ri: <span class='true'>" + correct + "</span> | Xato: <span class='false'>" + incorrect + "</span>";
+  window.scrollTo(0, document.body.scrollHeight);
+}
+</script>
+
+</body>
+</html>
