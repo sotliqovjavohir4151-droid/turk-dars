@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>47-Mavzu: Empati</title>
+
+<style>
+.test-btn,
+.back-btn,
+.result-btn{
+  box-sizing: border-box;
+}
+
+body{
+  background: linear-gradient(180deg,#1e1b4b,#020617);
+  color:white;
+  font-family: Arial, sans-serif;
+  padding:20px;
+}
+
+/* KARTA */
+.test-box, .card{
+  background: rgba(30,41,59,0.8);
+  backdrop-filter: blur(10px);
+  padding:20px;
+  border-radius:20px;
+  margin-top:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* SAVOL */
+.test-box h3{
+  margin-bottom:10px;
+  font-size:22px;
+}
+
+/* TUGMA */
+.test-btn{
+  display:block;
+  width:100%;
+  padding:16px;
+  margin:10px 0;
+  border:none;
+  border-radius:14px;
+  font-size:18px;
+  font-weight:bold;
+  color:white;
+  cursor:pointer;
+  background: linear-gradient(45deg,#f97316,#7c3aed);
+  transition:0.3s;
+}
+
+.test-btn:hover{
+  transform:scale(1.03);
+  opacity:0.9;
+}
+
+/* NATIJA */
+.result{
+  margin-top:10px;
+  font-size:18px;
+  font-weight:bold;
+}
+
+.true{
+  color:#22c55e;
+}
+
+.false{
+  color:#ef4444;
+}
+
+/* UMUMIY NATIJA */
+#final-score{
+  font-size:24px;
+  text-align:center;
+  margin-top:20px;
+  display:none;
+}
+
+.result-btn{
+  display:block;
+  width:100%;
+  margin:20px 0;
+  padding:16px;
+  font-size:18px;
+  border-radius:14px;
+  text-align:center;
+  font-weight:bold;
+  color:white;
+  border:none;
+  background: linear-gradient(90deg,#2563eb,#1d4ed8);
+  cursor:pointer;
+}
+
+.back-btn{
+  display:block;
+  width:100%;
+  margin:10px 0;
+  padding:16px;
+  font-size:18px;
+  border-radius:14px;
+  text-align:center;
+  font-weight:bold;
+  color:white;
+  text-decoration:none;
+  border:none;
+  background:linear-gradient(90deg,#ef4444,#dc2626);
+  box-shadow:0 8px 25px rgba(0,0,0,0.5);
+  transition:0.3s;
+}
+
+.back-btn:hover{
+  transform:scale(1.03);
+  opacity:0.9;
+}
+</style>
+</head>
+
+<body>
+
+<h1>47-Mavzu: Empati</h1>
+
+<div class="card">
+<h3>Video dars</h3>
+<iframe
+  width="100%"
+  height="220"
+  src="https://www.youtube.com/embed/ZS7uaqvwURQ"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen>
+</iframe>
+</div>
+
+<div class="card">
+<h3>Mavzu haqida</h3>
+<p>
+Empati o'zini boshqasining o'rniga qo'yishdir. Bu qarshimizdagi insonlarning tuyg'u va fikrlarini tushunishga harakat qilishni anglatadi. Empati o'rnatish uchun insonni nafaqat tushunish, balki uni tushunganimizni unga bildirishimiz ham kerak. Bu muloqotni osonlashtiradi va odamlarni bir-biriga yaqinlashtiradi.
+</p>
+</div>
+
+<!-- Testlar -->
+<div class="test-box">
+<h3>Test 1</h3>
+<p>Empati ne demektir?</p>
+<button class="test-btn" onclick="check(1, 'Kendini başkasının yerine koymak')">Kendini başkasının yerine koymak</button>
+<button class="test-btn" onclick="check(1, 'Sadece ağlamak')">Sadece ağlamak</button>
+<button class="test-btn" onclick="check(1, 'Kendi fikrini savunmak')">Kendi fikrini savunmak</button>
+<p id="res1" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 2</h3>
+<p>Empati kurarken karşımızdaki insana neyi ifade etmeliyiz?</p>
+<button class="test-btn" onclick="check(2, 'Onu dinlemediğimizi')">Onu dinlemediğimizi</button>
+<button class="test-btn" onclick="check(2, 'Onu anladığımızı')">Onu anladığımızı</button>
+<button class="test-btn" onclick="check(2, 'Hatalı olduğunu')">Hatalı olduğunu</button>
+<p id="res2" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 3</h3>
+<p>Sadece sessiz kalmak empati midir?</p>
+<button class="test-btn" onclick="check(3, 'Evet, sessizlik yeterlidir')">Evet, sessizlik yeterlidir</button>
+<button class="test-btn" onclick="check(3, 'Hayır, dile getirmek gerekir')">Hayır, dile getirmek gerekir</button>
+<button class="test-btn" onclick="check(3, 'Sessizlik empatiyi bozar')">Sessizlik empatiyi bozar</button>
+<p id="res3" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 4</h3>
+<p>Empatide "altın kural" nedir?</p>
+<button class="test-btn" onclick="check(4, 'Her zaman haklı olmak')">Her zaman haklı olmak</button>
+<button class="test-btn" onclick="check(4, 'Kendine yapılmasını istemediğini başkasına yapmamak')">Kendine yapılmasını istemediğini başkasına yapmamak</button>
+<button class="test-btn" onclick="check(4, 'Başkalarını eleştirmek')">Başkalarını eleştirmek</button>
+<p id="res4" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 5</h3>
+<p>Empati kurmanın faydası nedir?</p>
+<button class="test-btn" onclick="check(5, 'İletişimi zorlaştırır')">İletişimi zorlaştırır</button>
+<button class="test-btn" onclick="check(5, 'İletişimi kolaylaştırır')">İletişimi kolaylaştırır</button>
+<button class="test-btn" onclick="check(5, 'Yalnız kalmayı sağlar')">Yalnız kalmayı sağlar</button>
+<p id="res5" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 6</h3>
+<p>Empati kurabilen kişiler çevreleri tarafından nasıl karşılanır?</p>
+<button class="test-btn" onclick="check(6, 'Sevilmezler')">Sevilmezler</button>
+<button class="test-btn" onclick="check(6, 'Çok sevilirler')">Çok sevilirler</button>
+<button class="test-btn" onclick="check(6, 'Uzak durulurlar')">Uzak durulurlar</button>
+<p id="res6" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 7</h3>
+<p>Türkiye'nin ünlü görme engelli halk şairi kimdir?</p>
+<button class="test-btn" onclick="check(7, 'Aşık Veysel')">Aşık Veysel</button>
+<button class="test-btn" onclick="check(7, 'Eşref Armağan')">Eşref Armağan</button>
+<button class="test-btn" onclick="check(7, 'Nazmiye Muslu')">Nazmiye Muslu</button>
+<p id="res7" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 8</h3>
+<p>"Ampute" kelimesinin anlamı nedir?</p>
+<button class="test-btn" onclick="check(8, 'Çok hızlı koşan')">Çok hızlı koşan</button>
+<button class="test-btn" onclick="check(8, 'Bir kolu veya bacağı eksik olan')">Bir kolu veya bacağı eksik olan</button>
+<button class="test-btn" onclick="check(8, 'Gözleri görmeyen')">Gözleri görmeyen</button>
+<p id="res8" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 9</h3>
+<p>Ünlü ressam Eşref Armağan'ın özelliği nedir?</p>
+<button class="test-btn" onclick="check(9, 'İşitme engellidir')">İşitme engellidir</button>
+<button class="test-btn" onclick="check(9, 'Görme engellidir')">Görme engellidir</button>
+<button class="test-btn" onclick="check(9, 'Bedensel engellidir')">Bedensel engellidir</button>
+<p id="res9" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 10</h3>
+<p>Hangi durumda empati kurmaya daha çok ihtiyacımız olur?</p>
+<button class="test-btn" onclick="check(10, 'Yalnızken')">Yalnızken</button>
+<button class="test-btn" onclick="check(10, 'Zor zamanlarda ve salgın dönemlerinde')">Zor zamanlarda va salgın dönemlerinde</button>
+<button class="test-btn" onclick="check(10, 'Uykudayken')">Uykudayken</button>
+<p id="res10" class="result"></p>
+</div>
+
+<div id="final-score"></div>
+
+<button class="result-btn" onclick="showResults()">Natijani ko'rish</button>
+<a href="dars.html" class="back-btn">Orqaga</a>
+
+<script>
+const answers = {
+  1: 'Kendini başkasının yerine koymak',
+  2: 'Onu anladığımızı',
+  3: 'Hayır, dile getirmek gerekir',
+  4: 'Kendine yapılmasını istemediğini başkasına yapmamak',
+  5: 'İletişimi kolaylaştırır',
+  6: 'Çok sevilirler',
+  7: 'Aşık Veysel',
+  8: 'Bir kolu veya bacağı eksik olan',
+  9: 'Görme engellidir',
+  10: 'Zor zamanlarda va salgın dönemlerinde'
+};
+
+let userAnswers = {};
+
+function check(qNum, choice) {
+  userAnswers[qNum] = choice;
+  const resDiv = document.getElementById('res' + qNum);
+
+  if(choice === answers[qNum]) {
+    resDiv.innerHTML = "To'g'ri!";
+    resDiv.className = "result true";
+  } else {
+    resDiv.innerHTML = "Xato!";
+    resDiv.className = "result false";
+  }
+}
+
+function showResults() {
+  let correct = 0;
+  let incorrect = 0;
+
+  for(let i=1; i<=10; i++) {
+    if(userAnswers[i] === answers[i]) {
+      correct++;
+    } else {
+      incorrect++;
+    }
+  }
+
+  const finalDiv = document.getElementById('final-score');
+  finalDiv.style.display = "block";
+  finalDiv.innerHTML = "To'g'ri: <span class='true'>" + correct + "</span> | Xato: <span class='false'>" + incorrect + "</span>";
+  window.scrollTo(0, document.body.scrollHeight);
+}
+</script>
+
+</body>
+</html>

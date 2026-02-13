@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>46-Mavzu: Sıfat Fiil -(y)an / -(y)en</title>
+
+<style>
+.test-btn,
+.back-btn,
+.result-btn{
+  box-sizing: border-box;
+}
+
+body{
+  background: linear-gradient(180deg,#1e1b4b,#020617);
+  color:white;
+  font-family: Arial, sans-serif;
+  padding:20px;
+}
+
+/* KARTA */
+.test-box, .card{
+  background: rgba(30,41,59,0.8);
+  backdrop-filter: blur(10px);
+  padding:20px;
+  border-radius:20px;
+  margin-top:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* SAVOL */
+.test-box h3{
+  margin-bottom:10px;
+  font-size:22px;
+}
+
+/* TUGMA */
+.test-btn{
+  display:block;
+  width:100%;
+  padding:16px;
+  margin:10px 0;
+  border:none;
+  border-radius:14px;
+  font-size:18px;
+  font-weight:bold;
+  color:white;
+  cursor:pointer;
+  background: linear-gradient(45deg,#f97316,#7c3aed);
+  transition:0.3s;
+}
+
+.test-btn:hover{
+  transform:scale(1.03);
+  opacity:0.9;
+}
+
+/* NATIJA */
+.result{
+  margin-top:10px;
+  font-size:18px;
+  font-weight:bold;
+}
+
+.true{
+  color:#22c55e;
+}
+
+.false{
+  color:#ef4444;
+}
+
+/* UMUMIY NATIJA */
+#final-score{
+  font-size:24px;
+  text-align:center;
+  margin-top:20px;
+  display:none;
+}
+
+.result-btn{
+  display:block;
+  width:100%;
+  margin:20px 0;
+  padding:16px;
+  font-size:18px;
+  border-radius:14px;
+  text-align:center;
+  font-weight:bold;
+  color:white;
+  border:none;
+  background: linear-gradient(90deg,#2563eb,#1d4ed8);
+  cursor:pointer;
+}
+
+.back-btn{
+  display:block;
+  width:100%;
+  margin:10px 0;
+  padding:16px;
+  font-size:18px;
+  border-radius:14px;
+  text-align:center;
+  font-weight:bold;
+  color:white;
+  text-decoration:none;
+  border:none;
+  background:linear-gradient(90deg,#ef4444,#dc2626);
+  box-shadow:0 8px 25px rgba(0,0,0,0.5);
+  transition:0.3s;
+}
+
+.back-btn:hover{
+  transform:scale(1.03);
+  opacity:0.9;
+}
+</style>
+</head>
+
+<body>
+
+<h1>46-Mavzu: Sıfat Fiil -(y)an / -(y)en</h1>
+
+<div class="card">
+<h3>Video dars</h3>
+<iframe
+  width="100%"
+  height="220"
+  src="https://www.youtube.com/embed/ShOxJYpLWho"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen>
+</iframe>
+</div>
+
+<div class="card">
+<h3>Mavzu haqida</h3>
+<p>
+Turk tilida -an va -en qo'shimchalari fe'llarga qo'shilib ularni sifatga aylantiradi. Agar fe'lning oxirgi unlisi a, ı, o, u bo'lsa -an, agar e, i, ö, ü bo'lsa -en qo'shimchasi qo'shiladi. Agar fe'l unli bilan tugasa, -yan yoki -yen shaklida ishlatiladi. Bu qo'shimcha harakatni bajarayotgan shaxsni sifatlab keladi.
+</p>
+</div>
+
+<!-- Testlar -->
+<div class="test-box">
+<h3>Test 1</h3>
+<p>"Bakmak" fe'liga to'g'ri qo'shimchani qo'shing:</p>
+<button class="test-btn" onclick="check(1, 'bakan')">bakan</button>
+<button class="test-btn" onclick="check(1, 'baken')">baken</button>
+<button class="test-btn" onclick="check(1, 'bakyan')">bakyan</button>
+<p id="res1" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 2</h3>
+<p>"Gelmek" fe'li qanday sifat fiilga aylanadi?</p>
+<button class="test-btn" onclick="check(2, 'gelan')">gelan</button>
+<button class="test-btn" onclick="check(2, 'gelen')">gelen</button>
+<button class="test-btn" onclick="check(2, 'gelyan')">gelyan</button>
+<p id="res2" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 3</h3>
+<p>"Okumak" fe'li unli bilan tugasa qanday qo'shiladi?</p>
+<button class="test-btn" onclick="check(3, 'okuan')">okuan</button>
+<button class="test-btn" onclick="check(3, 'okuyan')">okuyan</button>
+<button class="test-btn" onclick="check(3, 'okuen')">okuen</button>
+<p id="res3" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 4</h3>
+<p>"Gülmek" fe'lining bo'lishsiz (inkor) sifat fiil shakli qaysi?</p>
+<button class="test-btn" onclick="check(4, 'gülmeyen')">gülmeyen</button>
+<button class="test-btn" onclick="check(4, 'gülmayan')">gülmayan</button>
+<button class="test-btn" onclick="check(4, 'gülmiyen')">gülmiyen</button>
+<p id="res4" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 5</h3>
+<p>"Yürümek" fe'li uchun to'g'ri shaklni tanlang:</p>
+<button class="test-btn" onclick="check(5, 'yürüen')">yürüen</button>
+<button class="test-btn" onclick="check(5, 'yürüyen')">yürüyen</button>
+<button class="test-btn" onclick="check(5, 'yürüyan')">yürüyan</button>
+<p id="res5" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 6</h3>
+<p>"Dondurma ye..." iborasini sifatga aylantiring:</p>
+<button class="test-btn" onclick="check(6, 'yean')">yean</button>
+<button class="test-btn" onclick="check(6, 'yeyen')">yeyen</button>
+<button class="test-btn" onclick="check(6, 'yiyen')">yiyen</button>
+<p id="res6" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 7</h3>
+<p>"Konuşmak" fe'li sifat fiil shaklida:</p>
+<button class="test-btn" onclick="check(7, 'konuşan')">konuşan</button>
+<button class="test-btn" onclick="check(7, 'konuşen')">konuşen</button>
+<button class="test-btn" onclick="check(7, 'konuşyan')">konuşyan</button>
+<p id="res7" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 8</h3>
+<p>"Çalışmak" fe'lining bo'lishsiz shaklini toping:</p>
+<button class="test-btn" onclick="check(8, 'çalışmayan')">çalışmayan</button>
+<button class="test-btn" onclick="check(8, 'çalışman')">çalışman</button>
+<button class="test-btn" onclick="check(8, 'çalışen')">çalışen</button>
+<p id="res8" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 9</h3>
+<p>"Yüzmek" fe'liga qaysi qo'shimcha mos keladi?</p>
+<button class="test-btn" onclick="check(9, 'yüzan')">yüzan</button>
+<button class="test-btn" onclick="check(9, 'yüzen')">yüzen</button>
+<button class="test-btn" onclick="check(9, 'yüzyen')">yüzyen</button>
+<p id="res9" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 10</h3>
+<p>"Ağlayan bebek" iborasining ma'nosi nima?</p>
+<button class="test-btn" onclick="check(10, 'Yig\'layotgan chaqaloq')">Yig'layotgan chaqaloq</button>
+<button class="test-btn" onclick="check(10, 'Kulayotgan chaqaloq')">Kulayotgan chaqaloq</button>
+<button class="test-btn" onclick="check(10, 'Uxlayotgan chaqaloq')">Uxlayotgan chaqaloq</button>
+<p id="res10" class="result"></p>
+</div>
+
+<div id="final-score"></div>
+
+<button class="result-btn" onclick="showResults()">Natijani ko'rish</button>
+<a href="dars.html" class="back-btn">Orqaga</a>
+
+<script>
+const answers = {
+  1: 'bakan',
+  2: 'gelen',
+  3: 'okuyan',
+  4: 'gülmeyen',
+  5: 'yürüyen',
+  6: 'yiyen',
+  7: 'konuşan',
+  8: 'çalışmayan',
+  9: 'yüzen',
+  10: 'Yig\'layotgan chaqaloq'
+};
+
+let userAnswers = {};
+
+function check(qNum, choice) {
+  userAnswers[qNum] = choice;
+  const resDiv = document.getElementById('res' + qNum);
+
+  if(choice === answers[qNum]) {
+    resDiv.innerHTML = "To'g'ri!";
+    resDiv.className = "result true";
+  } else {
+    resDiv.innerHTML = "Xato!";
+    resDiv.className = "result false";
+  }
+}
+
+function showResults() {
+  let correct = 0;
+  let incorrect = 0;
+
+  for(let i=1; i<=10; i++) {
+    if(userAnswers[i] === answers[i]) {
+      correct++;
+    } else {
+      incorrect++;
+    }
+  }
+
+  const finalDiv = document.getElementById('final-score');
+  finalDiv.style.display = "block";
+  finalDiv.innerHTML = "To'g'ri: <span class='true'>" + correct + "</span> | Xato: <span class='false'>" + incorrect + "</span>";
+  window.scrollTo(0, document.body.scrollHeight);
+}
+</script>
+
+</body>
+</html>
