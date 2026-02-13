@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>49-Mavzu: Şimdiki Zaman</title>
+<title>49-Mavzu: Üstüne Yok</title>
 
 <style>
 .test-btn,
@@ -119,7 +119,7 @@ body{
 
 <body>
 
-<h1>49-Mavzu: Şimdiki Zaman</h1>
+<h1>49-Mavzu: Üstüne Yok (Tengi yo'q)</h1>
 
 <div class="card">
 <h3>Video dars</h3>
@@ -129,6 +129,7 @@ body{
   src="https://www.youtube.com/embed/YuPnS9NTHdw"
   title="YouTube video player"
   frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
   allowfullscreen>
 </iframe>
 </div>
@@ -136,152 +137,151 @@ body{
 <div class="card">
 <h3>Mavzu haqida</h3>
 <p>
-Turk tilida hozir bajarilayotgan harakatni ifodalash uchun Şimdiki Zaman ishlatiladi. 
-Fe’l negiziga yor qo‘shimchasi qo‘shiladi va shaxs qo‘shimchalari bilan o‘zgaradi. 
-Bu zamon hozir davom etayotgan ishni bildiradi.
+Turk tilida "üstüne yok" iborasi biror kishining muayyan ish yoki qobiliyatda eng zo'ri ekanligini, unga teng keladigani yo'qligini ifodalash uchun ishlatiladi. Bu ibora egalik qo'shimchalari bilan shaxslarga ko'ra o'zgaradi.
 </p>
 </div>
 
+<!-- Testlar -->
 <div class="test-box">
-<h3>Test</h3>
-<p>"Yazmak" fe’lining hozirgi zamon shakli qaysi?</p>
-<button class="test-btn" onclick="check(1,'yazıyor')">yazıyor</button>
-<button class="test-btn" onclick="check(1,'yazyor')">yazyor</button>
-<button class="test-btn" onclick="check(1,'yazur')">yazur</button>
+<h3>Test 1</h3>
+<p>"Üstüne yok" iborasi qanday ma'noni anglatadi?</p>
+<button class="test-btn" onclick="check(1, 'eng yaxshisi')">Eng yaxshisi / Tengi yo'q</button>
+<button class="test-btn" onclick="check(1, 'yomoni')">Eng yomoni</button>
+<button class="test-btn" onclick="check(1, 'o'rtacha')">O'rtacha bajaradi</button>
 <p id="res1" class="result"></p>
 </div>
 
 <div class="test-box">
-<h3>Test</h3>
-<p>"Ben gel..." to‘g‘ri shaklni tanlang</p>
-<button class="test-btn" onclick="check(2,'geliyorum')">geliyorum</button>
-<button class="test-btn" onclick="check(2,'geliyorsun')">geliyorsun</button>
-<button class="test-btn" onclick="check(2,'geliyor')">geliyor</button>
+<h3>Test 2</h3>
+<p>"Ben" (men) shaxsi uchun ushbu ibora qanday qo'llaniladi?</p>
+<button class="test-btn" onclick="check(2, 'üstüne yok')">Üstüne yok</button>
+<button class="test-btn" onclick="check(2, 'üstüme yok')">Üstüme yok</button>
+<button class="test-btn" onclick="check(2, 'üstümüzde yok')">Üstümüzde yok</button>
 <p id="res2" class="result"></p>
 </div>
 
 <div class="test-box">
-<h3>Test</h3>
-<p>"Biz oku..." to‘g‘ri shakl</p>
-<button class="test-btn" onclick="check(3,'okuyoruz')">okuyoruz</button>
-<button class="test-btn" onclick="check(3,'okuyorum')">okuyorum</button>
-<button class="test-btn" onclick="check(3,'okuyorsun')">okuyorsun</button>
+<h3>Test 3</h3>
+<p>"Sen" (sen) shaxsi uchun to'g'ri shaklni tanlang:</p>
+<button class="test-btn" onclick="check(3, 'üstüne yok')">Üstüne yok</button>
+<button class="test-btn" onclick="check(3, 'üstümüze yok')">Üstümüze yok</button>
+<button class="test-btn" onclick="check(3, 'üstünüz yok')">Üstünüz yok</button>
 <p id="res3" class="result"></p>
 </div>
 
 <div class="test-box">
-<h3>Test</h3>
-<p>"İçmek" fe’lining hozirgi zamoni</p>
-<button class="test-btn" onclick="check(4,'içiyor')">içiyor</button>
-<button class="test-btn" onclick="check(4,'içeyor')">içeyor</button>
-<button class="test-btn" onclick="check(4,'içur')">içur</button>
+<h3>Test 4</h3>
+<p>"Biz" (biz) shaxsi uchun qaysi shakl to'g'ri?</p>
+<button class="test-btn" onclick="check(4, 'üstümüz yok')">Üstümüz yok</button>
+<button class="test-btn" onclick="check(4, 'üstümüze yok')">Üstümüze yok</button>
+<button class="test-btn" onclick="check(4, 'üstünüzde yok')">Üstünüzde yok</button>
 <p id="res4" class="result"></p>
 </div>
 
 <div class="test-box">
-<h3>Test</h3>
-<p>"Onlar koş..." to‘g‘ri javob</p>
-<button class="test-btn" onclick="check(5,'koşuyorlar')">koşuyorlar</button>
-<button class="test-btn" onclick="check(5,'koşuyorum')">koşuyorum</button>
-<button class="test-btn" onclick="check(5,'koşuyorsun')">koşuyorsun</button>
+<h3>Test 5</h3>
+<p>"Siz" shaxsi uchun to'g'ri qo'shimchani toping:</p>
+<button class="test-btn" onclick="check(5, 'üstünüze yok')">Üstünüze yok</button>
+<button class="test-btn" onclick="check(5, 'üstüne yok')">Üstüne yok</button>
+<button class="test-btn" onclick="check(5, 'üstümüz yok')">Üstümüz yok</button>
 <p id="res5" class="result"></p>
 </div>
 
 <div class="test-box">
-<h3>Test</h3>
-<p>"Sen dinle..." to‘g‘ri shakl</p>
-<button class="test-btn" onclick="check(6,'dinliyorsun')">dinliyorsun</button>
-<button class="test-btn" onclick="check(6,'dinliyorum')">dinliyorum</button>
-<button class="test-btn" onclick="check(6,'dinliyorlar')">dinliyorlar</button>
+<h3>Test 6</h3>
+<p>"Yemek yapmak..." iborasi qanday to'ldiriladi?</p>
+<button class="test-btn" onclick="check(6, 'yapmakda')">Yemek yapmakda üstüne yok</button>
+<button class="test-btn" onclick="check(6, 'yapmakta')">Yemek yapmakta üstüne yok</button>
+<button class="test-btn" onclick="check(6, 'yapmakdan')">Yemek yapmakdan üstüne yok</button>
 <p id="res6" class="result"></p>
 </div>
 
 <div class="test-box">
-<h3>Test</h3>
-<p>"Uyumak" fe’lining hozirgi zamoni</p>
-<button class="test-btn" onclick="check(7,'uyuyor')">uyuyor</button>
-<button class="test-btn" onclick="check(7,'uyeyor')">uyeyor</button>
-<button class="test-btn" onclick="check(7,'uyur')">uyur</button>
+<h3>Test 7</h3>
+<p>"O" (u) shaxsi haqida gapirilganda qaysi shakl ishlatiladi?</p>
+<button class="test-btn" onclick="check(7, 'onun üstüme')">Onun üstüme yok</button>
+<button class="test-btn" onclick="check(7, 'onun üstüne')">Onun üstüne yok</button>
+<button class="test-btn" onclick="check(7, 'onun üstünüz')">Onun üstünüz yok</button>
 <p id="res7" class="result"></p>
 </div>
 
 <div class="test-box">
-<h3>Test</h3>
-<p>"Siz gel..." so‘roq shakli</p>
-<button class="test-btn" onclick="check(8,'geliyor musunuz')">geliyor musunuz</button>
-<button class="test-btn" onclick="check(8,'geliyor musun')">geliyor musun</button>
-<button class="test-btn" onclick="check(8,'geliyor mu')">geliyor mu</button>
+<h3>Test 8</h3>
+<p>"Araba sürmek..." (Mashina haydashda) gapini to'g'ri davom ettiring:</p>
+<button class="test-btn" onclick="check(8, 'sürmekte')">Araba sürmekte üstüne yok</button>
+<button class="test-btn" onclick="check(8, 'sürmekde')">Araba sürmekde üstüne yok</button>
+<button class="test-btn" onclick="check(8, 'sürmek')">Araba sürmek üstüne yok</button>
 <p id="res8" class="result"></p>
 </div>
 
 <div class="test-box">
-<h3>Test</h3>
-<p>"Çalışmak" inkor shakli</p>
-<button class="test-btn" onclick="check(9,'çalışmıyor')">çalışmıyor</button>
-<button class="test-btn" onclick="check(9,'çalışıyor')">çalışıyor</button>
-<button class="test-btn" onclick="check(9,'çalışeyor')">çalışeyor</button>
+<h3>Test 9</h3>
+<p>"Onlar" (ular) uchun to'g'ri shakl qaysi?</p>
+<button class="test-btn" onclick="check(9, 'üstleri yok')">Üstleri yok</button>
+<button class="test-btn" onclick="check(9, 'üstüne yok')">Üstüne yok (yoki üstlerine yok)</button>
+<button class="test-btn" onclick="check(9, 'üstümüz yok')">Üstümüz yok</button>
 <p id="res9" class="result"></p>
 </div>
 
 <div class="test-box">
-<h3>Test</h3>
-<p>"Görmek" fe’lining hozirgi zamoni</p>
-<button class="test-btn" onclick="check(10,'görüyor')">görüyor</button>
-<button class="test-btn" onclick="check(10,'göryor')">göryor</button>
-<button class="test-btn" onclick="check(10,'görur')">görur</button>
+<h3>Test 10</h3>
+<p>"Basket atmakta..." gapining ma'nosi nima?</p>
+<button class="test-btn" onclick="check(10, 'savatcha')">Basketbol o'ynashda unga teng keladigani yo'q</button>
+<button class="test-btn" onclick="check(10, 'yomon')">Basketbolda juda yomon</button>
+<button class="test-btn" onclick="check(10, 'yangi')">Basketbolni yangi o'rganyapti</button>
 <p id="res10" class="result"></p>
 </div>
 
 <div id="final-score"></div>
 
-<button class="result-btn" onclick="showResults()">Natijani ko‘rish</button>
+<button class="result-btn" onclick="showResults()">Natijani ko'rish</button>
 <a href="dars.html" class="back-btn">Orqaga</a>
 
 <script>
 const answers = {
-1:'yazıyor',
-2:'geliyorum',
-3:'okuyoruz',
-4:'içiyor',
-5:'koşuyorlar',
-6:'dinliyorsun',
-7:'uyuyor',
-8:'geliyor musunuz',
-9:'çalışmıyor',
-10:'görüyor'
+  1: 'eng yaxshisi',
+  2: 'üstüme yok',
+  3: 'üstüne yok',
+  4: 'üstümüze yok',
+  5: 'üstünüze yok',
+  6: 'yapmakta',
+  7: 'onun üstüne',
+  8: 'sürmekte',
+  9: 'üstüne yok',
+  10: 'savatcha'
 };
 
 let userAnswers = {};
 
-function check(qNum, choice){
-userAnswers[qNum] = choice;
-const resDiv = document.getElementById('res'+qNum);
+function check(qNum, choice) {
+  userAnswers[qNum] = choice;
+  const resDiv = document.getElementById('res' + qNum);
 
-if(choice === answers[qNum]){
-resDiv.innerHTML = "To‘g‘ri";
-resDiv.className = "result true";
-}else{
-resDiv.innerHTML = "Xato";
-resDiv.className = "result false";
-}
-}
-
-function showResults(){
-let correct = 0;
-let incorrect = 0;
-
-for(let i=1;i<=10;i++){
-if(userAnswers[i] === answers[i]){
-correct++;
-}else{
-incorrect++;
-}
+  if(choice === answers[qNum]) {
+    resDiv.innerHTML = "To'g'ri!";
+    resDiv.className = "result true";
+  } else {
+    resDiv.innerHTML = "Xato!";
+    resDiv.className = "result false";
+  }
 }
 
-const finalDiv = document.getElementById('final-score');
-finalDiv.style.display = "block";
-finalDiv.innerHTML = "To‘g‘ri: <span class='true'>"+correct+"</span> | Xato: <span class='false'>"+incorrect+"</span>";
-window.scrollTo(0, document.body.scrollHeight);
+function showResults() {
+  let correct = 0;
+  let incorrect = 0;
+
+  for(let i=1; i<=10; i++) {
+    if(userAnswers[i] === answers[i]) {
+      correct++;
+    } else {
+      incorrect++;
+    }
+  }
+
+  const finalDiv = document.getElementById('final-score');
+  finalDiv.style.display = "block";
+  finalDiv.innerHTML = "To'g'ri: <span class='true'>" + correct + "</span> | Xato: <span class='false'>" + incorrect + "</span>";
+  window.scrollTo(0, document.body.scrollHeight);
 }
 </script>
 
