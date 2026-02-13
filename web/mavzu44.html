@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2-Mavzu: Şimdiki Zaman</title>
+
+<style>
+.test-btn,
+.back-btn,
+.result-btn{
+  box-sizing: border-box;
+}
+
+body{
+  background: linear-gradient(180deg,#1e1b4b,#020617);
+  color:white;
+  font-family: Arial, sans-serif;
+  padding:20px;
+}
+
+/* KARTA */
+.test-box, .card{
+  background: rgba(30,41,59,0.8);
+  backdrop-filter: blur(10px);
+  padding:20px;
+  border-radius:20px;
+  margin-top:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* SAVOL */
+.test-box h3{
+  margin-bottom:10px;
+  font-size:22px;
+}
+
+/* TUGMA */
+.test-btn{
+  display:block;
+  width:100%;
+  padding:16px;
+  margin:10px 0;
+  border:none;
+  border-radius:14px;
+  font-size:18px;
+  font-weight:bold;
+  color:white;
+  cursor:pointer;
+  background: linear-gradient(45deg,#f97316,#7c3aed);
+  transition:0.3s;
+}
+
+.test-btn:hover{
+  transform:scale(1.03);
+  opacity:0.9;
+}
+
+/* NATIJA */
+.result{
+  margin-top:10px;
+  font-size:18px;
+  font-weight:bold;
+}
+
+.true{
+  color:#22c55e;
+}
+
+.false{
+  color:#ef4444;
+}
+
+/* UMUMIY NATIJA */
+#final-score{
+  font-size:24px;
+  text-align:center;
+  margin-top:20px;
+  display:none;
+}
+
+.result-btn{
+  display:block;
+  width:100%;
+  margin:20px 0;
+  padding:16px;
+  font-size:18px;
+  border-radius:14px;
+  text-align:center;
+  font-weight:bold;
+  color:white;
+  border:none;
+  background: linear-gradient(90deg,#2563eb,#1d4ed8);
+  cursor:pointer;
+}
+
+.back-btn{
+  display:block;
+  width:100%;
+  margin:10px 0;
+  padding:16px;
+  font-size:18px;
+  border-radius:14px;
+  text-align:center;
+  font-weight:bold;
+  color:white;
+  text-decoration:none;
+  border:none;
+  background:linear-gradient(90deg,#ef4444,#dc2626);
+  box-shadow:0 8px 25px rgba(0,0,0,0.5);
+  transition:0.3s;
+}
+
+.back-btn:hover{
+  transform:scale(1.03);
+  opacity:0.9;
+}
+</style>
+</head>
+
+<body>
+
+<h1>2-Mavzu: Şimdiki Zaman (Hozirgi davom fe'li)</h1>
+
+<div class="card">
+<h3>Video dars</h3>
+<iframe
+  width="100%"
+  height="220"
+  src="https://www.youtube.com/embed/nPfZ4gVXcBI"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen>
+</iframe>
+</div>
+
+<div class="card">
+<h3>Mavzu haqida</h3>
+<p>
+Turk tilida hozirgi vaqtda bajarilayotgan ish-harakatni ifodalash uchun Şimdiki Zaman ishlatiladi. Bu zamonning asosiy ko‘rsatkichi -yor qo‘shimchasidi>
+</p>
+</div>
+
+<!-- Testlar -->
+<div class="test-box">
+<h3>Test 1</h3>
+<p>"Oku" (o'qimoq) fe'liga hozirgi zamon qo'shimchasi qanday qo'shiladi?</p>
+<button class="test-btn" onclick="check(1, 'okuyor')">okuyor</button>
+<button class="test-btn" onclick="check(1, 'okuyorlar')">okumuyor</button>
+<button class="test-btn" onclick="check(1, 'okur')">okura</button>
+<p id="res1" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 2</h3>
+<p>"Gitmek" fe'li "O" (u) shaxsi uchun qanday o'zgaradi?</p>
+<button class="test-btn" onclick="check(2, 'gitiyor')">gitiyor</button>
+<button class="test-btn" onclick="check(2, 'gidiyor')">gidiyor</button>
+<button class="test-btn" onclick="check(2, 'gitmeyor')">gitmeyor</button>
+<p id="res2" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 3</h3>
+<p>"Ben" (men) shaxsi uchun to'g'ri qo'shimchani tanlang:</p>
+<button class="test-btn" onclick="check(3, 'okuyorsun')">okuyorsun</button>
+<button class="test-btn" onclick="check(3, 'okuyoruz')">okuyoruz</button>
+<button class="test-btn" onclick="check(3, 'okuyorum')">okuyorum</button>
+<p id="res3" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 4</h3>
+<p>"Yemek" (yemoq) fe'lining hozirgi zamon shakli qaysi?</p>
+<button class="test-btn" onclick="check(4, 'yeyor')">yeyor</button>
+<button class="test-btn" onclick="check(4, 'yiyor')">yiyor</button>
+<button class="test-btn" onclick="check(4, 'yemiyor')">yemiyor</button>
+<p id="res4" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 5</h3>
+<p>"Oynamak" fe'li hozirgi zamonda qanday yoziladi?</p>
+<button class="test-btn" onclick="check(5, 'oynayor')">oynayor</button>
+<button class="test-btn" onclick="check(5, 'oynuyor')">oynuyor</button>
+<button class="test-btn" onclick="check(5, 'oyniyor')">oyniyor</button>
+<p id="res5" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 6</h3>
+<p>"Siz gel..." (Siz kelyapsizmi?) so'roq shakli qanday bo'ladi?</p>
+<button class="test-btn" onclick="check(6, 'geliyor musun')">geliyor musun</button>
+<button class="test-btn" onclick="check(6, 'geliyor musunuz')">geliyor musunuz</button>
+<button class="test-btn" onclick="check(6, 'geliyorlar mı')">geliyorlar mı</button>
+<p id="res6" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 7</h3>
+<p>"Dinlemek" fe'lining inkor (bo'lishsiz) shakli qaysi?</p>
+<button class="test-btn" onclick="check(7, 'dinlemiyor')">dinlemiyor</button>
+<button class="test-btn" onclick="check(7, 'dinlemeyor')">dinlemeyor</button>
+<button class="test-btn" onclick="check(7, 'dinliyor')">dinliyor</button>
+<p id="res7" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 8</h3>
+<p>Videoga ko'ra, "İrfan mangalda ne yapıyor?"</p>
+<button class="test-btn" onclick="check(8, 'et pişiriyor')">et pişiriyor</button>
+<button class="test-btn" onclick="check(8, 'gazete okuyor')">gazete okuyor</button>
+<button class="test-btn" onclick="check(8, 'uyuyor')">uyuyor</button>
+<p id="res8" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 9</h3>
+<p>"Zeynep ne yapıyor?" (Videodagi rasmga asosan)</p>
+<button class="test-btn" onclick="check(9, 'bisiklete biniyor')">bisiklete biniyor</button>
+<button class="test-btn" onclick="check(9, 'top oynuyor')">top oynuyor</button>
+<button class="test-btn" onclick="check(9, 'yemek yiyor')">yemek yiyor</button>
+<p id="res9" class="result"></p>
+</div>
+
+<div class="test-box">
+<h3>Test 10</h3>
+<p>"Bebek ne yapıyor?"</p>
+<button class="test-btn" onclick="check(10, 'koşuyor')">koşuyor</button>
+<button class="test-btn" onclick="check(10, 'uyuyor')">uyuyor</button>
+<button class="test-btn" onclick="check(10, 'ağlıyor')">ağlıyor</button>
+<p id="res10" class="result"></p>
+</div>
+
+<div id="final-score"></div>
+
+<button class="result-btn" onclick="showResults()">Natijani ko'rish</button>
+<a href="dars.html" class="back-btn">Orqaga</a>
+
+<script>
+const answers = {
+  1: 'okuyor',
+  2: 'gidiyor',
+  3: 'okuyorum',
+  4: 'yiyor',
+  5: 'oynuyor',
+  6: 'geliyor musunuz',
+  7: 'dinlemiyor',
+  8: 'et pişiriyor',
+  9: 'bisiklete biniyor',
+  10: 'uyuyor'
+};
+
+let userAnswers = {};
+
+function check(qNum, choice) {
+  userAnswers[qNum] = choice;
+  const resDiv = document.getElementById('res' + qNum);
+
+  if(choice === answers[qNum]) {
+    resDiv.innerHTML = "To'g'ri!";
+    resDiv.className = "result true";
+  } else {
+    resDiv.innerHTML = "Xato!";
+    resDiv.className = "result false";
+  }
+}
+
+function showResults() {
+  let correct = 0;
+  let incorrect = 0;
+
+  for(let i=1; i<=10; i++) {
+    if(userAnswers[i] === answers[i]) {
+      correct++;
+    } else {
+      incorrect++;
+    }
+  }
+
+  const finalDiv = document.getElementById('final-score');
+  finalDiv.style.display = "block";
+  finalDiv.innerHTML = "To'g'ri: <span class='true'>" + correct + "</span> | Xato: <span class='false'>" + incorrect + "</span>";
+  window.scrollTo(0, document.body.scrollHeight);
+}
+</script>
+
+</body>
+</html>
